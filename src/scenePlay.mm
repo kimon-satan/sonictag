@@ -11,50 +11,83 @@
 #include <sstream>
 #include "audioCatalogue.h"
 
-audioProcessorPlay::audioProcessorPlay() : audioProcessor() {
-}
-
-float audioProcessorPlay::play(float input) {
-    float wave = sample->play();    
-    return wave;
-}
-
-
-void scenePlay::setup(sharedDataContainer *data) {    
-    headVis = new EAVIGUI::HeadVisualiser(this, objectIDCounter.next(), 0, 0);
-    headVis->setRelativePositioning(0.5, 0.5);
-    interface.push_back(headVis);
+void scenePlay::setup(sharedDataContainer *data) {
     
+    mfccVis = new EAVIGUI::MfccVisualiser(this, VISUALISER, 0, 0, ofGetHeight(), ofGetHeight(), data);
+    mfccVis->setRelativePositioning(0.5, -mfccVis->getScaledWidth() / 2.0, 0.5, -mfccVis->getScaledHeight() / 2.0);
+    interface.push_back(mfccVis);
+
+    histBackBtn = (new EAVIGUI::ImageButton(this, HISTBACK, 0, 0, "undo.png"));
+    histBackBtn->setRelativePositioning(0.25, 0, 0.1, 0);
+    histBackBtn->setAnchorPoint(0, 0);
+    histBackBtn->fadeTime = 100;
+    interface.push_back(histBackBtn);
+
+    histForwardBtn = (new EAVIGUI::ImageButton(this, HISTFORWARD, 0, 0, "redo.png"));
+    histForwardBtn->setRelativePositioning(0.75, -histForwardBtn->getScaledWidth(), 0.1, 0);
+    histForwardBtn->setAnchorPoint(0, 0);
+    histForwardBtn->fadeTime = 100;
+    interface.push_back(histForwardBtn);
+
     baseScene::setup(data);
+    
+    loop = false;
+    prevButtonCentre.x = ofGetWidth() / 4;
+    nextButtonCentre.x = ofGetWidth() / 4 * 3;
+    prevButtonCentre.y = nextButtonCentre.y = 150;
+    
+    undo.loadImage("undo.png");
+    redo.loadImage("redo.png");
+    
+    undoPos.x = ofGetWidth()/4.0 - undo.width / 2.0;
+    undoPos.y = 70;
+    redoPos.x = ofGetWidth()/4.0*3.0 - undo.width / 2.0;
+    redoPos.y = 70;
+    
+    showUndoRedo = false;
 }
 
 void scenePlay::update() {
-    float env = sharedData->currSampleInstance->mir.env.getEnv();
-    headVis->setScale(2.0 + env * 2.0);
 }
 
 void scenePlay::draw() {
-    baseScene::draw();
     ofSetCircleResolution(200);
-//    ofBackground(255, 255, 255);
+    ofBackground(255, 255, 255);
+    ofSetColor(255,255,255);
+    if (showUndoRedo) {
+        undo.draw(ofGetWidth()/4.0 - undo.width / 2.0, 70);
+        redo.draw(ofGetWidth()/4.0*3.0 - redo.width / 2.0, 70);
+    }
+    
+}
+
+void scenePlay::audioRequested( float * output, int bufferSize, int nChannels ) {
+    memset(output, 0, sizeof(float) * bufferSize * nChannels);
+    if (playing) {
+        for(int i=0; i<bufferSize; i++) {
+            if (loop) {
+                output[i] = sharedData->buffer.play();
+            }else{
+                output[i] = sharedData->buffer.playOnce();
+            }
+        }
+    }
+}
+
+void scenePlay::audioIn( float * input, int bufferSize, int nChannels ) {
 }
 
 void scenePlay::touchDown(ofTouchEventArgs &touch){
-    sharedData->currSampleInstance->sample.trigger();
 }
 
 
-void scenePlay::touchUp(ofTouchEventArgs &touch){   
+void scenePlay::touchUp(ofTouchEventArgs &touch){
 }
 
 void scenePlay::beginScene() {
-    headVis->setImage(&sharedData->currSampleInstance->icon);
-    headVis->setRelativePositioning(0.5, -sharedData->currSampleInstance->icon.width / 2.0, 0.5, -sharedData->currSampleInstance->icon.height / 2.0);
-    headVis->setScale(3.0);
     baseScene::beginScene();
     pos = 0;
-    playing = false;    
-    
+    playing = false;
 }
 
 void scenePlay::endScene() {
@@ -62,3 +95,44 @@ void scenePlay::endScene() {
     playing = false;
 }
 
+void scenePlay::setUndoRedoVisibility(bool show) {
+    showUndoRedo = show;
+}
+
+
+void scenePlay::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
+    cout << "event: " << id << endl;
+    switch(id) {
+        case HISTBACK:
+            playing = false;
+            sharedData->buffer.load(audioCatalogue::prevRecording());
+            sharedData->randomiseColours();
+            break;
+        case HISTFORWARD:
+            playing = false;
+            sharedData->buffer.load(audioCatalogue::nextRecording());
+            sharedData->randomiseColours();
+            break;
+        case VISUALISER:
+            if (loop) {
+                if (playing) {
+                    playing = false;
+                }else{
+                    pos = 0;
+                    playing = true;
+                    cout << "Playing\n";
+                    sharedData->buffer.trigger();
+                    if (loop)
+                        cout << "Loop\n";
+                }
+            }else{
+                pos = 0;
+                playing = true;
+                cout << "Playing\n";
+                sharedData->buffer.trigger();
+                if (loop)
+                    cout << "Loop\n";
+            }
+            break;
+    };
+}

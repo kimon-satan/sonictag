@@ -15,7 +15,7 @@ void sceneFingerPitch::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::In
         case EAVIGUI::InterfaceObject::TOUCHMOVED:
             if (surface->id == id) {
                 velMA.addSample(MIN(surface->getVelocity() * 5.0, 4.0));
-                ((audioProcessorTimeStretch*)sharedData->currSampleInstance->audioFlow[0])->pitch = velMA.value();
+//                ((audioProcessorTimeStretch*)sharedData->currSampleInstance->audioFlow[0])->pitch = velMA.value();
             }
             break;
         case EAVIGUI::InterfaceObject::TOUCHUP:

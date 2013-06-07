@@ -31,7 +31,8 @@ void sceneFingerPlay::setup(sharedDataContainer *data) {
 
 
 float sceneFingerPlay::getNextSample() {
-    return sharedData->currSampleInstance->sample.play();
+//    return sharedData->currSampleInstance->sample.play();
+    return 0;
 }
 
 void sceneFingerPlay::audioRequested( float * output, int bufferSize, int nChannels ) {
@@ -103,10 +104,6 @@ void sceneFingerPlay::touchDoubleTap(ofTouchEventArgs &touch) {
 
 
 void sceneFingerPlay::beginScene() {
-    headVis->setImage(&sharedData->currSampleInstance->icon);
-    headVis->setRelativePositioning(0.5, -sharedData->currSampleInstance->icon.width / 2.0, 0.5, -sharedData->currSampleInstance->icon.height / 2.0);
-    headVis->setScale(3.0);
-    
     baseScene::beginScene();
     isPlaying = false;
     opx = opy = px = py = 0;

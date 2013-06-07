@@ -21,9 +21,9 @@ void SonicTag3::setup() {
 
     app.setup();
     
-    //	ofSoundStreamSetup(maxiSettings::channels, maxiSettings::channels,this, maxiSettings::sampleRate, maxiSettings::bufferSize, 4);
-    //disable audio input so iphone version works
-	ofSoundStreamSetup(maxiSettings::channels, 0,this, maxiSettings::sampleRate, maxiSettings::bufferSize, 4);
+	ofSoundStreamSetup(maxiSettings::channels, maxiSettings::channels,this, maxiSettings::sampleRate, maxiSettings::bufferSize, 4);
+//    //disable audio input so iphone version works
+//	ofSoundStreamSetup(maxiSettings::channels, 0,this, maxiSettings::sampleRate, maxiSettings::bufferSize, 4);
     
 }
 

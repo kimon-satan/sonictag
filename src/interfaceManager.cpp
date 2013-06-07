@@ -75,13 +75,6 @@ namespace EAVIGUI {
         interfaceObjectVector liveObjectList;
         liveObjectList = &intObjs;
         
-    //	//are any panels visible?
-    //	for(int i=0; i < panels.size(); i++) {
-    //		if (panels[i]->isVisible()) {
-    //			liveObjectList = panels[i]->getChildren();
-    //			break;
-    //		}
-    //	}
         if (currentModalGroup != NULL) {
             liveObjectList = currentModalGroup;
         }
@@ -105,7 +98,8 @@ namespace EAVIGUI {
         
         interfaceObjectVector liveObjectList = InterfaceManager::getLiveObjectList();
         bool found = false;
-        for(int i=0; i < liveObjectList->size(); i++) {
+        int i = liveObjectList->size();
+        while(i--) {
             if (liveObjectList->at(i)->isInteractive() && geom::pointInRect(x,y,liveObjectList->at(i)->x, liveObjectList->at(i)->y, liveObjectList->at(i)->getWidth(), liveObjectList->at(i)->getHeight())) {
                 found = true;
                 if ((mouseOverObject != liveObjectList->at(i)) && (mouseOverObject != NULL)) {
@@ -131,7 +125,8 @@ namespace EAVIGUI {
         }else{
             if (NULL == InterfaceManager::draggingTarget) {
                 vector<InterfaceObject*>* liveObjectList = InterfaceManager::getLiveObjectList();
-                for(int i=0; i < liveObjectList->size(); i++) {
+                int i = liveObjectList->size();
+                while(i--) {
                     if (liveObjectList->at(i)->isInteractive() && geom::pointInRect(x,y,liveObjectList->at(i)->x, liveObjectList->at(i)->y, liveObjectList->at(i)->getWidth(), liveObjectList->at(i)->getHeight())) {
                         //liveObjectList->at(i)->mouseDragged(x - liveObjectList->at(i)->x, y - liveObjectList->at(i)->y, button);
                         InterfaceManager::draggingTarget = liveObjectList->at(i);
@@ -152,7 +147,8 @@ namespace EAVIGUI {
         }else{
         
             vector<InterfaceObject*>* liveObjectList = InterfaceManager::getLiveObjectList();
-            for(int i=0; i < liveObjectList->size(); i++) {
+            int i = liveObjectList->size();
+            while(i--) {
                 if (liveObjectList->at(i)->isInteractive() && geom::pointInRect(x,y,liveObjectList->at(i)->x, liveObjectList->at(i)->y, liveObjectList->at(i)->getWidth(), liveObjectList->at(i)->getHeight())) {
                     liveObjectList->at(i)->mousePressed(x - liveObjectList->at(i)->x, y - liveObjectList->at(i)->y, button);
                     break;
@@ -172,7 +168,8 @@ namespace EAVIGUI {
                 InterfaceManager::draggingTarget = NULL;
             }else{
                 vector<InterfaceObject*>* liveObjectList = InterfaceManager::getLiveObjectList();
-                for(int i=0; i < liveObjectList->size(); i++) {
+                int i = liveObjectList->size();
+                while(i--) {
                     if (liveObjectList->at(i)->isInteractive() && geom::pointInRect(x,y,liveObjectList->at(i)->x, liveObjectList->at(i)->y, liveObjectList->at(i)->getWidth(), liveObjectList->at(i)->getHeight())) {
                         liveObjectList->at(i)->mouseReleased(x - liveObjectList->at(i)->x, y - liveObjectList->at(i)->y, button);
                         break;
@@ -187,7 +184,8 @@ namespace EAVIGUI {
     //	cout << "testing " << touch.x << ", " << touch.y << endl;
         InterfaceObject *target = NULL;
         interfaceObjectVector liveObjectList = InterfaceManager::getLiveObjectList();
-        for(int i=0; i < liveObjectList->size(); i++) {
+        int i = liveObjectList->size();
+        while(i--) {
             ofRectangle rotatedRect = liveObjectList->at(i)->getRectWithRotation();
             if (liveObjectList->at(i)->isInteractive() && liveObjectList->at(i)->isVisible() &&
                 geom::pointInRect(touch.x,touch.y,rotatedRect.x, rotatedRect.y, rotatedRect.width, rotatedRect.height)) {

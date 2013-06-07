@@ -43,51 +43,6 @@ void baseScene::draw() {
     ofBackground(255);
     ofSetColor(255,255,255,255);
     
-#ifdef TARGET_OF_IPHONE
-    
-//    if (currentOrientation==5 || currentOrientation==6) {
-//        currentOrientation=prevoiusOrientation;
-//    }
-//
-//    if (currentOrientation==1 || currentOrientation==0) {
-//        ofPushMatrix();
-//        ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5);
-//        sharedData->backdrop.setAnchorPercent(0.5, 0.5);
-//        ofRotate(270);
-//        sharedData->backdrop.draw(0, 0, ofGetWidth()*1.5, ofGetHeight()*1.5);
-//        ofPopMatrix();
-//
-//    }
-//    
-//    if (currentOrientation==3) {
-//        sharedData->backdrop.setAnchorPercent(0., 0.);
-//        sharedData->backdrop.draw(0, 0, ofGetWidth(), ofGetHeight());
-//    } 
-//    
-//    if (currentOrientation==2) {
-//        ofPushMatrix();
-//        ofTranslate(ofGetWidth()*0.5, ofGetHeight()*0.5);
-//        sharedData->backdrop.setAnchorPercent(0.5, 0.5);
-//        ofRotate(90);
-//        sharedData->backdrop.draw(0, 0, ofGetWidth()*1.5, ofGetHeight()*1.5);
-//        ofPopMatrix();
-//
-//    }
-//    
-//    if (currentOrientation==4) {
-//        ofPushMatrix();
-//        ofTranslate(0, 0);
-//        ofRotate(180);
-//        sharedData->backdrop.setAnchorPercent(1.0, 1.0);
-//        sharedData->backdrop.draw(0, 0, ofGetWidth(), ofGetHeight());
-//        ofPopMatrix();
-//
-//    } 
-//    prevoiusOrientation = currentOrientation;
-#else
-    sharedData->backdrop.draw(0,0, ofGetWidth(), ofGetHeight());
-#endif
-    
 }
 
 void baseScene::audioRequested( float * output, int bufferSize, int nChannels ) {

@@ -10,19 +10,16 @@
 #define sonicTag2_sharedData_h
 
 #include "ofxMaxim.h"
-#include "assets.h"
 #include <sstream>
-#include "sampleInstance.h"
-#include "dimensions.h"
+#include "MIRListener.h"
 
 class sharedDataContainer {
 public:
     sharedDataContainer() {
         colours.resize(4);
         randomiseColours();
-        audioLoaded = false;
-        currSampleInstance = NULL;
     }
+
     vector<short> recordBuffer;
     maxiSample buffer;
     std::vector<ofColor> colours;
@@ -32,24 +29,11 @@ public:
         }
     }
     
-    //assets
-    song *currSong;
-    vector<maxiSample> audioTracks;
-    bool audioLoaded;
+    MIRListener mir;
     
-    vector<sampleInstance*> sampleInstances;
-    sampleInstance *currSampleInstance;
-
     ~sharedDataContainer() {
-        for(int i=0; i < sampleInstances.size(); i++) {
-            delete sampleInstances[i];
-        }
     }
     
-    ofImage backdrop;
-    int barLength; // in samples
-    
-    DRSDATA::dimensions currentDimension;
 };
 
 

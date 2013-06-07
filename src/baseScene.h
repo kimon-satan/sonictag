@@ -19,7 +19,6 @@
 #include "interfaceManager.h"
 #include "EAIT.h"
 #include "audioProcessor.h"
-#include "zoomScreenImage.h"
 
 class baseScene : public EAVIGUI::InterfaceListener {
 public:

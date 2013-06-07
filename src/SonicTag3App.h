@@ -12,9 +12,6 @@
 #include <tr1/memory> 
 #include "sharedData.h"
 #include "InterfaceManager.h"
-#include "assets.h"
-#include "dimensionMap.h"
-#include "zoomScreenImage.h"
 #include "DRSGrains.h"
 #include "waveform.h"
 
@@ -44,7 +41,6 @@ public:
     
     bool isRecording;
     maxiFilter lpf;
-    float filterFreq, pitchRange, rateRange;
     unsigned long long sampleCounter;
     
     void gotMessage(ofMessage& msg);
@@ -53,8 +49,6 @@ public:
     
     bool isRecordingOutput;
     vector<short> wav;
-    int buttonTrigTime;
-    bool waitingForTrig;
     
     
     ofTrueTypeFont navFont, navFontSmall;
@@ -74,10 +68,8 @@ public:
         LEFTARROW, RIGHTARROW, UPARROW, DOWNARROW, NAVMENU, BACKZOOM, WAV
     };
 	void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
-    EAVIGUI::ImageButton *navLeftArrow, *navRightArrow, *navUpArrow, *navDownArrow, *navMenuButton;
+    EAVIGUI::ImageButton *navLeftArrow, *navRightArrow, *navUpArrow, *navDownArrow;
     void setNavVisibility();
-
-    vector<sampleInstance*> slots;
     
     EAIT::ChangeTriggerI canProgressChange;
     
@@ -86,32 +78,11 @@ public:
     ofVideoPlayer introVid;
     
     enum appPhases {
-        INTROVIDEO,
-        MAP,
-        PRELOADING,
         LOADING,
         REMIX
     } appPhase;
     
     int backgroundOrientation;
-    dimensionMap dmap;
-    
-    maxiSample mimiLoop;
-    DRSmaxiPitchStretch<float, DRShannWinFunctor<float> > *mimiGrains;
-    float mimiStretch;
-    void setMIMIStretch();
-    
-    class oggLoadingThread : public ofThread {
-    public:
-        bool finished;
-        sharedDataContainer *sharedData;
-        void threadedFunction();
-    };
-    
-    oggLoadingThread oggLoader;
-    
-    EAVIGUI::ZoomScreenImage *backzoom;
-    EAVIGUI::Waveform *wavform;
     
     
         

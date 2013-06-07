@@ -14,35 +14,40 @@
 #include <vector>
 #include "visualiser.h"
 #include "geomFunctions.h"
-#include "HeadVisualiser.h"
-#include "audioProcessor.h"
+#include "MfccVisualiser.h"
 
 using namespace std;
-
-class audioProcessorPlay : public audioProcessor {
-public:
-    audioProcessorPlay();
-    float play(float input);
-};
-
 
 class scenePlay : public baseScene {
 public:
     void setup(sharedDataContainer *data);
     void update();
     void draw();
+    void audioRequested( float * output, int bufferSize, int nChannels );
+    void audioIn( float * input, int bufferSize, int nChannels );
     void touchDown(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
     void beginScene();
     void endScene();
-    string getTitle() {return string("Play");}
-    audioProcessor* getAudioProcessor() {return new audioProcessorPlay();};
+    string getTitle() {return string("Play").append(loop ? " looped" : "");}
+    bool loop;
+    ofImage undo, redo;
+    ofPoint undoPos, redoPos;
+    void setUndoRedoVisibility(bool show);
+    void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
+
 protected:
+    bool showUndoRedo;
+    EAVIGUI::MfccVisualiser *mfccVis;
+    EAVIGUI::ImageButton *histBackBtn, *histForwardBtn;
+    enum GUIDS {HISTBACK, HISTFORWARD, VISUALISER};
+
 private:
     int pos;
     bool playing;
-//    visualiser vis;
-    EAVIGUI::HeadVisualiser *headVis;
+    visualiser vis;
+    ofPoint prevButtonCentre, nextButtonCentre;
+    
 };
 
 
