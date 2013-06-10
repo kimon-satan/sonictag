@@ -4,7 +4,7 @@
 #include "sceneRecord.h"
 #include "scenePlay.h"
 #include "sceneLoopRecord.h"
-//#include "sceneFingerPlay.h"
+#include "sceneFingerPlay.h"
 //#include "sceneFingerPlayPitch.h"
 #include "sceneFingerStretch.h"
 #include "sceneFingerPitch.h"
@@ -62,8 +62,8 @@ void SonicTag3App::setup(){
     isRecording = false;
     isRecordingOutput = false;
     
-    int gridWidth=2;
-    int gridHeight = 2;
+    int gridWidth=4;
+    int gridHeight = 3;
     grid.resize(gridWidth);
     for(int i=0; i < grid.size(); i++) {
         grid[i].resize(gridHeight, NULL);
@@ -74,8 +74,19 @@ void SonicTag3App::setup(){
 
     grid[0][0] = new sceneRecord();
     grid[1][0] = new scenePlay();
+    grid[2][0] = new sceneFingerPlay();
+    grid[3][0] = new sceneFingerStretch();
+    
     grid[0][1] = new sceneRecord();
+    ((sceneRecord*)grid[0][1])->armedRecord = true;
     grid[1][1] = new scenePlay();
+    grid[2][1] = new sceneFingerPlay();
+    grid[3][1] = new sceneFingerStretch();
+
+    grid[0][2] = new sceneLoopRecord();
+    grid[1][2] = new scenePlay();
+    grid[2][2] = new sceneFingerPlay();
+    grid[3][2] = new sceneFingerStretch();
     
     for(int i=0; i < grid.size(); i++) {
         for(int j=0; j < grid[i].size(); j++) {

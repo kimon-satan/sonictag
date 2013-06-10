@@ -9,17 +9,15 @@
 #ifndef sonicTag2_sceneFingerPlay_h
 #define sonicTag2_sceneFingerPlay_h
 
-#include "baseScene.h"
+#include "sceneLoopRecord.h"
 #include "ofxMaxim.h"
-#include "HeadVisualiser.h"
-#include "geomFunctions.h"
 
-class sceneFingerPlay : public baseScene {
+class sceneFingerPlay : public sceneLoopRecord {
 public:
-    void setup(sharedDataContainer *data);    
+    void setup(sharedDataContainer *data);
     void update();
     void draw();
-    void audioRequested( float * output, int bufferSize, int nChannels );
+    void audioIn( float * input, int bufferSize, int nChannels );
     void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
@@ -27,22 +25,11 @@ public:
     void beginScene();
     void endScene();
     string getTitle() {return "Scratch";}
-    virtual float getNextSample();
-
-protected:
     
-    void processTouch(ofTouchEventArgs &touch);
+protected:
     float px, py, opx, opy;
     float velocity, velX, velY;
     int onCounter;
-    
-    float angularVelocity, angle, lastAngle;   
-    EAIT::MovingAverageF velMA;
-    EAVIGUI::HeadVisualiser *headVis;
-    maxiEnvelopeFollower envf;
-    bool isPlaying;
-
-
 };
 
 

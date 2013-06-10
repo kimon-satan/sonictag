@@ -55,6 +55,8 @@
 		83E4739F1761E2CC0008C273 /* sceneRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473891761E2CC0008C273 /* sceneRecord.mm */; };
 		83E473A01761E2CC0008C273 /* visualiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4738C1761E2CC0008C273 /* visualiser.cpp */; };
 		83E473A11761E2CC0008C273 /* waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4738E1761E2CC0008C273 /* waveform.cpp */; };
+		83E473B1176609AF0008C273 /* BLEScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473AE176609AF0008C273 /* BLEScanner.mm */; };
+		83E473B2176609AF0008C273 /* nbStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473B0176609AF0008C273 /* nbStream.cpp */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB24DD8F10DA77E000E9C588 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BB24DD8C10DA77E000E9C588 /* Default.png */; };
@@ -190,6 +192,10 @@
 		83E4738D1761E2CC0008C273 /* visualiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = visualiser.h; sourceTree = "<group>"; };
 		83E4738E1761E2CC0008C273 /* waveform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = waveform.cpp; sourceTree = "<group>"; };
 		83E4738F1761E2CC0008C273 /* waveform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waveform.h; sourceTree = "<group>"; };
+		83E473AD176609AF0008C273 /* BLEScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLEScanner.h; sourceTree = "<group>"; };
+		83E473AE176609AF0008C273 /* BLEScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEScanner.mm; sourceTree = "<group>"; };
+		83E473AF176609AF0008C273 /* nbStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nbStream.h; sourceTree = "<group>"; };
+		83E473B0176609AF0008C273 /* nbStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nbStream.cpp; sourceTree = "<group>"; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DD8C10DA77E000E9C588 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -278,6 +284,7 @@
 		8342DC0E1614A05800BD17A1 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				83E473AC1766099C0008C273 /* BLE */,
 				83E4736A1761E2CC0008C273 /* log.h */,
 				83E4736B1761E2CC0008C273 /* log.mm */,
 				83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */,
@@ -410,6 +417,17 @@
 				83E473681761E2AF0008C273 /* labelAnimation.h */,
 			);
 			name = GUI;
+			sourceTree = "<group>";
+		};
+		83E473AC1766099C0008C273 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				83E473AD176609AF0008C273 /* BLEScanner.h */,
+				83E473AE176609AF0008C273 /* BLEScanner.mm */,
+				83E473AF176609AF0008C273 /* nbStream.h */,
+				83E473B0176609AF0008C273 /* nbStream.cpp */,
+			);
+			name = BLE;
 			sourceTree = "<group>";
 		};
 		BB16E9930F2B1E5900518274 /* libs */ = {
@@ -618,6 +636,8 @@
 				83E4739F1761E2CC0008C273 /* sceneRecord.mm in Sources */,
 				83E473A01761E2CC0008C273 /* visualiser.cpp in Sources */,
 				83E473A11761E2CC0008C273 /* waveform.cpp in Sources */,
+				83E473B1176609AF0008C273 /* BLEScanner.mm in Sources */,
+				83E473B2176609AF0008C273 /* nbStream.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
