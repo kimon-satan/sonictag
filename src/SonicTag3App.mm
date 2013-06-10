@@ -17,6 +17,11 @@
 
 const int trigTime = 50;
 
+static void notificationHandler(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
+    cout << "Nofitifcation received\n";
+    (static_cast<SonicTag3App *>(observer))->onValueUpdate();
+}
+
 //--------------------------------------------------------------
 void SonicTag3App::setup(){	
     
@@ -24,6 +29,17 @@ void SonicTag3App::setup(){
     appPhase = REMIX;
     sampleCounter=0;
     ofSetLogLevel(OF_LOG_WARNING);
+    
+    CFNotificationCenterAddObserver
+    (
+     CFNotificationCenterGetLocalCenter(),
+     this,
+     &notificationHandler,
+     CFSTR("notify"),
+     NULL,
+     CFNotificationSuspensionBehaviorDeliverImmediately
+    );
+
 
     sceneIsUpdating = false;
 	
@@ -131,7 +147,70 @@ void SonicTag3App::setup(){
     
     maxiSettings::setup(44100, 1, 1024);
 
+    bleFrameCount = 0;
+    bleMeterSize = ofGetWidth()/20.0;
+    bleVals.resize(NUMNBSTREAMS);
+    for(int i=0; i < NUMNBSTREAMS; i++) {
+        bleMA[i].resize(3);
+    }
+    scanner = [[BLEScanner alloc] init];
+    [scanner startScanning];
+
+
 }
+
+void SonicTag3App::onValueUpdate() {
+    NSData *val;
+    val = [scanner value];
+    if ([val length] == 17 && [val bytes] != NULL) {
+        unsigned short *data = (unsigned short*) [val bytes];
+        unsigned char *chardata = (unsigned char*) [val bytes];
+        int batch = (int) chardata[16];
+        if (bleFrameCount > 4) {
+            int offset = (batch * 8);
+            for(int i=0; i < 8; i++) {
+                int idx = i + offset;
+                vals[idx] = data[i];
+                if (vals[idx] > 65400)
+                    vals[idx] = 0;  // dropped contact
+                if (bleFrameCount == 5) {
+                    bleMA[idx].fillWith(vals[idx]);
+                }else{
+                    bleMA[idx].addSample(vals[idx]);
+                }
+                nbStreams[idx].newVal(bleMA[idx].value());
+//                dcBlockTotal += dcblock[idx].play(powf(streams[idx].getValue(), 0.5f), 0.88);
+                //                cout << streams[idx].getValue() << ",";
+                //cout << (int)data[idx] << ",";
+            }
+        }
+        if (batch == 1) {
+            bleFrameCount++;
+            grid[gridX][gridY]->updateBLEVals(bleVals);
+        }
+    }
+
+//    NSData *val = [scanner value];
+//    unsigned char *data = (unsigned char*) [val bytes];
+//    cout << "value: ";
+//    for(int i=0; i < [val length]; i++) {
+//        int val;
+//        if (data[i] != 255) {
+//            val = data[i];
+//        }else{
+//            //out of range - contact has dropped off
+//            val = 0;
+//        }
+//        bleMA[i].addSample(val);
+//        nbStreams[i].newVal(bleMA[i].value());
+//        cout << nbStreams[i].getValue() << ",";
+//        bleVals[i] = nbStreams[i].getValue();
+//        cout << (int) data[i] << ",";
+//    }
+//    cout << endl;
+    
+}
+
 
 //--------------------------------------------------------------
 void SonicTag3App::update(){
@@ -156,6 +235,14 @@ void SonicTag3App::draw(){
     ofBackground(255);
     ofSetColor(255,255,255);
     grid[gridX][gridY]->draw();
+
+    //ble meter
+    ofFill();
+    for(int i=0; i < bleVals.size(); i++) {
+        ofSetColor(i*50 % 255, i*200 % 255, i * 150 % 255, bleVals[i] * 255.0);
+        ofRect(10 + (i * bleMeterSize), ofGetHeight() - 10 - bleMeterSize, bleMeterSize, bleMeterSize);
+    }
+    
 }
 
 void SonicTag3App::audioRequested( float * output, int bufferSize, int nChannels ) {

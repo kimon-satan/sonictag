@@ -15,6 +15,9 @@
 #include "DRSGrains.h"
 #include "waveform.h"
 
+#include "BLEScanner.h"
+#include "nbStream.h"
+
 //#define LATCHMODE
 
 class SonicTag3App : EAVIGUI::InterfaceListener {
@@ -85,7 +88,18 @@ public:
     int backgroundOrientation;
     
     
-        
+    //BLE
+    void onValueUpdate();
+    BLEScanner *scanner;
+    static const int NUMNBSTREAMS = 16;
+    vector<float> bleVals;
+    nbStream nbStreams[NUMNBSTREAMS];
+    EAIT::MovingAverage<float> bleMA[NUMNBSTREAMS];
+    float bleMeterSize;
+    int bleFrameCount;
+    float vals[NUMNBSTREAMS], lastVals[NUMNBSTREAMS];
+
+    
 };
 
 

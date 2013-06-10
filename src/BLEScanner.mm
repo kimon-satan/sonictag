@@ -93,15 +93,15 @@
     
 //    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("193E4B6F-A86A-7408-7159-9F27C38C4E6B"), 0);
     //CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("BFBC6B57-451E-574A-3425-4337F50F5E75"), 0);
-    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("D0EE567D-882B-BC22-5B76-9C211755F55E"), 0);
+//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("D0EE567D-882B-BC22-5B76-9C211755F55E"), 0);
   
 
-    if (res == kCFCompareEqualTo) {
+//    if (res == kCFCompareEqualTo) {
         [peripheral setDelegate:self];
         [peripheral discoverServices:nil];
-    }else{
-        [manager cancelPeripheralConnection:peripheral];
-    }
+//    }else{
+//        [manager cancelPeripheralConnection:peripheral];
+//    }
 
 }
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {

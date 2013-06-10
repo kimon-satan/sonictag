@@ -34,6 +34,9 @@ void baseScene::setup(sharedDataContainer *data) {
     EAVIGUI::InterfaceManager::addObjects(interface);
     sceneID = sceneIDCounter.next();
     currentOrientation=1;
+    
+    bleVals.resize(16);
+
 }
 
 void baseScene::update() {

@@ -57,6 +57,7 @@
 		83E473A11761E2CC0008C273 /* waveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4738E1761E2CC0008C273 /* waveform.cpp */; };
 		83E473B1176609AF0008C273 /* BLEScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473AE176609AF0008C273 /* BLEScanner.mm */; };
 		83E473B2176609AF0008C273 /* nbStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473B0176609AF0008C273 /* nbStream.cpp */; };
+		83E473B417660C3C0008C273 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E473B317660C3C0008C273 /* CoreBluetooth.framework */; };
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BB24DD8F10DA77E000E9C588 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BB24DD8C10DA77E000E9C588 /* Default.png */; };
@@ -196,6 +197,7 @@
 		83E473AE176609AF0008C273 /* BLEScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLEScanner.mm; sourceTree = "<group>"; };
 		83E473AF176609AF0008C273 /* nbStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nbStream.h; sourceTree = "<group>"; };
 		83E473B0176609AF0008C273 /* nbStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nbStream.cpp; sourceTree = "<group>"; };
+		83E473B317660C3C0008C273 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		BB16EBD10F2B2A9500518274 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BB16EBD80F2B2AB500518274 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB24DD8C10DA77E000E9C588 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E473B417660C3C0008C273 /* CoreBluetooth.framework in Frameworks */,
 				8378A48515E2515C00A92A95 /* Accelerate.framework in Frameworks */,
 				E41D421413B3A95300A75A5D /* libofxiPhone_iphoneos_Debug.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -250,6 +253,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				83E473B317660C3C0008C273 /* CoreBluetooth.framework */,
 				8378A48415E2515C00A92A95 /* Accelerate.framework */,
 				E4D8936A11527B74007E1F53 /* src */,
 				BB24DD8B10DA77E000E9C588 /* data */,

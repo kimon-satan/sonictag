@@ -46,6 +46,8 @@ public:
     bool enabled;
     virtual bool canProgress();
     int currentOrientation, prevoiusOrientation;
+    virtual void updateBLEVals(vector<float> newVals) {bleVals = newVals; cout << "updateBLE\n";}
+    
 protected:
     audioProcessor* currAudioProcessor;
     sharedDataContainer *sharedData;
@@ -53,6 +55,8 @@ protected:
     static EAIT::Counter<int> objectIDCounter;
     static EAIT::Counter<int> sceneIDCounter;
     int sceneID;
+    vector<float> bleVals;
+
 };
 
 #endif
