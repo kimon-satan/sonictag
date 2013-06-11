@@ -29,6 +29,8 @@ public:
     string getTitle() {return string("Record").append(armedRecord ? " (trig)" : "");}
     bool armedRecord;
     void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
+    void updateBLEVals(vector<float> newVals, float sigAvg);
+
 private:
     void initRecording();
     bool recording;

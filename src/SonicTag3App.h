@@ -98,6 +98,9 @@ public:
     float bleMeterSize;
     int bleFrameCount;
     float vals[NUMNBSTREAMS], lastVals[NUMNBSTREAMS];
+    maxiDCBlocker dcblock[NUMNBSTREAMS];
+    maxiDCBlocker dcMasterBlocker;
+    float dcBlockTotal;
 
     
 };

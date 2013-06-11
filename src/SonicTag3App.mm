@@ -146,7 +146,7 @@ void SonicTag3App::setup(){
     updateScene(gridX, gridY);
     
     maxiSettings::setup(44100, 1, 1024);
-
+    dcBlockTotal = 0;
     bleFrameCount = 0;
     bleMeterSize = ofGetWidth()/20.0;
     bleVals.resize(NUMNBSTREAMS);
@@ -179,14 +179,18 @@ void SonicTag3App::onValueUpdate() {
                     bleMA[idx].addSample(vals[idx]);
                 }
                 nbStreams[idx].newVal(bleMA[idx].value());
-//                dcBlockTotal += dcblock[idx].play(powf(streams[idx].getValue(), 0.5f), 0.88);
+                bleVals[i] = nbStreams[i].getValue();
+                dcBlockTotal += dcblock[idx].play(powf(nbStreams[idx].getValue(), 0.5f), 0.88);
                 //                cout << streams[idx].getValue() << ",";
                 //cout << (int)data[idx] << ",";
             }
         }
         if (batch == 1) {
             bleFrameCount++;
-            grid[gridX][gridY]->updateBLEVals(bleVals);
+            float sigAvg = dcBlockTotal / NUMNBSTREAMS;
+            sigAvg = dcMasterBlocker.play(sigAvg, 0.88);
+            grid[gridX][gridY]->updateBLEVals(bleVals, sigAvg);
+            dcBlockTotal = 0;
         }
     }
 

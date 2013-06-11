@@ -26,6 +26,11 @@ void sceneRecord::update() {
     
 }
 
+void sceneRecord::updateBLEVals(vector<float> newVals, float sigAvg) {
+    cout << sigAvg << endl;
+}
+
+
 void sceneRecord::draw() {
     
     
