@@ -17,6 +17,10 @@
 #include "sceneDistort.h"
 #include "audioCatalogue.h"
 #include "log.h"
+#include "sceneFilterPlay.h"
+#include "sceneHPFilterPlay.h"
+#include "sceneFXPlay1.h"
+#include "sceneFXPlay2.h"
 
 const int trigTime = 50;
 
@@ -81,8 +85,8 @@ void SonicTag3App::setup(){
     isRecording = false;
     isRecordingOutput = false;
     
-    int gridWidth=6;
-    int gridHeight = 3;
+    int gridWidth=5;
+    int gridHeight = 5;
     grid.resize(gridWidth);
     for(int i=0; i < grid.size(); i++) {
         grid[i].resize(gridHeight, NULL);
@@ -93,25 +97,34 @@ void SonicTag3App::setup(){
 
     grid[0][0] = new sceneRecord();
     grid[1][0] = new scenePlay();
-    grid[2][0] = new sceneFingerPlay();
-    grid[3][0] = new sceneFingerStretch();
-    grid[4][0] = new sceneFingerPitch();
-    grid[5][0] = new sceneFingerPitchStretch();
+    grid[2][0] = new sceneFingerStretch();
+    grid[3][0] = new sceneFingerPitch();
+    grid[4][0] = new sceneFingerPitchStretch();
     
-    grid[0][1] = new sceneRecord();
+    grid[0][1] = new sceneLoopRecord();
     grid[1][1] = new scenePlay();
-    grid[2][1] = new sceneFingerPlay();
-    grid[3][1] = new sceneAccelStretch();
-    grid[4][1] = new sceneAccelPitch();
-    grid[5][1] = new sceneAccelPitchStretch();
+    grid[2][1] = new sceneAccelStretch();
+    grid[3][1] = new sceneAccelPitch();
+    grid[4][1] = new sceneAccelPitchStretch();
 
-    grid[0][2] = new sceneLoopRecord();
-    grid[1][2] = new scenePlay();
-    grid[2][2] = new sceneFingerPlay();
-    grid[3][2] = new sceneAccelStretch();
-    grid[4][2] = new sceneAccelPitch();
-    grid[5][2] = new sceneAccelPitchStretch();
-    
+    grid[0][2] = NULL;
+    grid[1][2] = NULL;
+    grid[2][2] = new sceneAccelStretch();
+    grid[3][2] = new sceneAccelPitch();
+    grid[4][2] = new sceneAccelPitchStretch();
+
+    grid[0][3] = NULL;
+    grid[1][3] = NULL;
+    grid[2][3] = new sceneAccelStretch();
+    grid[3][3] = new sceneAccelPitch();
+    grid[4][3] = new sceneAccelPitchStretch();
+
+    grid[0][4] = NULL;
+    grid[1][4] = NULL;
+    grid[2][4] = new sceneHPFilterPlay();
+    grid[3][4] = new sceneFXPlay1();
+    grid[4][4] = new sceneFXPlay2();
+
     for(int i=0; i < grid.size(); i++) {
         for(int j=0; j < grid[i].size(); j++) {
             if (grid[i][j] != NULL) {
@@ -151,23 +164,31 @@ void SonicTag3App::setup(){
     EAVIGUI::InterfaceManager::addObject(navDownArrow);
 
     //TODO: fix this hack!
-    ((sceneRecord*)grid[0][1])->armedRecord = true;
     ((scenePlay*)grid[1][1])->loop = true;
-    ((scenePlay*)grid[1][2])->loop = true;
+    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
     ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
     ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[5][2])->motionTriggering = true;
 
     EAVIGUI::InterfaceManager::setup();
     updateScene(gridX, gridY);
     
-    ((sceneRecord*)grid[0][1])->armedRecord = true;
     ((scenePlay*)grid[1][1])->loop = true;
-    ((scenePlay*)grid[1][2])->loop = true;
+    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
     ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
     ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[5][2])->motionTriggering = true;
+
+    ((sceneAccelStretch*) grid[2][3])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[3][3])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[4][3])->motionTriggering = true;
     
+    ((sceneAccelStretch*) grid[2][2])->setThreshold(0.08);
+    ((sceneAccelStretch*) grid[3][2])->setThreshold(0.08);
+    ((sceneAccelStretch*) grid[4][2])->setThreshold(0.08);
+
+    ((sceneAccelStretch*) grid[2][3])->setThreshold(0.3);
+    ((sceneAccelStretch*) grid[3][3])->setThreshold(0.3);
+    ((sceneAccelStretch*) grid[4][3])->setThreshold(0.3);
+
     maxiSettings::setup(44100, 1, 1024);
     dcBlockTotal = 0;
     bleFrameCount = 0;

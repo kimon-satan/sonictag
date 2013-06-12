@@ -37,7 +37,7 @@ float sceneLoopRecord::getNextSample() {
 
 
 void sceneLoopRecord::audioRequested( float * output, int bufferSize, int nChannels ) {
-    if(isPlaying) {
+    if(isPlaying > 0) {
         //play buffer
         for (int i=0; i < bufferSize; i++) {
             output[i] = getNextSample();
@@ -86,6 +86,9 @@ void sceneLoopRecord::touchCancelled(ofTouchEventArgs &touch){
 
 void sceneLoopRecord::beginScene() {
     baseScene::beginScene();
+    if (sharedData->buffer.length == 0) {
+        sharedData->buffer.setLength(maxiSettings::sampleRate * 2);
+    }
     isRecording = false;
     clearCount = 0;
 }

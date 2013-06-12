@@ -20,21 +20,29 @@ void sceneAccelStretch::setup(sharedDataContainer *data) {
     motionTriggering = false;
     
     sensitivity = 0.5;
-    senseMin = 0.1;
-    senseMax = 2.0;
+//    senseMin = 0.1;
+//    senseMax = 2.0;
 }
 
 void sceneAccelStretch::draw() {
-    ofBackground(255,255,255);
-    ofSetColor(200,200,200,100);
-    if (motionTriggering) {
-        float yLine = maxiMap::linlin(motionThresh, 0, 0.1, 0, ofGetHeight());
-        ofLine(0, yLine, ofGetWidth(), yLine);
-    }
-    float xLine = maxiMap::linlin(sensitivity, senseMin, senseMax, 0, ofGetWidth());
-    ofLine(xLine, 0, xLine, ofGetHeight());
+//    ofBackground(255,255,255);
+//    ofSetColor(200,200,200,100);
+//    if (motionTriggering) {
+//        float yLine = maxiMap::linlin(motionThresh, 0, 0.1, 0, ofGetHeight());
+//        ofLine(0, yLine, ofGetWidth(), yLine);
+//    }
+//    float xLine = maxiMap::linlin(sensitivity, senseMin, senseMax, 0, ofGetWidth());
+//    ofLine(xLine, 0, xLine, ofGetHeight());
     
 }
+
+void sceneAccelStretch::setThreshold(float thresh) {
+    motionThresh = thresh;
+    motionTrig.onThreshold = motionThresh;
+    motionTrig.offThreshold = motionThresh * 0.9;
+    motionTrig.reset();
+}
+
 
 void sceneAccelStretch::update() {
     float diffX = fabs(ofxAccelerometer.getForce().x - lastX);
@@ -56,7 +64,6 @@ void sceneAccelStretch::update() {
     rateVal = pow(fabs(rateVal), sensitivity);
     rateVal *= sign;
     rateVal += 1.0;
-    cout << rateVal << endl;
 
     pitchVal = (ofxAccelerometer.getForce().y * 1.0);
     sign = 1.0;
@@ -76,10 +83,10 @@ float sceneAccelStretch::getNextSample() {
 }
 
 void sceneAccelStretch::touchDown(ofTouchEventArgs &touch) {
-    motionThresh = maxiMap::linlin(touch.y, 0, ofGetHeight(), 0, 0.1);
-    motionTrig.onThreshold = motionThresh;
-    motionTrig.offThreshold = motionThresh * 0.3;
-    sensitivity = maxiMap::linlin(touch.x, 0, ofGetWidth(), senseMin, senseMax);
+//    motionThresh = maxiMap::linlin(touch.y, 0, ofGetHeight(), 0, 0.1);
+//    motionTrig.onThreshold = motionThresh;
+//    motionTrig.offThreshold = motionThresh * 0.3;
+//    sensitivity = maxiMap::linlin(touch.x, 0, ofGetWidth(), senseMin, senseMax);
 }
 void sceneAccelStretch::touchMoved(ofTouchEventArgs &touch) {
     

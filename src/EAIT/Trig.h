@@ -47,7 +47,7 @@ namespace EAIT {
 
         void reset() {
             phase = WAITING;
-            holdCount = std::numeric_limits<int>::max()-1;
+            holdCount = 99999999999;
         }
         
         T onThreshold, offThreshold;

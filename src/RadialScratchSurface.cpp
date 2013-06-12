@@ -55,11 +55,11 @@ namespace EAVIGUI {
             ofSetColor(0,230,0,140);
             ofCircle(ptx, pty, 50);
         }
-        if (ofRandomuf() < 0.1) {
-            ofFill();
-            ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255),ofRandom(255));
-            ofCircle(ofRandom(fboD), ofRandom(fboD), ofRandom(50));
-        }
+//        if (ofRandomuf() < 0.1) {
+//            ofFill();
+//            ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255),ofRandom(255));
+//            ofCircle(ofRandom(fboD), ofRandom(fboD), ofRandom(50));
+//        }
         fbo1.end();
         
         fbo2.begin();
@@ -91,7 +91,6 @@ namespace EAVIGUI {
         if (0 == touch.id)
         {
             showAngle = true;
-            //float angle = geom::angleBetween(touch.x, touch.y, w/2.0, h/2.0) + PI;
             //get angle between now and last point, if mid point is center of triangle
             //using law of cosines http://oakroadsystems.com/twt/solving.htm#eq30
             float distA = geom::distBetween(touch.x, touch.y, touchX, touchY);
@@ -104,7 +103,9 @@ namespace EAVIGUI {
             velocity = acos(cosA);
             touchX = touch.x;
             touchY = touch.y;
-        }        
+            distToCenter = distB;
+            angle = geom::angleBetween(touch.x, touch.y, w/2.0, h/2.0) + PI;
+        }
         invalidate();
         sendCallback(InterfaceObject::TOUCHMOVED);
     }

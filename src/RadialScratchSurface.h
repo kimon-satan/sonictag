@@ -24,6 +24,8 @@ namespace EAVIGUI {
         void touchUp(ofTouchEventArgs &touch);
         void processTouch(ofTouchEventArgs &touch);
         float getVelocity(){return velocity;}
+        float getDistToCenter(){return distToCenter;}
+        float getAngle(){return angle;}
     protected:
         void drawToBuffer();
         bool showAngle;
@@ -32,6 +34,7 @@ namespace EAVIGUI {
         float velocity;
         ofFbo fbo1, fbo2;
         int fboD;
+        float distToCenter, angle;
     };
     
 };

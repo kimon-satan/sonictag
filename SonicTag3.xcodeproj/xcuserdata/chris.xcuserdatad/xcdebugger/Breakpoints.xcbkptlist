@@ -19,11 +19,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "392736716.314104"
+         timestampString = "392754875.723025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "SonicTag3App::onValueUpdate()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -32,11 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "392719620.225604"
+         timestampString = "392754875.723025"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
          landmarkName = "notificationHandler(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -51,6 +51,32 @@
          startingLineNumber = "75"
          endingLineNumber = "75"
          landmarkName = "sceneFingerPlay::beginScene()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/sceneHPFilterPlay.mm"
+         timestampString = "392753487.442692"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "sceneHPFilterPlay::audioRequested( float * output, int bufferSize, int nChannels )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/sceneHPFilterPlay.mm"
+         timestampString = "392753524.635419"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "sceneHPFilterPlay::audioRequested( float * output, int bufferSize, int nChannels )"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

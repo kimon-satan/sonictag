@@ -12,6 +12,10 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
+		8336000C1768E9A000FFD068 /* sceneHPFilterPlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600071768E97F00FFD068 /* sceneHPFilterPlay.mm */; };
+		8336000D1768E9A000FFD068 /* sceneFXPlay1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600091768E99100FFD068 /* sceneFXPlay1.mm */; };
+		8336000E1768E9A000FFD068 /* sceneFXPlay2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8336000B1768E99D00FFD068 /* sceneFXPlay2.mm */; };
+		833600111768E9D700FFD068 /* sceneFilterPlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600101768E9D300FFD068 /* sceneFilterPlay.mm */; };
 		8342DC7F1614A12B00BD17A1 /* EAIT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8342DC211614A12B00BD17A1 /* EAIT.cpp */; };
 		8342DC801614A12B00BD17A1 /* Trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8342DC241614A12B00BD17A1 /* Trig.cpp */; };
 		8378A47C15E2507E00A92A95 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8378A46415E2507E00A92A95 /* fft.cpp */; };
@@ -100,6 +104,14 @@
 		32CA4F630368D1EE00C91783 /* iPhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Prefix.pch; sourceTree = "<group>"; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		833600061768E97900FFD068 /* sceneHPFilterPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneHPFilterPlay.h; sourceTree = "<group>"; };
+		833600071768E97F00FFD068 /* sceneHPFilterPlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneHPFilterPlay.mm; sourceTree = "<group>"; };
+		833600081768E98500FFD068 /* sceneFXPlay1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFXPlay1.h; sourceTree = "<group>"; };
+		833600091768E99100FFD068 /* sceneFXPlay1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFXPlay1.mm; sourceTree = "<group>"; };
+		8336000A1768E99900FFD068 /* sceneFXPlay2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFXPlay2.h; sourceTree = "<group>"; };
+		8336000B1768E99D00FFD068 /* sceneFXPlay2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFXPlay2.mm; sourceTree = "<group>"; };
+		8336000F1768E9D100FFD068 /* sceneFilterPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFilterPlay.h; sourceTree = "<group>"; };
+		833600101768E9D300FFD068 /* sceneFilterPlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFilterPlay.mm; sourceTree = "<group>"; };
 		8342DC211614A12B00BD17A1 /* EAIT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAIT.cpp; sourceTree = "<group>"; };
 		8342DC221614A12B00BD17A1 /* EAIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIT.h; sourceTree = "<group>"; };
 		8342DC231614A12B00BD17A1 /* Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smoothing.h; sourceTree = "<group>"; };
@@ -291,8 +303,8 @@
 				83E473AC1766099C0008C273 /* BLE */,
 				83E4736A1761E2CC0008C273 /* log.h */,
 				83E4736B1761E2CC0008C273 /* log.mm */,
-				83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */,
 				83E4736D1761E2CC0008C273 /* RadialScratchSurface.h */,
+				83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */,
 				83E4736E1761E2CC0008C273 /* sceneAccelPitch.h */,
 				83E4736F1761E2CC0008C273 /* sceneAccelPitch.mm */,
 				83E473701761E2CC0008C273 /* sceneAccelPitchStretch.h */,
@@ -313,6 +325,14 @@
 				83E4737F1761E2CC0008C273 /* sceneFingerPlayPitch.mm */,
 				83E473801761E2CC0008C273 /* sceneFingerStretch.h */,
 				83E473811761E2CC0008C273 /* sceneFingerStretch.mm */,
+				8336000F1768E9D100FFD068 /* sceneFilterPlay.h */,
+				833600101768E9D300FFD068 /* sceneFilterPlay.mm */,
+				833600061768E97900FFD068 /* sceneHPFilterPlay.h */,
+				833600071768E97F00FFD068 /* sceneHPFilterPlay.mm */,
+				833600081768E98500FFD068 /* sceneFXPlay1.h */,
+				833600091768E99100FFD068 /* sceneFXPlay1.mm */,
+				8336000A1768E99900FFD068 /* sceneFXPlay2.h */,
+				8336000B1768E99D00FFD068 /* sceneFXPlay2.mm */,
 				83E473821761E2CC0008C273 /* sceneGain.h */,
 				83E473831761E2CC0008C273 /* sceneGain.mm */,
 				83E473841761E2CC0008C273 /* sceneLoopRecord.h */,
@@ -642,6 +662,10 @@
 				83E473A11761E2CC0008C273 /* waveform.cpp in Sources */,
 				83E473B1176609AF0008C273 /* BLEScanner.mm in Sources */,
 				83E473B2176609AF0008C273 /* nbStream.cpp in Sources */,
+				8336000C1768E9A000FFD068 /* sceneHPFilterPlay.mm in Sources */,
+				8336000D1768E9A000FFD068 /* sceneFXPlay1.mm in Sources */,
+				8336000E1768E9A000FFD068 /* sceneFXPlay2.mm in Sources */,
+				833600111768E9D700FFD068 /* sceneFilterPlay.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

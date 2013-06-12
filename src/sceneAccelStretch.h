@@ -25,6 +25,7 @@ public:
 	void touchUp(ofTouchEventArgs &touch);
 	void touchDoubleTap(ofTouchEventArgs &touch);
     void beginScene();
+    void setThreshold(float thresh);
     
 protected:
     float lastX, lastY, lastZ;
