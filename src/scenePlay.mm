@@ -102,37 +102,46 @@ void scenePlay::setUndoRedoVisibility(bool show) {
 
 void scenePlay::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
     cout << "event: " << id << endl;
-    switch(id) {
-        case HISTBACK:
-            playing = false;
-            sharedData->buffer.load(audioCatalogue::prevRecording());
-            sharedData->randomiseColours();
-            break;
-        case HISTFORWARD:
-            playing = false;
-            sharedData->buffer.load(audioCatalogue::nextRecording());
-            sharedData->randomiseColours();
-            break;
-        case VISUALISER:
-            if (loop) {
-                if (playing) {
+    switch(eventTypeId) {
+        case EAVIGUI::InterfaceObject::TOUCHDOWN:
+            switch(id) {
+                case HISTBACK:
                     playing = false;
-                }else{
-                    pos = 0;
-                    playing = true;
-                    cout << "Playing\n";
-                    sharedData->buffer.trigger();
-                    if (loop)
-                        cout << "Loop\n";
-                }
-            }else{
-                pos = 0;
-                playing = true;
-                cout << "Playing\n";
-                sharedData->buffer.trigger();
-                if (loop)
-                    cout << "Loop\n";
-            }
+                    sharedData->buffer.load(audioCatalogue::prevRecording());
+                    sharedData->randomiseColours();
+                    break;
+                case HISTFORWARD:
+                    playing = false;
+                    sharedData->buffer.load(audioCatalogue::nextRecording());
+                    sharedData->randomiseColours();
+                    break;
+            };
             break;
-    };
+        case EAVIGUI::InterfaceObject::TOUCHUP:
+            switch(id) {
+                case VISUALISER:
+                    if (loop) {
+                        if (playing) {
+                            playing = false;
+                        }else{
+                            pos = 0;
+                            playing = true;
+                            cout << "Playing\n";
+                            sharedData->buffer.trigger();
+                            if (loop)
+                                cout << "Loop\n";
+                        }
+                    }else{
+                        pos = 0;
+                        playing = true;
+                        cout << "Playing\n";
+                        sharedData->buffer.trigger();
+                        if (loop)
+                            cout << "Loop\n";
+                    }
+                    break;
+            };
+            break;
+        
+    }
 }

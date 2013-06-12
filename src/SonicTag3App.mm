@@ -9,6 +9,9 @@
 #include "sceneFingerStretch.h"
 #include "sceneFingerPitch.h"
 #include "sceneFingerPitchStretch.h"
+#include "sceneAccelStretch.h"
+#include "sceneAccelPitch.h"
+#include "sceneAccelPitchStretch.h"
 #include "sceneGain.h"
 #include "sceneFilter.h"
 #include "sceneDistort.h"
@@ -65,8 +68,8 @@ void SonicTag3App::setup(){
         EAVIGUI::InterfaceManager::deviceScaleMod = 0.41;
     }    
     
-    EAVIGUI::InterfaceManager::addFont("titles", "ka1.ttf", 30);
-    EAVIGUI::InterfaceManager::addFont("subtitles", "PixelSplitter-Bold.ttf", 12);
+    EAVIGUI::InterfaceManager::addFont("titles", "mono.ttf", 30);
+    EAVIGUI::InterfaceManager::addFont("subtitles", "mono.ttf", 12);
     EAVIGUI::InterfaceManager::addFont("big", "ka1.ttf", 50);
     EAVIGUI::InterfaceManager::addFont("bigger", "ka1.ttf", 60);
     EAVIGUI::InterfaceManager::addFont("c64Rounded", "Commodore Rounded v1.2.ttf", 20);
@@ -78,7 +81,7 @@ void SonicTag3App::setup(){
     isRecording = false;
     isRecordingOutput = false;
     
-    int gridWidth=4;
+    int gridWidth=6;
     int gridHeight = 3;
     grid.resize(gridWidth);
     for(int i=0; i < grid.size(); i++) {
@@ -92,17 +95,22 @@ void SonicTag3App::setup(){
     grid[1][0] = new scenePlay();
     grid[2][0] = new sceneFingerPlay();
     grid[3][0] = new sceneFingerStretch();
+    grid[4][0] = new sceneFingerPitch();
+    grid[5][0] = new sceneFingerPitchStretch();
     
     grid[0][1] = new sceneRecord();
-    ((sceneRecord*)grid[0][1])->armedRecord = true;
     grid[1][1] = new scenePlay();
     grid[2][1] = new sceneFingerPlay();
-    grid[3][1] = new sceneFingerStretch();
+    grid[3][1] = new sceneAccelStretch();
+    grid[4][1] = new sceneAccelPitch();
+    grid[5][1] = new sceneAccelPitchStretch();
 
     grid[0][2] = new sceneLoopRecord();
     grid[1][2] = new scenePlay();
     grid[2][2] = new sceneFingerPlay();
-    grid[3][2] = new sceneFingerStretch();
+    grid[3][2] = new sceneAccelStretch();
+    grid[4][2] = new sceneAccelPitch();
+    grid[5][2] = new sceneAccelPitchStretch();
     
     for(int i=0; i < grid.size(); i++) {
         for(int j=0; j < grid[i].size(); j++) {
@@ -142,8 +150,23 @@ void SonicTag3App::setup(){
     navDownArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navDownArrow);
 
+    //TODO: fix this hack!
+    ((sceneRecord*)grid[0][1])->armedRecord = true;
+    ((scenePlay*)grid[1][1])->loop = true;
+    ((scenePlay*)grid[1][2])->loop = true;
+    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[5][2])->motionTriggering = true;
+
     EAVIGUI::InterfaceManager::setup();
     updateScene(gridX, gridY);
+    
+    ((sceneRecord*)grid[0][1])->armedRecord = true;
+    ((scenePlay*)grid[1][1])->loop = true;
+    ((scenePlay*)grid[1][2])->loop = true;
+    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[5][2])->motionTriggering = true;
     
     maxiSettings::setup(44100, 1, 1024);
     dcBlockTotal = 0;
@@ -153,8 +176,8 @@ void SonicTag3App::setup(){
     for(int i=0; i < NUMNBSTREAMS; i++) {
         bleMA[i].resize(3);
     }
-    scanner = [[BLEScanner alloc] init];
-    [scanner startScanning];
+//    scanner = [[BLEScanner alloc] init];
+//    [scanner startScanning];
 
 
 }

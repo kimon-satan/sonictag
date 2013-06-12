@@ -46,7 +46,7 @@ public:
     bool enabled;
     virtual bool canProgress();
     int currentOrientation, prevoiusOrientation;
-    virtual void updateBLEVals(vector<float> newVals, float sigAvg) {bleVals = newVals; cout << "updateBLE\n";}
+    virtual void updateBLEVals(vector<float> newVals, float sigAvg) {bleVals = newVals; nbConnected = true;}
     
 protected:
     audioProcessor* currAudioProcessor;
@@ -56,6 +56,7 @@ protected:
     static EAIT::Counter<int> sceneIDCounter;
     int sceneID;
     vector<float> bleVals;
+    bool nbConnected;  //noise bear connected?
 
 };
 

@@ -20,6 +20,8 @@ void sceneRecord::setup(sharedDataContainer *data) {
     recordingArmed = false;
     recordCounter = 0;
     initRecording();
+    playing = false;
+    nbEnergyTrigger = EAIT::BasicTriggerF(0.3, 0.2, 5);
 }
 
 void sceneRecord::update() {
@@ -28,6 +30,7 @@ void sceneRecord::update() {
 
 void sceneRecord::updateBLEVals(vector<float> newVals, float sigAvg) {
     cout << sigAvg << endl;
+    bool trig = nbEnergyTrigger.newFrame(sigAvg);
 }
 
 
@@ -56,7 +59,17 @@ void sceneRecord::draw() {
 }
 
 void sceneRecord::audioRequested( float * output, int bufferSize, int nChannels ) {
-    memset(output, 0, sizeof(float) * bufferSize * nChannels);        
+    if (playing) {
+        for(int i=0; i<bufferSize; i++) {
+            output[i] = sharedData->buffer.playOnce();
+            if (sharedData->buffer.position >= sharedData->buffer.length) {
+                playing = false;
+            }
+        }
+    }
+    else {
+        memset(output, 0, sizeof(float) * bufferSize * nChannels);
+    }
 }
 
 void sceneRecord::audioIn( float * input, int bufferSize, int nChannels ) {
@@ -139,14 +152,19 @@ void sceneRecord::finaliseRecording() {
         myFile.write ((char*) &myDataSize, 4);
         myFile.write ((char*) &(sharedData->recordBuffer[0]), myDataSize);
         myFile.close();
-        cout << "Audio length: " << (sharedData->recordBuffer.size() / (float)maxiSettings::sampleRate) << endl;
+        
+//        cout << "Audio length: " << (sharedData->recordBuffer.size() / (float)maxiSettings::sampleRate) << endl;
         sharedData->buffer.clear();
         sharedData->buffer.load(filename.str());
+        sharedData->buffer.autoTrim(0.3, 6000, true, false);
+        sharedData->buffer.normalise();
+        
         cout << "Audio loaded to buffer\n";
         
         //        audioFiles::writeToM4A(sharedData->recordBuffer, ofxiPhoneGetDocumentsDirectory().append("/test.m4a"));
         sharedData->buffer.save(audioCatalogue::getNextFileName());
         log::write(log::STOPRECORDING);
+        playing = true;
     }
     
 }

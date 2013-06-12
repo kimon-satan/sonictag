@@ -19,11 +19,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "392662444.450264"
+         timestampString = "392736716.314104"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
          landmarkName = "SonicTag3App::onValueUpdate()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -32,13 +32,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "392662452.507496"
+         timestampString = "392719620.225604"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
          landmarkName = "notificationHandler(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)"
          landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/sceneFingerPlay.mm"
+         timestampString = "392724510.655054"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
+         landmarkName = "sceneFingerPlay::beginScene()"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

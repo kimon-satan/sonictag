@@ -24,6 +24,7 @@ public:
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
 	void touchDoubleTap(ofTouchEventArgs &touch);
+    void beginScene();
     
 protected:
     float lastX, lastY, lastZ;

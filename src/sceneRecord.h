@@ -31,6 +31,8 @@ public:
     void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
     void updateBLEVals(vector<float> newVals, float sigAvg);
 
+protected:
+    EAIT::BasicTriggerF nbEnergyTrigger;
 private:
     void initRecording();
     bool recording;
@@ -41,6 +43,7 @@ private:
     int recordCounter;
     void initialiseRecording();
     void finaliseRecording();
+    bool playing;
 };
 
 #endif

@@ -11,10 +11,9 @@
 #include "sceneAccelPitch.h"
 
 float sceneAccelPitch::getNextSample() {
-//    float x =  pitchStretch->play(pitchMA.value(), 1, 0.05, 2, 0.0);    
-//    if (motionTriggering) {
-//        x *= ampMA.value();
-//    }   
-//    return x;
-    return 0;
+    float x =  pitchStretch->play(pitchMA.value(), 1, 0.05, 2, 0.0);    
+    if (motionTriggering) {
+        x *= ampMA.value();
+    }   
+    return x;
 }

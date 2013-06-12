@@ -10,6 +10,6 @@
 #include "sceneFingerPitchStretch.h"
 
 float sceneFingerPitchStretch::getNextSample() {
-    //return pitchStretch->play(maxiMap::linlin(velX, 0, 120, 0.1, 2.0), maxiMap::linlin(velY, 0, 120, 0.1, 2.0), 0.05, 2, 0.0);
+    return pitchStretch->play(maxiMap::linlin(velX, 0, 120, 0.1, 2.0), maxiMap::linlin(velY, 0, 120, 0.1, 2.0), 0.05, 2, 0.0);
     return 0;
 }

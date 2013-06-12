@@ -11,6 +11,10 @@
 #include "sceneFingerPlay.h"
 
 void sceneFingerPlay::setup(sharedDataContainer *data) {
+    mfccVis = new EAVIGUI::MfccVisualiser(this, objectIDCounter.next(), 0, 0, ofGetHeight(), ofGetHeight(), data);
+    mfccVis->setRelativePositioning(0.5, -mfccVis->getScaledWidth() / 2.0, 0.5, -mfccVis->getScaledHeight() / 2.0);
+    interface.push_back(mfccVis);
+
     sceneLoopRecord::setup(data);
     sharedData->buffer.reset();
 }

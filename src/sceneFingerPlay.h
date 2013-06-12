@@ -11,6 +11,7 @@
 
 #include "sceneLoopRecord.h"
 #include "ofxMaxim.h"
+#include "MfccVisualiser.h"
 
 class sceneFingerPlay : public sceneLoopRecord {
 public:
@@ -30,6 +31,7 @@ protected:
     float px, py, opx, opy;
     float velocity, velX, velY;
     int onCounter;
+    EAVIGUI::MfccVisualiser *mfccVis;
 };
 
 

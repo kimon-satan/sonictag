@@ -19,6 +19,11 @@ float sceneFingerStretch::getNextSample() {
     return pitchStretch->play(1, maxiMap::linlin(velocity, 0, 120, 0, 2.0), 0.05, 2, 0.0);
 }
 
+void sceneFingerStretch::beginScene() {
+    sceneFingerPlay::beginScene();
+    pitchStretch->loopWholeSample();
+    isPlaying = true;
+}
 
 //void sceneFingerStretch::setup(sharedDataContainer *data) {
 //    surface = new EAVIGUI::RadialScratchSurface(this, objectIDCounter.next(), 0, 0, ofGetWidth(), ofGetWidth());

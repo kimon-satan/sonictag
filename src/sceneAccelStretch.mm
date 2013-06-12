@@ -56,6 +56,7 @@ void sceneAccelStretch::update() {
     rateVal = pow(fabs(rateVal), sensitivity);
     rateVal *= sign;
     rateVal += 1.0;
+    cout << rateVal << endl;
 
     pitchVal = (ofxAccelerometer.getForce().y * 1.0);
     sign = 1.0;
@@ -67,19 +68,17 @@ void sceneAccelStretch::update() {
 }
 
 float sceneAccelStretch::getNextSample() {
-//    float x = pitchStretch->play(1, rateVal, 0.05, 2, 0.0);
-//    if (motionTriggering) {
-//        x *= ampMA.value();
-//    }
-//    return x;
-    return 0;
+    float x = pitchStretch->play(1, rateVal, 0.05, 2, 0.0);
+    if (motionTriggering) {
+        x *= ampMA.value();
+    }
+    return x;
 }
 
 void sceneAccelStretch::touchDown(ofTouchEventArgs &touch) {
     motionThresh = maxiMap::linlin(touch.y, 0, ofGetHeight(), 0, 0.1);
     motionTrig.onThreshold = motionThresh;
     motionTrig.offThreshold = motionThresh * 0.3;
-    
     sensitivity = maxiMap::linlin(touch.x, 0, ofGetWidth(), senseMin, senseMax);
 }
 void sceneAccelStretch::touchMoved(ofTouchEventArgs &touch) {
@@ -91,3 +90,9 @@ void sceneAccelStretch::touchUp(ofTouchEventArgs &touch) {
 void sceneAccelStretch::touchDoubleTap(ofTouchEventArgs &touch) {
     
 }
+
+void sceneAccelStretch::beginScene() {
+    sceneFingerStretch::beginScene();
+    isPlaying = true;
+}
+

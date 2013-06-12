@@ -233,11 +233,7 @@ public:
 	DRSmaxiPitchStretch(maxiSample *sample) : sample(sample) {
 		grainPlayer = new DRSmaxiGrainPlayer<T>(sample);
 		randomOffset=0.0;
-        loopStart = 0.0;
-        loopEnd = sample->length;
-        loopLength =sample->length;
-		position=0.0;
-        looper = 0.0;
+        loopWholeSample();
 	}
     
     T getNormalisedPosition() {
@@ -263,6 +259,14 @@ public:
         loopLength = loopEnd - loopStart;
     }
 	
+    void loopWholeSample() {
+        loopStart = 0.0;
+        loopEnd = sample->length;
+        loopLength =sample->length;
+		position=0.0;
+        looper = 0.0;
+    }
+    
 	~DRSmaxiPitchStretch() {
 		delete grainPlayer;
 	}

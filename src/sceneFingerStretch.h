@@ -23,7 +23,7 @@ public:
     void setup(sharedDataContainer *data);
     float getNextSample();
     string getTitle() {return "Time Stretch";}
-    
+    void beginScene();
 protected:
     grainPlayerType *pitchStretch;
 };

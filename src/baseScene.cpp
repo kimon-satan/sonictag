@@ -17,20 +17,22 @@ EAIT::Counter<int> baseScene::sceneIDCounter(1000);
 void baseScene::setup(sharedDataContainer *data) {
     sharedData = data;
     enabled = false;
-    EAVIGUI::Label *title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100, 
+    nbConnected = false;  
+    EAVIGUI::Label *title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
                                                &EAVIGUI::InterfaceManager::fontList["titles"],
                                                getTitle(),
                                                ofColor(0,255,0));
     title->setRelativePositioning(0.01, 0.01);
     title->setAnchorPoint(0, 0);
     interface.push_back(title);
-    EAVIGUI::Label *subtitle = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100, 
-                                               &EAVIGUI::InterfaceManager::fontList["subtitles"],
-                                               getSubTitle(),
-                                               ofColor(0,100,255));
-    subtitle->setRelativePositioning(0.01, 0.95);
-    subtitle->setAnchorPoint(0, 0);
-    interface.push_back(subtitle);
+//    EAVIGUI::Label *subtitle = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100, 
+//                                               &EAVIGUI::InterfaceManager::fontList["subtitles"],
+//                                               getSubTitle(),
+//                                               ofColor(0,100,255));
+//    subtitle->setRelativePositioning(0.01, 0.95);
+//    subtitle->setAnchorPoint(0, 0);
+//    interface.push_back(subtitle);
+
     EAVIGUI::InterfaceManager::addObjects(interface);
     sceneID = sceneIDCounter.next();
     currentOrientation=1;
