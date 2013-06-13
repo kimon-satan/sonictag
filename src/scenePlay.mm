@@ -70,6 +70,8 @@ void scenePlay::audioRequested( float * output, int bufferSize, int nChannels ) 
             }else{
                 output[i] = sharedData->buffer.playOnce();
             }
+//            output[i] = compressor.compressor(output[i], 2, 0.7, 0.01, 0.99);
+
         }
     }
 }

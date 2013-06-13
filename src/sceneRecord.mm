@@ -92,6 +92,7 @@ void sceneRecord::audioIn( float * input, int bufferSize, int nChannels ) {
         ampValAvg = ampVal/bufferSize;
         recordCounter -= bufferSize;
         if (recordCounter <= 0 && armedRecord) {
+            recording = false;
             finaliseRecording();            
         }
     }
@@ -175,7 +176,8 @@ void sceneRecord::touchUp(ofTouchEventArgs &touch){
             if (!recordingArmed && !recording)
                 recordingArmed = true;
         }else{
-            finaliseRecording();
+            if (recording)
+                finaliseRecording();
         }
     }
 }

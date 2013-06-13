@@ -306,6 +306,7 @@ void SonicTag3App::audioIn( float * input, int bufferSize, int nChannels ) {
 
 //--------------------------------------------------------------
 void SonicTag3App::exit(){
+    ofSoundStreamStop();
     sharedData.buffer.save(autoSaveName.str());
     cout << "Autosaved\n";
     log::save();

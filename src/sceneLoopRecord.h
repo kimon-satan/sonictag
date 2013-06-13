@@ -10,7 +10,6 @@
 #define sonicTag2_sceneLoopRecord_h
 
 #include "baseScene.h"
-#include "ofxMaxim.h"
 #include "visualiser.h"
 
 class sceneLoopRecord : public baseScene {
@@ -29,7 +28,6 @@ public:
     void endScene();
     virtual float getNextSample();
     string getTitle() {return "Loop Record";}  
-    maxiDyn compressor;
 protected:
     int clearCount;
     bool isRecording, isPlaying;

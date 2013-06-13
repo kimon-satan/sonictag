@@ -19,7 +19,7 @@ void sceneFilterPlay::setup(sharedDataContainer *data) {
 
     baseScene::setup(data);
     
-    freq = 10000;
+    freq = 200;
     res = 0.5;
 }
 
@@ -35,14 +35,13 @@ void sceneFilterPlay::setup(sharedDataContainer *data) {
 
 void sceneFilterPlay::update() {
     baseScene::update();
-//    cout << surface->getAngle() << ", " << surface->getDistToCenter() << endl;
-    freq = maxiMap::linexp(surface->getAngle(), 0.00001, PI * 2.0, 20, 10000);
+    freq = maxiMap::linexp(surface->getAngle(), 0.01, PI * 2.0, 200, 10000);
     res = maxiMap::linlin(surface->getDistToCenter(), 0, 400, 0, 1.0);
+    cout << surface->getDistToCenter() << ", " << freq << ", " << res << endl;
 }
 
 
 void sceneFilterPlay::audioRequested( float * output, int bufferSize, int nChannels ) {
-    memset(output, 0, sizeof(float) * bufferSize * nChannels);
     for(int i=0; i<bufferSize; i++) {
         output[i] = sharedData->buffer.play();
         output[i] = filt.lores(output[i], freq, res);

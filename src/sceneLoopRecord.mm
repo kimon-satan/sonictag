@@ -32,7 +32,7 @@ void sceneLoopRecord::draw() {
 }
 
 float sceneLoopRecord::getNextSample() {
-    return compressor.compressor(sharedData->buffer.play(1), 0.8) * 2.0;    
+    return sharedData->buffer.play(1);;
 }
 
 
@@ -41,6 +41,7 @@ void sceneLoopRecord::audioRequested( float * output, int bufferSize, int nChann
         //play buffer
         for (int i=0; i < bufferSize; i++) {
             output[i] = getNextSample();
+//            output[i] = compressor.compressor(output[i], 2, 0.7, 0.01, 0.99);
         }
     }else{
         memset(output, 0, sizeof(float) * bufferSize * nChannels);

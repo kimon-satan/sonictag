@@ -39,6 +39,6 @@ void sceneFXPlay2::audioRequested( float * output, int bufferSize, int nChannels
     memset(output, 0, sizeof(float) * bufferSize * nChannels);
     for(int i=0; i<bufferSize; i++) {
         output[i] = sharedData->buffer.play();
-        output[i] = flange.flange(output[i], 800, sigAvg1, sigAvg2 * 30, min(1.0f, sigAvg3 * 2)) * 0.5;
+        output[i] = flange.flange(output[i], 800, sigAvg1, sigAvg2 * 30, min(1.0f, sigAvg3 * 2)) * 0.9;
     }
 }

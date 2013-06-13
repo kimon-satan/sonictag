@@ -31,6 +31,9 @@ namespace EAVIGUI {
         settings.useStencil		= false;
         fbo1.allocate(settings);
         fbo2.allocate(settings);
+        velocity=0;
+        distToCenter = 0;
+        angle = 0;
         
     }
         
@@ -105,9 +108,9 @@ namespace EAVIGUI {
             touchY = touch.y;
             distToCenter = distB;
             angle = geom::angleBetween(touch.x, touch.y, w/2.0, h/2.0) + PI;
+            invalidate();
+            sendCallback(InterfaceObject::TOUCHMOVED);
         }
-        invalidate();
-        sendCallback(InterfaceObject::TOUCHMOVED);
     }
     
     

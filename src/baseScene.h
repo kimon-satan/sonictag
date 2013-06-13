@@ -19,6 +19,8 @@
 #include "interfaceManager.h"
 #include "EAIT.h"
 #include "audioProcessor.h"
+#include "ofxMaxim.h"
+
 
 class baseScene : public EAVIGUI::InterfaceListener {
 public:
@@ -47,6 +49,7 @@ public:
     virtual bool canProgress();
     int currentOrientation, prevoiusOrientation;
     virtual void updateBLEVals(vector<float> newVals, float sigAvg) {bleVals = newVals; nbConnected = true;}
+    maxiDyn compressor;
     
 protected:
     audioProcessor* currAudioProcessor;
