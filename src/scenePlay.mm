@@ -17,13 +17,13 @@ void scenePlay::setup(sharedDataContainer *data) {
     mfccVis->setRelativePositioning(0.5, -mfccVis->getScaledWidth() / 2.0, 0.5, -mfccVis->getScaledHeight() / 2.0);
     interface.push_back(mfccVis);
 
-    histBackBtn = (new EAVIGUI::ImageButton(this, HISTBACK, 0, 0, "undo.png"));
+    histBackBtn = (new EAVIGUI::ImageButton(this, HISTBACK, 0, 0, "undo.png", "undo.png"));
     histBackBtn->setRelativePositioning(0.25, 0, 0.1, 0);
     histBackBtn->setAnchorPoint(0, 0);
     histBackBtn->fadeTime = 100;
     interface.push_back(histBackBtn);
 
-    histForwardBtn = (new EAVIGUI::ImageButton(this, HISTFORWARD, 0, 0, "redo.png"));
+    histForwardBtn = (new EAVIGUI::ImageButton(this, HISTFORWARD, 0, 0, "redo.png", "redo.png"));
     histForwardBtn->setRelativePositioning(0.75, -histForwardBtn->getScaledWidth(), 0.1, 0);
     histForwardBtn->setAnchorPoint(0, 0);
     histForwardBtn->fadeTime = 100;
@@ -45,6 +45,18 @@ void scenePlay::setup(sharedDataContainer *data) {
     redoPos.y = 70;
     
     showUndoRedo = false;
+    nbEnergyTrigger = EAIT::BasicTriggerF(0.05, 0.03, 20);
+
+}
+
+
+void scenePlay::updateBLEVals(vector<float> newVals, float sigAvg) {
+    cout << sigAvg << endl;
+    nbEnergyTrigger.newFrame(sigAvg);
+    if (nbEnergyTrigger.justTriggered()) {
+        cout << "Trig" << endl;
+        play();
+    }
 }
 
 void scenePlay::update() {
@@ -122,28 +134,39 @@ void scenePlay::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interface
         case EAVIGUI::InterfaceObject::TOUCHUP:
             switch(id) {
                 case VISUALISER:
-                    if (loop) {
-                        if (playing) {
-                            playing = false;
-                        }else{
-                            pos = 0;
-                            playing = true;
-                            cout << "Playing\n";
-                            sharedData->buffer.trigger();
-                            if (loop)
-                                cout << "Loop\n";
-                        }
-                    }else{
-                        pos = 0;
-                        playing = true;
-                        cout << "Playing\n";
-                        sharedData->buffer.trigger();
-                        if (loop)
-                            cout << "Loop\n";
-                    }
+                    play();
                     break;
             };
             break;
         
     }
+}
+
+void scenePlay::play() {
+    if (loop) {
+        if (playing) {
+            playing = false;
+        }else{
+            pos = 0;
+            playing = true;
+            cout << "Playing\n";
+            sharedData->buffer.trigger();
+            if (loop)
+                cout << "Loop\n";
+        }
+    }else{
+        pos = 0;
+        playing = true;
+        cout << "Playing\n";
+        sharedData->buffer.trigger();
+        if (loop)
+            cout << "Loop\n";
+    }
+    
+}
+
+
+void scenePlay::setLooped(bool newValue) {
+    loop = newValue;
+    updateTitle();
 }

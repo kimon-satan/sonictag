@@ -50,6 +50,7 @@ public:
     int currentOrientation, prevoiusOrientation;
     virtual void updateBLEVals(vector<float> newVals, float sigAvg) {bleVals = newVals; nbConnected = true;}
     maxiDyn compressor;
+    virtual void updateTitle() {title->setText(getTitle());};
     
 protected:
     audioProcessor* currAudioProcessor;
@@ -60,6 +61,7 @@ protected:
     int sceneID;
     vector<float> bleVals;
     bool nbConnected;  //noise bear connected?
+    EAVIGUI::Label *title;
 
 };
 

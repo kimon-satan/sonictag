@@ -18,8 +18,8 @@ public:
     void update();
     void draw();
     float getNextSample();
-    string getTitle() {return string("Motion Time Stretch").append(motionTriggering ? " (trig)" : "");}        
-    bool motionTriggering;
+    string getTitle() {return string("Motion Time Stretch").append(motionTriggering ? " (trig) " : "");}
+    void setMotionTriggering(bool newVal);
     void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);
 	void touchUp(ofTouchEventArgs &touch);
@@ -28,6 +28,7 @@ public:
     void setThreshold(float thresh);
     
 protected:
+    bool motionTriggering;
     float lastX, lastY, lastZ;
     float rateVal, pitchVal;
     EAIT::MovingAverageF accelTotalMA, ampMA, pitchMA;

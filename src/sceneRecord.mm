@@ -21,7 +21,7 @@ void sceneRecord::setup(sharedDataContainer *data) {
     recordCounter = 0;
     initRecording();
     playing = false;
-    nbEnergyTrigger = EAIT::BasicTriggerF(0.3, 0.2, 5);
+    nbEnergyTrigger = EAIT::BasicTriggerF(0.05, 0.03, 20);
 }
 
 void sceneRecord::update() {
@@ -30,9 +30,31 @@ void sceneRecord::update() {
 
 void sceneRecord::updateBLEVals(vector<float> newVals, float sigAvg) {
     cout << sigAvg << endl;
-    bool trig = nbEnergyTrigger.newFrame(sigAvg);
+    nbEnergyTrigger.newFrame(sigAvg);
+    if (nbEnergyTrigger.justTriggered()) {
+        cout << "Trig" << endl;
+        if (!recording) {
+            playing = false;
+            initialiseRecording();
+        }
+        else if (recording || recordingArmed){
+            //recording already
+            if (recordingArmed)
+                recordingArmed = false;
+            else{
+                //stop recording
+                finaliseRecording();
+//                sharedData->buffer.trigger();
+//                playing = true;
+            }
+        }
+    }
 }
 
+void sceneRecord::armRecording() {
+    if (!recordingArmed && !recording)
+        recordingArmed = true;
+}
 
 void sceneRecord::draw() {
     
@@ -173,8 +195,7 @@ void sceneRecord::finaliseRecording() {
 void sceneRecord::touchUp(ofTouchEventArgs &touch){    
     if (0 == touch.id) {
         if (armedRecord) {
-            if (!recordingArmed && !recording)
-                recordingArmed = true;
+            armRecording();
         }else{
             if (recording)
                 finaliseRecording();

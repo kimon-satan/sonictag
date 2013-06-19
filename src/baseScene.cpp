@@ -18,7 +18,7 @@ void baseScene::setup(sharedDataContainer *data) {
     sharedData = data;
     enabled = false;
     nbConnected = false;  
-    EAVIGUI::Label *title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
+    title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
                                                &EAVIGUI::InterfaceManager::fontList["titles"],
                                                getTitle(),
                                                ofColor(0,255,0));

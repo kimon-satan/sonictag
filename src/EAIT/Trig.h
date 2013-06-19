@@ -10,7 +10,7 @@
 
 
 namespace EAIT {
-    
+
     template <class T>
     class BasicTrigger {
     public:
@@ -18,11 +18,12 @@ namespace EAIT {
             WAITING, INBEAT
         };
         beatPhases phase;
-        BasicTrigger():onThreshold(0.5), offThreshold(0.4), holdTime(2) {reset();}
+        BasicTrigger():onThreshold(0.5), offThreshold(0.4), holdTime(2), holdCount(2) {reset();}
         BasicTrigger(T onThreshold, T offThreshold, int holdTime)
-        :onThreshold(onThreshold), offThreshold(offThreshold), holdTime(holdTime) {reset();}
-
+        :onThreshold(onThreshold), offThreshold(offThreshold), holdTime(holdTime), holdCount(holdTime) {reset();}
+        
         bool newFrame(T sig) {
+            trigChanged = false;
             bool isBeat = false;
             holdCount++;
             switch(phase) {
@@ -32,6 +33,7 @@ namespace EAIT {
                             isBeat = true;
                             phase = INBEAT;
                             holdCount = 0;
+                            trigChanged = true;
                         }
                     }
                     break;
@@ -44,16 +46,20 @@ namespace EAIT {
             return phase == INBEAT;
             
         }
-
+        
         void reset() {
             phase = WAITING;
-            holdCount = 99999999999;
+            holdCount = holdTime;
         }
         
         T onThreshold, offThreshold;
+        inline bool justTriggered() {
+            return trigChanged;
+        }
     protected:
         int holdTime;
         int holdCount;
+        bool trigChanged;
     };
 
     typedef BasicTrigger<float> BasicTriggerF;

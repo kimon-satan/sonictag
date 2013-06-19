@@ -30,17 +30,22 @@ public:
     void beginScene();
     void endScene();
     string getTitle() {return string("Play").append(loop ? " looped" : "");}
-    bool loop;
+    void setLooped(bool newValue);
     ofImage undo, redo;
     ofPoint undoPos, redoPos;
     void setUndoRedoVisibility(bool show);
     void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
+    void updateBLEVals(vector<float> newVals, float sigAvg);
 
 protected:
+    void play();
+    bool loop;
     bool showUndoRedo;
     EAVIGUI::MfccVisualiser *mfccVis;
     EAVIGUI::ImageButton *histBackBtn, *histForwardBtn;
     enum GUIDS {HISTBACK, HISTFORWARD, VISUALISER};
+    EAIT::BasicTriggerF nbEnergyTrigger;
+    
 
 private:
     int pos;

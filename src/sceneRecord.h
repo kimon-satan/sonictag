@@ -30,7 +30,8 @@ public:
     bool armedRecord;
     void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
     void updateBLEVals(vector<float> newVals, float sigAvg);
-
+    void armRecording();
+    
 protected:
     EAIT::BasicTriggerF nbEnergyTrigger;
 private:

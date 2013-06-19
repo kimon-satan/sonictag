@@ -103,3 +103,7 @@ void sceneAccelStretch::beginScene() {
     isPlaying = true;
 }
 
+void sceneAccelStretch::setMotionTriggering(bool newVal) {
+    motionTriggering = newVal;
+    updateTitle();
+}

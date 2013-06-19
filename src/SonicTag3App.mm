@@ -25,7 +25,7 @@
 const int trigTime = 50;
 
 static void notificationHandler(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-    cout << "Nofitifcation received\n";
+//    cout << "Nofitifcation received\n";
     (static_cast<SonicTag3App *>(observer))->onValueUpdate();
 }
 
@@ -135,28 +135,28 @@ void SonicTag3App::setup(){
     }
     
     navButtonSize = 90;
-    navLeftArrow = (new EAVIGUI::ImageButton(this, LEFTARROW, 0, 0, "arrowleftS.png"));
+    navLeftArrow = (new EAVIGUI::ImageButton(this, LEFTARROW, 0, 0, "arrowleftS.png", "arrowleftS.png"));
     navLeftArrow->setRelativePositioning(0, 0, 0.5, -(navLeftArrow->getScaledHeight() / 2.0));
     navLeftArrow->setAnchorPoint(0, 0);
     navLeftArrow->pulsate = true;
     navLeftArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navLeftArrow);
     
-    navRightArrow = new EAVIGUI::ImageButton(this, RIGHTARROW, 0, 0, "arrowrightS.png");
+    navRightArrow = new EAVIGUI::ImageButton(this, RIGHTARROW, 0, 0, "arrowrightS.png", "arrowrightS.png");
     navRightArrow->setRelativePositioning(1.0, -navRightArrow->getScaledWidth(), 0.5, -(navRightArrow->getScaledHeight() / 2.0));
     navRightArrow->setAnchorPoint(0, 0);
     navRightArrow->pulsate = true;
     navRightArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navRightArrow);
     
-    navUpArrow = new EAVIGUI::ImageButton(this, UPARROW, 0, 0, "arrowupS.png");
+    navUpArrow = new EAVIGUI::ImageButton(this, UPARROW, 0, 0, "arrowupS.png", "arrowupS.png");
     navUpArrow->setRelativePositioning(0.5, -(navUpArrow->getScaledWidth()/2.0), 0, 0);
     navUpArrow->setAnchorPoint(0, 0);
     navUpArrow->pulsate = true;
     navUpArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navUpArrow);
     
-    navDownArrow = new EAVIGUI::ImageButton(this, DOWNARROW, 0, 0, "arrowdownS.png");
+    navDownArrow = new EAVIGUI::ImageButton(this, DOWNARROW, 0, 0, "arrowdownS.png", "arrowdownS.png");
     navDownArrow->setRelativePositioning(0.5, -(navDownArrow->getScaledWidth() / 2.0), 1.0, -navDownArrow->getScaledHeight());
     navDownArrow->setAnchorPoint(0, 0);
     navDownArrow->pulsate = true;
@@ -164,22 +164,22 @@ void SonicTag3App::setup(){
     EAVIGUI::InterfaceManager::addObject(navDownArrow);
 
     //TODO: fix this hack!
-    ((scenePlay*)grid[1][1])->loop = true;
-    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
+//    ((scenePlay*)grid[1][1])setLooped(true);
+//    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
+//    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
+//    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
 
     EAVIGUI::InterfaceManager::setup();
     updateScene(gridX, gridY);
     
-    ((scenePlay*)grid[1][1])->loop = true;
-    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
+    ((scenePlay*)grid[1][1])->setLooped(true);
+    ((sceneAccelStretch*) grid[2][2])->setMotionTriggering(true);
+    ((sceneAccelStretch*) grid[3][2])->setMotionTriggering(true);
+    ((sceneAccelStretch*) grid[4][2])->setMotionTriggering(true);
 
-    ((sceneAccelStretch*) grid[2][3])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[3][3])->motionTriggering = true;
-    ((sceneAccelStretch*) grid[4][3])->motionTriggering = true;
+    ((sceneAccelStretch*) grid[2][3])->setMotionTriggering(true);
+    ((sceneAccelStretch*) grid[3][3])->setMotionTriggering(true);
+    ((sceneAccelStretch*) grid[4][3])->setMotionTriggering(true);
     
     ((sceneAccelStretch*) grid[2][2])->setThreshold(0.08);
     ((sceneAccelStretch*) grid[3][2])->setThreshold(0.08);
@@ -197,8 +197,10 @@ void SonicTag3App::setup(){
     for(int i=0; i < NUMNBSTREAMS; i++) {
         bleMA[i].resize(3);
     }
-//    scanner = [[BLEScanner alloc] init];
-//    [scanner startScanning];
+#ifdef SQUEEZABLES
+    scanner = [[BLEScanner alloc] init];
+    [scanner startScanning];
+#endif
 
 
 }
