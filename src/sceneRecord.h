@@ -13,6 +13,7 @@
 #include "ofxMaxim.h"
 #include "ofMain.h"
 #include "EAIT.h"
+#include "recordVisualiser.h"
 
 class sceneRecord : public baseScene {
 public:
@@ -34,6 +35,7 @@ public:
     
 protected:
     EAIT::BasicTriggerF nbEnergyTrigger;
+    EAVIGUI::RecordVisualiser *recvis;
 private:
     void initRecording();
     bool recording;

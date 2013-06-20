@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-#include "interfaceObject.h"
+#include "EAVIGUI.interfaceObject.h"
 #include <iostream>
 #include "sharedData.h"
 

@@ -14,18 +14,26 @@
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		83039CD91771EF9B00A4BCFF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 83039CC91771EF9B00A4BCFF /* .gitignore */; };
 		83039CDA1771EF9B00A4BCFF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 83039CCA1771EF9B00A4BCFF /* README.md */; };
-		83039CDB1771EF9B00A4BCFF /* baseEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CCC1771EF9B00A4BCFF /* baseEffect.cpp */; };
-		83039CDC1771EF9B00A4BCFF /* highLightEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CCF1771EF9B00A4BCFF /* highLightEffect.cpp */; };
-		83039CDD1771EF9B00A4BCFF /* imageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD11771EF9B00A4BCFF /* imageButton.cpp */; };
-		83039CDE1771EF9B00A4BCFF /* interfaceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD31771EF9B00A4BCFF /* interfaceManager.cpp */; };
-		83039CDF1771EF9B00A4BCFF /* interfaceObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD51771EF9B00A4BCFF /* interfaceObject.cpp */; };
-		83039CE01771EF9B00A4BCFF /* label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD71771EF9B00A4BCFF /* label.cpp */; };
+		83039CDB1771EF9B00A4BCFF /* EAVIGUI.baseEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CCC1771EF9B00A4BCFF /* EAVIGUI.baseEffect.cpp */; };
+		83039CDC1771EF9B00A4BCFF /* EAVIGUI.highLightEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CCF1771EF9B00A4BCFF /* EAVIGUI.highLightEffect.cpp */; };
+		83039CDD1771EF9B00A4BCFF /* EAVIGUI.imageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD11771EF9B00A4BCFF /* EAVIGUI.imageButton.cpp */; };
+		83039CDE1771EF9B00A4BCFF /* EAVIGUI.interfaceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD31771EF9B00A4BCFF /* EAVIGUI.interfaceManager.cpp */; };
+		83039CDF1771EF9B00A4BCFF /* EAVIGUI.interfaceObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD51771EF9B00A4BCFF /* EAVIGUI.interfaceObject.cpp */; };
+		83039CE01771EF9B00A4BCFF /* EAVIGUI.label.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83039CD71771EF9B00A4BCFF /* EAVIGUI.label.cpp */; };
 		8336000C1768E9A000FFD068 /* sceneHPFilterPlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600071768E97F00FFD068 /* sceneHPFilterPlay.mm */; };
 		8336000D1768E9A000FFD068 /* sceneFXPlay1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600091768E99100FFD068 /* sceneFXPlay1.mm */; };
 		8336000E1768E9A000FFD068 /* sceneFXPlay2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8336000B1768E99D00FFD068 /* sceneFXPlay2.mm */; };
 		833600111768E9D700FFD068 /* sceneFilterPlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 833600101768E9D300FFD068 /* sceneFilterPlay.mm */; };
 		8342DC7F1614A12B00BD17A1 /* EAIT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8342DC211614A12B00BD17A1 /* EAIT.cpp */; };
 		8342DC801614A12B00BD17A1 /* Trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8342DC241614A12B00BD17A1 /* Trig.cpp */; };
+		8345A3A01771F63100A9D309 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8345A39F1771F63100A9D309 /* Default.png */; };
+		8345A3A21771F64600A9D309 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8345A3A11771F64600A9D309 /* Icon.png */; };
+		8345A3A41771F80700A9D309 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8345A3A31771F80700A9D309 /* icon72.png */; };
+		8345A3A61771F80C00A9D309 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = 8345A3A51771F80C00A9D309 /* icon144.png */; };
+		8345A3AA17731CB400A9D309 /* supervisorMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8345A3A817731CB400A9D309 /* supervisorMenu.cpp */; };
+		8345A3AE17731DAB00A9D309 /* EAVIGUI.panel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8345A3AC17731DAB00A9D309 /* EAVIGUI.panel.cpp */; };
+		8345A3B117733D5700A9D309 /* EAVIGUI.checkbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8345A3AF17733D5500A9D309 /* EAVIGUI.checkbox.cpp */; };
+		8345A3B517735DAA00A9D309 /* recordVisualiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8345A3B317735DA900A9D309 /* recordVisualiser.cpp */; };
 		8378A47C15E2507E00A92A95 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8378A46415E2507E00A92A95 /* fft.cpp */; };
 		8378A47D15E2507E00A92A95 /* maxiAtoms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8378A46615E2507E00A92A95 /* maxiAtoms.cpp */; };
 		8378A47E15E2507E00A92A95 /* maxiFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8378A46815E2507E00A92A95 /* maxiFFT.cpp */; };
@@ -40,7 +48,6 @@
 		83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473411761E0CA0008C273 /* baseScene.cpp */; };
 		83E4734B1761E0CA0008C273 /* circularDial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473431761E0CA0008C273 /* circularDial.cpp */; };
 		83E4734C1761E0CA0008C273 /* SonicTag3App.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473461761E0CA0008C273 /* SonicTag3App.mm */; };
-		83E473651761E29D0008C273 /* labelButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4735D1761E29D0008C273 /* labelButton.cpp */; };
 		83E473661761E29D0008C273 /* MfccVisualiser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4735F1761E29D0008C273 /* MfccVisualiser.cpp */; };
 		83E473901761E2CC0008C273 /* log.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4736B1761E2CC0008C273 /* log.mm */; };
 		83E473911761E2CC0008C273 /* RadialScratchSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */; };
@@ -107,19 +114,19 @@
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		83039CC91771EF9B00A4BCFF /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		83039CCA1771EF9B00A4BCFF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		83039CCC1771EF9B00A4BCFF /* baseEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseEffect.cpp; sourceTree = "<group>"; };
-		83039CCD1771EF9B00A4BCFF /* baseEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseEffect.h; sourceTree = "<group>"; };
-		83039CCE1771EF9B00A4BCFF /* geomFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = geomFunctions.h; sourceTree = "<group>"; };
-		83039CCF1771EF9B00A4BCFF /* highLightEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = highLightEffect.cpp; sourceTree = "<group>"; };
-		83039CD01771EF9B00A4BCFF /* highLightEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = highLightEffect.h; sourceTree = "<group>"; };
-		83039CD11771EF9B00A4BCFF /* imageButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageButton.cpp; sourceTree = "<group>"; };
-		83039CD21771EF9B00A4BCFF /* imageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageButton.h; sourceTree = "<group>"; };
-		83039CD31771EF9B00A4BCFF /* interfaceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interfaceManager.cpp; sourceTree = "<group>"; };
-		83039CD41771EF9B00A4BCFF /* interfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interfaceManager.h; sourceTree = "<group>"; };
-		83039CD51771EF9B00A4BCFF /* interfaceObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interfaceObject.cpp; sourceTree = "<group>"; };
-		83039CD61771EF9B00A4BCFF /* interfaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interfaceObject.h; sourceTree = "<group>"; };
-		83039CD71771EF9B00A4BCFF /* label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = label.cpp; sourceTree = "<group>"; };
-		83039CD81771EF9B00A4BCFF /* label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = label.h; sourceTree = "<group>"; };
+		83039CCC1771EF9B00A4BCFF /* EAVIGUI.baseEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.baseEffect.cpp; sourceTree = "<group>"; };
+		83039CCD1771EF9B00A4BCFF /* EAVIGUI.baseEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.baseEffect.h; sourceTree = "<group>"; };
+		83039CCE1771EF9B00A4BCFF /* EAVIGUI.geomFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.geomFunctions.h; sourceTree = "<group>"; };
+		83039CCF1771EF9B00A4BCFF /* EAVIGUI.highLightEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.highLightEffect.cpp; sourceTree = "<group>"; };
+		83039CD01771EF9B00A4BCFF /* EAVIGUI.highLightEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.highLightEffect.h; sourceTree = "<group>"; };
+		83039CD11771EF9B00A4BCFF /* EAVIGUI.imageButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.imageButton.cpp; sourceTree = "<group>"; };
+		83039CD21771EF9B00A4BCFF /* EAVIGUI.imageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.imageButton.h; sourceTree = "<group>"; };
+		83039CD31771EF9B00A4BCFF /* EAVIGUI.interfaceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.interfaceManager.cpp; sourceTree = "<group>"; };
+		83039CD41771EF9B00A4BCFF /* EAVIGUI.interfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.interfaceManager.h; sourceTree = "<group>"; };
+		83039CD51771EF9B00A4BCFF /* EAVIGUI.interfaceObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.interfaceObject.cpp; sourceTree = "<group>"; };
+		83039CD61771EF9B00A4BCFF /* EAVIGUI.interfaceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.interfaceObject.h; sourceTree = "<group>"; };
+		83039CD71771EF9B00A4BCFF /* EAVIGUI.label.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.label.cpp; sourceTree = "<group>"; };
+		83039CD81771EF9B00A4BCFF /* EAVIGUI.label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.label.h; sourceTree = "<group>"; };
 		833600061768E97900FFD068 /* sceneHPFilterPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneHPFilterPlay.h; sourceTree = "<group>"; };
 		833600071768E97F00FFD068 /* sceneHPFilterPlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneHPFilterPlay.mm; sourceTree = "<group>"; };
 		833600081768E98500FFD068 /* sceneFXPlay1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFXPlay1.h; sourceTree = "<group>"; };
@@ -133,6 +140,18 @@
 		8342DC231614A12B00BD17A1 /* Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smoothing.h; sourceTree = "<group>"; };
 		8342DC241614A12B00BD17A1 /* Trig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trig.cpp; sourceTree = "<group>"; };
 		8342DC251614A12B00BD17A1 /* Trig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trig.h; sourceTree = "<group>"; };
+		8345A39F1771F63100A9D309 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8345A3A11771F64600A9D309 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8345A3A31771F80700A9D309 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		8345A3A51771F80C00A9D309 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		8345A3A817731CB400A9D309 /* supervisorMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = supervisorMenu.cpp; sourceTree = "<group>"; };
+		8345A3A917731CB400A9D309 /* supervisorMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = supervisorMenu.h; sourceTree = "<group>"; };
+		8345A3AC17731DAB00A9D309 /* EAVIGUI.panel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.panel.cpp; sourceTree = "<group>"; };
+		8345A3AD17731DAB00A9D309 /* EAVIGUI.panel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.panel.h; sourceTree = "<group>"; };
+		8345A3AF17733D5500A9D309 /* EAVIGUI.checkbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EAVIGUI.checkbox.cpp; sourceTree = "<group>"; };
+		8345A3B017733D5600A9D309 /* EAVIGUI.checkbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAVIGUI.checkbox.h; sourceTree = "<group>"; };
+		8345A3B317735DA900A9D309 /* recordVisualiser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = recordVisualiser.cpp; sourceTree = "<group>"; };
+		8345A3B417735DA900A9D309 /* recordVisualiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recordVisualiser.h; sourceTree = "<group>"; };
 		8378A46415E2507E00A92A95 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
 		8378A46515E2507E00A92A95 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
 		8378A46615E2507E00A92A95 /* maxiAtoms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = maxiAtoms.cpp; sourceTree = "<group>"; };
@@ -164,8 +183,6 @@
 		83E473451761E0CA0008C273 /* SonicTag3App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SonicTag3App.h; sourceTree = "<group>"; };
 		83E473461761E0CA0008C273 /* SonicTag3App.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SonicTag3App.mm; sourceTree = "<group>"; };
 		83E473471761E0CA0008C273 /* DRSGrains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRSGrains.h; sourceTree = "<group>"; };
-		83E4735D1761E29D0008C273 /* labelButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = labelButton.cpp; sourceTree = "<group>"; };
-		83E4735E1761E29D0008C273 /* labelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = labelButton.h; sourceTree = "<group>"; };
 		83E4735F1761E29D0008C273 /* MfccVisualiser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MfccVisualiser.cpp; sourceTree = "<group>"; };
 		83E473601761E29D0008C273 /* MfccVisualiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MfccVisualiser.h; sourceTree = "<group>"; };
 		83E4736A1761E2CC0008C273 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
@@ -266,6 +283,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8345A3A51771F80C00A9D309 /* icon144.png */,
+				8345A3A31771F80700A9D309 /* icon72.png */,
+				8345A3A11771F64600A9D309 /* Icon.png */,
+				8345A39F1771F63100A9D309 /* Default.png */,
 				83E473B317660C3C0008C273 /* CoreBluetooth.framework */,
 				8378A48415E2515C00A92A95 /* Accelerate.framework */,
 				E4D8936A11527B74007E1F53 /* src */,
@@ -312,19 +333,23 @@
 		83039CCB1771EF9B00A4BCFF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				83039CCC1771EF9B00A4BCFF /* baseEffect.cpp */,
-				83039CCD1771EF9B00A4BCFF /* baseEffect.h */,
-				83039CCE1771EF9B00A4BCFF /* geomFunctions.h */,
-				83039CCF1771EF9B00A4BCFF /* highLightEffect.cpp */,
-				83039CD01771EF9B00A4BCFF /* highLightEffect.h */,
-				83039CD11771EF9B00A4BCFF /* imageButton.cpp */,
-				83039CD21771EF9B00A4BCFF /* imageButton.h */,
-				83039CD31771EF9B00A4BCFF /* interfaceManager.cpp */,
-				83039CD41771EF9B00A4BCFF /* interfaceManager.h */,
-				83039CD51771EF9B00A4BCFF /* interfaceObject.cpp */,
-				83039CD61771EF9B00A4BCFF /* interfaceObject.h */,
-				83039CD71771EF9B00A4BCFF /* label.cpp */,
-				83039CD81771EF9B00A4BCFF /* label.h */,
+				83039CCC1771EF9B00A4BCFF /* EAVIGUI.baseEffect.cpp */,
+				83039CCD1771EF9B00A4BCFF /* EAVIGUI.baseEffect.h */,
+				83039CCE1771EF9B00A4BCFF /* EAVIGUI.geomFunctions.h */,
+				83039CCF1771EF9B00A4BCFF /* EAVIGUI.highLightEffect.cpp */,
+				83039CD01771EF9B00A4BCFF /* EAVIGUI.highLightEffect.h */,
+				83039CD11771EF9B00A4BCFF /* EAVIGUI.imageButton.cpp */,
+				83039CD21771EF9B00A4BCFF /* EAVIGUI.imageButton.h */,
+				83039CD31771EF9B00A4BCFF /* EAVIGUI.interfaceManager.cpp */,
+				83039CD41771EF9B00A4BCFF /* EAVIGUI.interfaceManager.h */,
+				83039CD51771EF9B00A4BCFF /* EAVIGUI.interfaceObject.cpp */,
+				83039CD61771EF9B00A4BCFF /* EAVIGUI.interfaceObject.h */,
+				83039CD71771EF9B00A4BCFF /* EAVIGUI.label.cpp */,
+				83039CD81771EF9B00A4BCFF /* EAVIGUI.label.h */,
+				8345A3AC17731DAB00A9D309 /* EAVIGUI.panel.cpp */,
+				8345A3AD17731DAB00A9D309 /* EAVIGUI.panel.h */,
+				8345A3AF17733D5500A9D309 /* EAVIGUI.checkbox.cpp */,
+				8345A3B017733D5600A9D309 /* EAVIGUI.checkbox.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -335,8 +360,6 @@
 				83E473AC1766099C0008C273 /* BLE */,
 				83E4736A1761E2CC0008C273 /* log.h */,
 				83E4736B1761E2CC0008C273 /* log.mm */,
-				83E4736D1761E2CC0008C273 /* RadialScratchSurface.h */,
-				83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */,
 				83E4736E1761E2CC0008C273 /* sceneAccelPitch.h */,
 				83E4736F1761E2CC0008C273 /* sceneAccelPitch.mm */,
 				83E473701761E2CC0008C273 /* sceneAccelPitchStretch.h */,
@@ -388,6 +411,8 @@
 				83E473421761E0CA0008C273 /* baseScene.h */,
 				83E473451761E0CA0008C273 /* SonicTag3App.h */,
 				83E473461761E0CA0008C273 /* SonicTag3App.mm */,
+				8345A3A917731CB400A9D309 /* supervisorMenu.h */,
+				8345A3A817731CB400A9D309 /* supervisorMenu.cpp */,
 				83E473471761E0CA0008C273 /* DRSGrains.h */,
 				83E473531761E2860008C273 /* GUI */,
 				8342DC201614A12B00BD17A1 /* EAIT */,
@@ -450,12 +475,14 @@
 		83E473531761E2860008C273 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				83E4736D1761E2CC0008C273 /* RadialScratchSurface.h */,
+				83E4736C1761E2CC0008C273 /* RadialScratchSurface.cpp */,
 				83E473431761E0CA0008C273 /* circularDial.cpp */,
 				83E473441761E0CA0008C273 /* circularDial.h */,
-				83E4735D1761E29D0008C273 /* labelButton.cpp */,
-				83E4735E1761E29D0008C273 /* labelButton.h */,
 				83E4735F1761E29D0008C273 /* MfccVisualiser.cpp */,
 				83E473601761E29D0008C273 /* MfccVisualiser.h */,
+				8345A3B317735DA900A9D309 /* recordVisualiser.cpp */,
+				8345A3B417735DA900A9D309 /* recordVisualiser.h */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -540,9 +567,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* SonicTag3 */ = {
+		1D6058900D05DD3D006BFB54 /* SonicTag */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SonicTag3" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SonicTag" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -554,7 +581,7 @@
 			dependencies = (
 				E41D410413B3A11300A75A5D /* PBXTargetDependency */,
 			);
-			name = SonicTag3;
+			name = SonicTag;
 			productName = iPhone;
 			productReference = 1D6058910D05DD3D006BFB54 /* SonicTag3.app */;
 			productType = "com.apple.product-type.application";
@@ -584,7 +611,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* SonicTag3 */,
+				1D6058900D05DD3D006BFB54 /* SonicTag */,
 			);
 		};
 /* End PBXProject section */
@@ -611,6 +638,10 @@
 				E41D3EE613B3906D00A75A5D /* CoreOF.xcconfig in Resources */,
 				83039CD91771EF9B00A4BCFF /* .gitignore in Resources */,
 				83039CDA1771EF9B00A4BCFF /* README.md in Resources */,
+				8345A3A01771F63100A9D309 /* Default.png in Resources */,
+				8345A3A21771F64600A9D309 /* Icon.png in Resources */,
+				8345A3A41771F80700A9D309 /* icon72.png in Resources */,
+				8345A3A61771F80C00A9D309 /* icon144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +684,6 @@
 				83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */,
 				83E4734B1761E0CA0008C273 /* circularDial.cpp in Sources */,
 				83E4734C1761E0CA0008C273 /* SonicTag3App.mm in Sources */,
-				83E473651761E29D0008C273 /* labelButton.cpp in Sources */,
 				83E473661761E29D0008C273 /* MfccVisualiser.cpp in Sources */,
 				83E473901761E2CC0008C273 /* log.mm in Sources */,
 				83E473911761E2CC0008C273 /* RadialScratchSurface.cpp in Sources */,
@@ -679,12 +709,16 @@
 				8336000D1768E9A000FFD068 /* sceneFXPlay1.mm in Sources */,
 				8336000E1768E9A000FFD068 /* sceneFXPlay2.mm in Sources */,
 				833600111768E9D700FFD068 /* sceneFilterPlay.mm in Sources */,
-				83039CDB1771EF9B00A4BCFF /* baseEffect.cpp in Sources */,
-				83039CDC1771EF9B00A4BCFF /* highLightEffect.cpp in Sources */,
-				83039CDD1771EF9B00A4BCFF /* imageButton.cpp in Sources */,
-				83039CDE1771EF9B00A4BCFF /* interfaceManager.cpp in Sources */,
-				83039CDF1771EF9B00A4BCFF /* interfaceObject.cpp in Sources */,
-				83039CE01771EF9B00A4BCFF /* label.cpp in Sources */,
+				83039CDB1771EF9B00A4BCFF /* EAVIGUI.baseEffect.cpp in Sources */,
+				83039CDC1771EF9B00A4BCFF /* EAVIGUI.highLightEffect.cpp in Sources */,
+				83039CDD1771EF9B00A4BCFF /* EAVIGUI.imageButton.cpp in Sources */,
+				83039CDE1771EF9B00A4BCFF /* EAVIGUI.interfaceManager.cpp in Sources */,
+				83039CDF1771EF9B00A4BCFF /* EAVIGUI.interfaceObject.cpp in Sources */,
+				83039CE01771EF9B00A4BCFF /* EAVIGUI.label.cpp in Sources */,
+				8345A3AA17731CB400A9D309 /* supervisorMenu.cpp in Sources */,
+				8345A3AE17731DAB00A9D309 /* EAVIGUI.panel.cpp in Sources */,
+				8345A3B117733D5700A9D309 /* EAVIGUI.checkbox.cpp in Sources */,
+				8345A3B517735DAA00A9D309 /* recordVisualiser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,7 +838,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SonicTag3" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SonicTag" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,

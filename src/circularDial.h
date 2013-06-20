@@ -9,7 +9,7 @@
 #ifndef DRSApp_circularDial_h
 #define DRSApp_circularDial_h
 
-#include "interfaceObject.h"
+#include "EAVIGUI.interfaceObject.h"
 #include <iostream>
 
 using namespace std;

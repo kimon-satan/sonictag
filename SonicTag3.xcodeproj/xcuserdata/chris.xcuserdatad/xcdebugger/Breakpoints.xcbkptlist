@@ -19,11 +19,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "392814097.188505"
+         timestampString = "393438849.334986"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
+         startingLineNumber = "236"
+         endingLineNumber = "236"
          landmarkName = "SonicTag3App::onValueUpdate()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -77,6 +77,136 @@
          startingLineNumber = "15"
          endingLineNumber = "15"
          landmarkName = "sceneHPFilterPlay::audioRequested( float * output, int bufferSize, int nChannels )"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/interfaceManager.cpp"
+         timestampString = "393418077.191769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "258"
+         endingLineNumber = "258"
+         landmarkName = "InterfaceManager::touchMoved(ofTouchEventArgs &amp;touch)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/interfaceManager.cpp"
+         timestampString = "393418077.191769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "259"
+         endingLineNumber = "259"
+         landmarkName = "InterfaceManager::touchMoved(ofTouchEventArgs &amp;touch)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/interfaceManager.cpp"
+         timestampString = "393418077.191769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "260"
+         endingLineNumber = "260"
+         landmarkName = "InterfaceManager::touchMoved(ofTouchEventArgs &amp;touch)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/interfaceManager.cpp"
+         timestampString = "393418077.191769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
+         landmarkName = "InterfaceManager::touchMoved(ofTouchEventArgs &amp;touch)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/interfaceManager.cpp"
+         timestampString = "393418077.191769"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "270"
+         endingLineNumber = "270"
+         landmarkName = "InterfaceManager::touchMoved(ofTouchEventArgs &amp;touch)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/panel.cpp"
+         timestampString = "393427347.789969"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "Panel::drawToBuffer()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../addons/ofxEAVIGUI/src/EAVIGUI.checkbox.cpp"
+         timestampString = "393431355.632398"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "15"
+         endingLineNumber = "15"
+         landmarkName = "CheckBox::CheckBox(InterfaceListener *_listener, int _id, int _x, int _y, int _w, int _h, ofTrueTypeFont *_font, string _text, ofColor _colour)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/supervisorMenu.cpp"
+         timestampString = "393434398.406116"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "supervisorMenu::setup(EAVIGUI::InterfaceListener *callback)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SonicTag3App.mm"
+         timestampString = "393438849.334986"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "460"
+         endingLineNumber = "460"
+         landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "src/SonicTag3App.mm"
+         timestampString = "393438849.334986"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "472"
+         endingLineNumber = "472"
+         landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

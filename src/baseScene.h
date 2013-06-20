@@ -16,7 +16,7 @@
 #endif
 
 #include "log.h"
-#include "interfaceManager.h"
+#include "EAVIGUI.interfaceManager.h"
 #include "EAIT.h"
 #include "audioProcessor.h"
 #include "ofxMaxim.h"

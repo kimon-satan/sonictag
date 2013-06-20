@@ -9,7 +9,7 @@
 #ifndef DRSApp_RadialScratchSurface_h
 #define DRSApp_RadialScratchSurface_h
 
-#include "interfaceObject.h"
+#include "EAVIGUI.interfaceObject.h"
 #include <iostream>
 
 using namespace std;

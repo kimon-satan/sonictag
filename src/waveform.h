@@ -9,7 +9,7 @@
 #ifndef DRSAppOSX_waveform_h
 #define DRSAppOSX_waveform_h
 
-#include "interfaceObject.h"
+#include "EAVIGUI.interfaceObject.h"
 #include <iostream>
 #include "ofxMaxim.h"
 

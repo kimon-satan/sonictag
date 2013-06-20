@@ -94,6 +94,7 @@ void SonicTag3App::setup(){
     gridX = 0;
     gridY = 0;    
     isASceneStartedYet = false;
+    
 
     grid[0][0] = new sceneRecord();
     grid[1][0] = new scenePlay();
@@ -134,6 +135,7 @@ void SonicTag3App::setup(){
         }
     }
     
+    
     navButtonSize = 90;
     navLeftArrow = (new EAVIGUI::ImageButton(this, LEFTARROW, 0, 0, "arrowleftS.png", "arrowleftS.png"));
     navLeftArrow->setRelativePositioning(0, 0, 0.5, -(navLeftArrow->getScaledHeight() / 2.0));
@@ -163,13 +165,37 @@ void SonicTag3App::setup(){
     navDownArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navDownArrow);
 
+    cornerButton1 = new EAVIGUI::ImageButton(this, CORNERBUTTON1, 0, 0, "cornerButton.png", "cornerButtonT.png");
+    cornerButton1->setRelativePositioning(1.0, -cornerButton1->getScaledWidth(), 1.0 , -cornerButton1->getScaledHeight());
+    cornerButton1->setColor(ofColor(255,255,255,170));
+    cornerButton1->setCanTouchTranparency(true);
+    EAVIGUI::InterfaceManager::addObject(cornerButton1);
+    cornerButton1->setVisible(true);
+    cornerButton2 = new EAVIGUI::ImageButton(this, CORNERBUTTON2, 0, 0, "cornerButton.png", "cornerButtonT.png");
+    cornerButton2->setRelativePositioning(0.0, 0.0, 1.0 , -cornerButton2->getScaledHeight());
+    cornerButton2->setColor(ofColor(255,255,255,170));
+    cornerButton2->setCanTouchTranparency(true);
+    EAVIGUI::InterfaceManager::addObject(cornerButton2);
+    cornerButton3 = new EAVIGUI::ImageButton(this, CORNERBUTTON3, 0, 0, "cornerButton.png", "cornerButtonT.png");
+    cornerButton3->setRelativePositioning(1.0, -cornerButton3->getScaledHeight(), 0.0 , 0.0);
+    cornerButton3->setColor(ofColor(255,255,255,170));
+    cornerButton3->setCanTouchTranparency(true);
+    EAVIGUI::InterfaceManager::addObject(cornerButton3);
+    cornerButton4 = new EAVIGUI::ImageButton(this, CORNERBUTTON4, 0, 0, "cornerButton.png", "cornerButtonT.png");
+    cornerButton4->setRelativePositioning(0, 0, 0, 0);
+    cornerButton4->setColor(ofColor(255,255,255,170));
+    cornerButton4->setCanTouchTranparency(true);
+    EAVIGUI::InterfaceManager::addObject(cornerButton4);
+
     //TODO: fix this hack!
 //    ((scenePlay*)grid[1][1])setLooped(true);
 //    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
 //    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
 //    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
 
+    
     EAVIGUI::InterfaceManager::setup();
+    svMenu.setup(this);
     updateScene(gridX, gridY);
     
     ((scenePlay*)grid[1][1])->setLooped(true);
@@ -188,6 +214,7 @@ void SonicTag3App::setup(){
     ((sceneAccelStretch*) grid[2][3])->setThreshold(0.3);
     ((sceneAccelStretch*) grid[3][3])->setThreshold(0.3);
     ((sceneAccelStretch*) grid[4][3])->setThreshold(0.3);
+    
 
     maxiSettings::setup(44100, 1, 1024);
     dcBlockTotal = 0;
@@ -430,29 +457,184 @@ void SonicTag3App::setNavVisibility() {
 }
 
 void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
-    //cout << "Interface event, object " << id << ", event: " << eventTypeId << endl;
-    
-    switch(eventTypeId) {
-        case EAVIGUI::InterfaceObject::TOUCHUP:
-            switch(id) {
-                case LEFTARROW:
-                        updateScene(gridX - 1, gridY);
+    if (eventTypeId != EAVIGUI::InterfaceObject::TOUCHMOVED)
+        cout << "Interface event, object " << id << ", event: " << eventTypeId << endl;
+    switch(id) {
+        case LEFTARROW:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    updateScene(gridX - 1, gridY);
                     break;
-                case RIGHTARROW:
+                default: ;
+            }
+            break;
+        case RIGHTARROW:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
                     updateScene(gridX + 1, gridY);
                     break;
-                case UPARROW:
+                default: ;
+            }
+            break;
+        case UPARROW:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
                     updateScene(gridX, gridY - 1);
                     break;
-                case DOWNARROW:
+                default: ;
+            }
+            break;
+        case DOWNARROW:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
                     updateScene(gridX, gridY + 1);
                     break;
-                case NAVMENU:
+                default: ;
+            }
+            break;
+        case NAVMENU:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
                     updateScene(0,0);
                     break;
+                default: ;
+            }
+            break;
+        case CORNERBUTTON1:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    cornerButton2->setVisible(false);
+                    cornerButton3->setVisible(false);
+                    cornerButton4->setVisible(false);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHDOWN:
+                    cornerButton2->setVisible(true);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHEXIT:
+                    cornerButton2->setVisible(false);
+                    cornerButton3->setVisible(false);
+                    cornerButton4->setVisible(false);
+                    break;
+                default: ;
+            }
+            break;
+        case CORNERBUTTON2:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    cornerButton3->setVisible(false);
+                    cornerButton4->setVisible(false);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHDOWN:
+                    cornerButton3->setVisible(true);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHEXIT:
+                    cornerButton3->setVisible(false);
+                    cornerButton4->setVisible(false);
+                    break;
+                default: ;
+            }
+            break;
+        case CORNERBUTTON3:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    cornerButton4->setVisible(false);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHDOWN:
+                    cornerButton4->setVisible(true);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHEXIT:
+                    cornerButton4->setVisible(false);
+                    break;
+                default: ;
+            }
+            break;
+        case CORNERBUTTON4:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    cout << "Four buttons - touch up\n";
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHDOWN:
+                    cout << "Four buttons pressed\n";
+                    svMenu.setVisible(true);
+                    break;
+                case EAVIGUI::InterfaceObject::TOUCHEXIT:
+                    break;
+                default: ;
             }
             break;
     }
+    
+//    switch(eventTypeId) {
+//        case EAVIGUI::InterfaceObject::TOUCHUP:
+//            switch(id) {
+//                case LEFTARROW:
+//                    updateScene(gridX - 1, gridY);
+//                    break;
+//                case RIGHTARROW:
+//                    updateScene(gridX + 1, gridY);
+//                    break;
+//                case UPARROW:
+//                    updateScene(gridX, gridY - 1);
+//                    break;
+//                case DOWNARROW:
+//                    updateScene(gridX, gridY + 1);
+//                    break;
+//                case NAVMENU:
+//                    updateScene(0,0);
+//                    break;
+//                case CORNERBUTTON1:
+//                    cornerButton2->setVisible(false);
+//                    cornerButton3->setVisible(false);
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON2:
+//                    cornerButton3->setVisible(false);
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON3:
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON4:
+//                    cout << "Four buttons - touch up\n";
+//                    break;
+//            }
+//            break;
+//        case EAVIGUI::InterfaceObject::TOUCHDOWN:
+//            switch(id) {
+//                case CORNERBUTTON1:
+//                    cornerButton2->setVisible(true);
+//                    break;
+//                case CORNERBUTTON2:
+//                    cornerButton3->setVisible(true);
+//                    break;
+//                case CORNERBUTTON3:
+//                    cornerButton4->setVisible(true);
+//                    break;
+//                case CORNERBUTTON4:
+//                    cout << "Four buttons pressed\n";
+//                    svMenu.setVisible(true);
+//                    break;
+//            }
+//            break;
+//        case EAVIGUI::InterfaceObject::TOUCHEXIT:
+//            switch(id) {
+//                case CORNERBUTTON1:
+//                    cornerButton2->setVisible(false);
+//                    cornerButton3->setVisible(false);
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON2:
+//                    cornerButton3->setVisible(false);
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON3:
+//                    cornerButton4->setVisible(false);
+//                    break;
+//                case CORNERBUTTON4:
+//                    break;
+//            }
+//            break;
+//    }
 }
 
 void SonicTag3App::gotMessage(ofMessage& msg) {

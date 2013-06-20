@@ -12,6 +12,10 @@
 #include "audioCatalogue.h"
 
 void sceneRecord::setup(sharedDataContainer *data) {
+    recvis = new EAVIGUI::RecordVisualiser(this, 0, 0, 0, ofGetWidth(), ofGetWidth(), data);
+    recvis->setRelativePositioning(0.5, -recvis->getScaledWidth() / 2.0, 0.5, -recvis->getScaledHeight() / 2.0);
+    interface.push_back(recvis);
+    
     baseScene::setup(data);
     radius = ofGetWidth()/4.0;
     cx = ofGetWidth()/2.0;
@@ -25,6 +29,8 @@ void sceneRecord::setup(sharedDataContainer *data) {
 }
 
 void sceneRecord::update() {
+    float animate = (1 + (3*interpol.lopass(ampValAvg, 0.2)));
+    recvis->setAmp(animate);
     
 }
 
@@ -57,27 +63,6 @@ void sceneRecord::armRecording() {
 }
 
 void sceneRecord::draw() {
-    
-    
-    float animate = (1 + (3*interpol.lopass(ampValAvg, 0.2)));
-    ofEnableSmoothing();
-    ofSetCircleResolution(200);
-    ofBackground(255,255,255);
-    ofFill();
-    if (recordingArmed || recording) {
-        ofSetColor(200,0,0);
-    }else{
-        ofSetColor(0,0,0);
-    }
-    if (recording)
-        markerAngle += 0.03;
-    ofCircle(cx, cy, radius*animate);
-    ofSetColor(255,255,255);
-    ofCircle(cx, cy, 0.7 * radius*animate);
-    float markerWidth = 0.5;
-    float tradius = radius * 1.2 *animate;
-    ofTriangle(cx, cy, cx + (cos(markerAngle) * tradius), cy + (sin(markerAngle) * tradius), 
-               cx + (cos(markerAngle + markerWidth) * tradius), cy + (sin(markerAngle + markerWidth) * tradius));
 }
 
 void sceneRecord::audioRequested( float * output, int bufferSize, int nChannels ) {
@@ -123,21 +108,17 @@ void sceneRecord::audioIn( float * input, int bufferSize, int nChannels ) {
 void sceneRecord::initialiseRecording() {
     sharedData->recordBuffer.clear();
     recording = true;
+    recvis->setRecording(true);
     log::write(log::STARTRECORDING);
 }
 
 
 void sceneRecord::touchDown(ofTouchEventArgs &touch){
-    if (ofDist(touch.x, touch.y, cx, cy) < radius && touch.id == 0) {
-        if (armedRecord) {
-        }else{
-            initialiseRecording();
-        }
-    }
 }
 
 
 void sceneRecord::finaliseRecording() {
+    recvis->setRecording(false);
     recording = false;
     markerAngle = 0;
     if (sharedData->recordBuffer.size() > 44100) {
@@ -193,14 +174,6 @@ void sceneRecord::finaliseRecording() {
 }
 
 void sceneRecord::touchUp(ofTouchEventArgs &touch){    
-    if (0 == touch.id) {
-        if (armedRecord) {
-            armRecording();
-        }else{
-            if (recording)
-                finaliseRecording();
-        }
-    }
 }
 
 void sceneRecord::beginScene() {
@@ -221,4 +194,26 @@ void sceneRecord::endScene() {
 
 void sceneRecord::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
     baseScene::handleInterfaceEvent(id, eventTypeId, object);
+    if (id == recvis->id) {
+        switch(eventTypeId) {
+            case EAVIGUI::InterfaceObject::TOUCHDOWN:
+                if (0 == object->touchArgs->id) {
+                    if (armedRecord) {
+                    }else{
+                        initialiseRecording();
+                    }
+                }
+                break;
+            case EAVIGUI::InterfaceObject::TOUCHUP:
+                if (0 == object->touchArgs->id) {
+                    if (armedRecord) {
+                        armRecording();
+                    }else{
+                        if (recording)
+                            finaliseRecording();
+                    }
+                }
+                break;
+        };
+    }
 }

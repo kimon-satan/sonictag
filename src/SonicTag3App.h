@@ -26,12 +26,14 @@
 #include "baseScene.h"
 #include <tr1/memory> 
 #include "sharedData.h"
-#include "InterfaceManager.h"
+#include "EAVIGUI.InterfaceManager.h"
 #include "DRSGrains.h"
 #include "waveform.h"
 
 #include "BLEScanner.h"
 #include "nbStream.h"
+
+#include "supervisorMenu.h"
 
 //#define LATCHMODE
 
@@ -83,10 +85,12 @@ public:
     
     //GUI
     enum GUIIDS {
-        LEFTARROW, RIGHTARROW, UPARROW, DOWNARROW, NAVMENU, BACKZOOM, WAV
+        LEFTARROW, RIGHTARROW, UPARROW, DOWNARROW, NAVMENU, BACKZOOM, WAV,
+        CORNERBUTTON1, CORNERBUTTON2, CORNERBUTTON3, CORNERBUTTON4
     };
 	void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
     EAVIGUI::ImageButton *navLeftArrow, *navRightArrow, *navUpArrow, *navDownArrow;
+    EAVIGUI::ImageButton *cornerButton1, *cornerButton2, *cornerButton3, *cornerButton4;
     void setNavVisibility();
     
     EAIT::ChangeTriggerI canProgressChange;
@@ -101,6 +105,8 @@ public:
     } appPhase;
     
     int backgroundOrientation;
+    
+    supervisorMenu svMenu;
     
     
     //BLE
