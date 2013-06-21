@@ -15,12 +15,14 @@
 
 class supervisorMenu {
 public:
-    enum uielements {MENUPANEL=10000, LOCKCB};
+    enum uielements {MENUPANEL=10000, LOCKCB, DONEBUTTON};
     void setup(EAVIGUI::InterfaceListener *callback);
     void setVisible(bool vis);
 private:
     EAVIGUI::Panel *menuPanel;
     EAVIGUI::CheckBox *lockcb;
+    EAVIGUI::Label *doneButton;
+    EAVIGUI::InterfaceObjectGroup menuGroup;
     
 };
 

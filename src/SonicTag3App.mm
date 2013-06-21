@@ -551,13 +551,22 @@ void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interf
         case CORNERBUTTON4:
             switch(eventTypeId) {
                 case EAVIGUI::InterfaceObject::TOUCHUP:
-                    cout << "Four buttons - touch up\n";
                     break;
                 case EAVIGUI::InterfaceObject::TOUCHDOWN:
-                    cout << "Four buttons pressed\n";
+                    cornerButton2->setVisible(false);
+                    cornerButton3->setVisible(false);
+                    cornerButton4->setVisible(false);
                     svMenu.setVisible(true);
                     break;
                 case EAVIGUI::InterfaceObject::TOUCHEXIT:
+                    break;
+                default: ;
+            }
+            break;
+        case supervisorMenu::DONEBUTTON:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    svMenu.setVisible(false);
                     break;
                 default: ;
             }
