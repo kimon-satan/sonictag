@@ -46,6 +46,8 @@
 		839B03AA177CA32500D5FA4D /* mapControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03A8177CA32500D5FA4D /* mapControl.cpp */; };
 		839B03AE177DD20B00D5FA4D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839B03AD177DD20B00D5FA4D /* Default-Portrait~ipad.png */; };
 		839B03B0177DD21200D5FA4D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839B03AF177DD21200D5FA4D /* Default-Portrait@2x~ipad.png */; };
+		839B03B3177DE2EC00D5FA4D /* sceneLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B1177DE2EB00D5FA4D /* sceneLoop.cpp */; };
+		839B03B6177DEA7500D5FA4D /* loopControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B4177DEA7500D5FA4D /* loopControl.cpp */; };
 		83E473481761E0CA0008C273 /* audioCatalogue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733D1761E0CA0008C273 /* audioCatalogue.mm */; };
 		83E473491761E0CA0008C273 /* audioFiles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733F1761E0CA0008C273 /* audioFiles.mm */; };
 		83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473411761E0CA0008C273 /* baseScene.cpp */; };
@@ -178,6 +180,10 @@
 		839B03A9177CA32500D5FA4D /* mapControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapControl.h; sourceTree = "<group>"; };
 		839B03AD177DD20B00D5FA4D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		839B03AF177DD21200D5FA4D /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		839B03B1177DE2EB00D5FA4D /* sceneLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sceneLoop.cpp; sourceTree = "<group>"; };
+		839B03B2177DE2EC00D5FA4D /* sceneLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneLoop.h; sourceTree = "<group>"; };
+		839B03B4177DEA7500D5FA4D /* loopControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = loopControl.cpp; sourceTree = "<group>"; };
+		839B03B5177DEA7500D5FA4D /* loopControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loopControl.h; sourceTree = "<group>"; };
 		83E4733C1761E0CA0008C273 /* audioCatalogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioCatalogue.h; sourceTree = "<group>"; };
 		83E4733D1761E0CA0008C273 /* audioCatalogue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = audioCatalogue.mm; sourceTree = "<group>"; };
 		83E4733E1761E0CA0008C273 /* audioFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioFiles.h; sourceTree = "<group>"; };
@@ -403,6 +409,8 @@
 				83E473851761E2CC0008C273 /* sceneLoopRecord.mm */,
 				83E473861761E2CC0008C273 /* scenePlay.h */,
 				83E473871761E2CC0008C273 /* scenePlay.mm */,
+				839B03B2177DE2EC00D5FA4D /* sceneLoop.h */,
+				839B03B1177DE2EB00D5FA4D /* sceneLoop.cpp */,
 				83E473881761E2CC0008C273 /* sceneRecord.h */,
 				83E473891761E2CC0008C273 /* sceneRecord.mm */,
 				83E4738A1761E2CC0008C273 /* MIRListener.h */,
@@ -494,6 +502,8 @@
 				8345A3B417735DA900A9D309 /* recordVisualiser.h */,
 				839B03A8177CA32500D5FA4D /* mapControl.cpp */,
 				839B03A9177CA32500D5FA4D /* mapControl.h */,
+				839B03B4177DEA7500D5FA4D /* loopControl.cpp */,
+				839B03B5177DEA7500D5FA4D /* loopControl.h */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -733,6 +743,8 @@
 				8345A3B117733D5700A9D309 /* EAVIGUI.checkbox.cpp in Sources */,
 				8345A3B517735DAA00A9D309 /* recordVisualiser.cpp in Sources */,
 				839B03AA177CA32500D5FA4D /* mapControl.cpp in Sources */,
+				839B03B3177DE2EC00D5FA4D /* sceneLoop.cpp in Sources */,
+				839B03B6177DEA7500D5FA4D /* loopControl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

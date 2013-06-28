@@ -34,7 +34,7 @@ namespace EAVIGUI {
         roundedRect(1,1,w,h, 10);
         for(int i=0; i < grid->size(); i++) {
             for(int j=0; j < grid->at(0).size(); j++) {
-                ofSetColor(i == locx && j == locy ? ofColor::yellow : ofColor::magenta, 230);
+                ofSetColor(grid->at(i).at(j) == NULL ? ofColor::gray : i == locx && j == locy ? ofColor::yellow : ofColor::magenta, 230);
                 ofNoFill();
                 float left = border + (i*xsize);
                 float top = border + (j*ysize);

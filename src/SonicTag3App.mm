@@ -21,6 +21,7 @@
 #include "sceneHPFilterPlay.h"
 #include "sceneFXPlay1.h"
 #include "sceneFXPlay2.h"
+#include "sceneLoop.h"
 
 const int trigTime = 50;
 
@@ -110,7 +111,7 @@ void SonicTag3App::setup(){
     grid[4][1] = new sceneAccelPitchStretch();
 
     grid[0][2] = NULL;
-    grid[1][2] = NULL;
+    grid[1][2] = new sceneLoop();
     grid[2][2] = new sceneAccelStretch();
     grid[3][2] = new sceneAccelPitch();
     grid[4][2] = new sceneAccelPitchStretch();
