@@ -18,7 +18,7 @@ public:
     void update();
     void draw();
     float getNextSample();
-    string getTitle() {return string("Motion Time Stretch").append(motionTriggering ? " (trig) " : "");}
+    string getTitle() {return string("Motion Time Stretch").append(motionTriggering ? "\n(trig) " : "");}
     void setMotionTriggering(bool newVal);
     void touchDown(ofTouchEventArgs &touch);
 	void touchMoved(ofTouchEventArgs &touch);

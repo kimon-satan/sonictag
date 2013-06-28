@@ -75,6 +75,7 @@ public:
     float navButtonSize;
 //    bool navTrigLeft, navTrigRight, navTrigUp, navTrigDown, navLeftEnabled, navRightEnabled, navUpEnabled, navDownEnabled;
     sharedDataContainer sharedData;
+    bool lockNavigation;
         
     vector<vector<baseScene*> > grid;
     int gridX, gridY;

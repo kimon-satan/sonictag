@@ -9,21 +9,27 @@
 #include "supervisorMenu.h"
 
 
-void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback) {
-    menuPanel = new EAVIGUI::Panel(callback, MENUPANEL, 0, 0, 500, 700, ofColor(0,255,0,230), ofColor::black);
+void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<baseScene*> > *grid) {
+    menuPanel = new EAVIGUI::Panel(callback, MENUPANEL, 0, 0, 700, 700, ofColor(0,100,0,230), ofColor::black);
     menuPanel->setRelativePositioning(0.5, -menuPanel->getScaledWidth() / 2.0, 0.5 , -menuPanel->getScaledHeight() / 2.0);
     menuGroup.push_back(menuPanel);
 
     lockcb = new EAVIGUI::CheckBox(callback, LOCKCB, 0, 0, 300, 40, &EAVIGUI::InterfaceManager::fontList["subtitles"], "Lock Navigation", ofColor::white);
     lockcb->setRelativePositioning(0.5, -230, 0.5 , 300);
     lockcb->setBackgroundColour(ofColor(0, 0, 255, 245));
+    lockcb->setTouchDownColour(ofColor::red);
     menuGroup.push_back(lockcb);
 
     doneButton = new EAVIGUI::Label(callback, DONEBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "OK", ofColor::black);
     doneButton->setRelativePositioning(0.5, 130, 0.5 , 280);
     doneButton->setBackgroundColour(ofColor(255, 255, 255, 245));
     doneButton->setIsInteractive(true);
+    doneButton->setTextJustification(EAVIGUI::Label::JUSTIFYCENTER);
     menuGroup.push_back(doneButton);
+    
+    map = new EAVIGUI::MapControl(callback, MAPCONTROL, 0, 0, 650, 600, grid, &EAVIGUI::InterfaceManager::fontList["small"]);
+    map->setRelativePositioning(0.5, -325, 0.5 , -340);
+    menuGroup.push_back(map);
     
     EAVIGUI::InterfaceManager::addObjects(menuGroup);
 
@@ -34,4 +40,12 @@ void supervisorMenu::setVisible(bool vis) {
 //    lockcb->setVisible(vis);
 //    doneButton->setVisible(true);
     EAVIGUI::InterfaceManager::showHideModalGroup(&menuGroup, vis);
+}
+
+void supervisorMenu::setLocation(int nx, int ny) {
+    map->setLocation(nx, ny);
+}
+
+void supervisorMenu::getLocation(int &lx, int &ly) {
+    map->getLocation(lx, ly);
 }

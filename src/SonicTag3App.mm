@@ -59,7 +59,7 @@ void SonicTag3App::setup(){
     //GUI
     navFont.loadFont("LARABIEF.TTF", 80);
     navFontSmall.loadFont("mono.ttf", 25);
-
+    lockNavigation = false;
     
     EAVIGUI::InterfaceManager::deviceScaleMod = 1.0;
     UIDevice* thisDevice = [UIDevice currentDevice];
@@ -74,6 +74,7 @@ void SonicTag3App::setup(){
     
     EAVIGUI::InterfaceManager::addFont("titles", "mono.ttf", 30);
     EAVIGUI::InterfaceManager::addFont("subtitles", "mono.ttf", 12);
+    EAVIGUI::InterfaceManager::addFont("small", "Futura Medium Condensed BT.ttf", 14);
     EAVIGUI::InterfaceManager::addFont("big", "ka1.ttf", 50);
     EAVIGUI::InterfaceManager::addFont("bigger", "ka1.ttf", 60);
     EAVIGUI::InterfaceManager::addFont("c64Rounded", "Commodore Rounded v1.2.ttf", 20);
@@ -195,7 +196,7 @@ void SonicTag3App::setup(){
 
     
     EAVIGUI::InterfaceManager::setup();
-    svMenu.setup(this);
+    svMenu.setup(this, &grid);
     updateScene(gridX, gridY);
     
     ((scenePlay*)grid[1][1])->setLooped(true);
@@ -418,42 +419,49 @@ void SonicTag3App::updateScene(int sceneX, int sceneY) {
 
         log::write(log::NEWSCENE, grid[gridX][gridY]->getTitle());
         sceneIsUpdating = false;
+        svMenu.setLocation(gridX, gridY);
     }
 }
 
 void SonicTag3App::setNavVisibility() {
-    bool vis = false;
-    if (NULL != grid[gridX][gridY])
-        vis = grid[gridX][gridY]->canProgress();
-    if (gridX > 0) {
-        if (grid[gridX - 1][gridY] != NULL) {
-            if (grid[gridX - 1][gridY]->enabled) {
-                navLeftArrow->setVisible(vis);
+    if (lockNavigation) {
+        navLeftArrow->setVisible(false);
+        navRightArrow->setVisible(false);
+        navUpArrow->setVisible(false);
+        navDownArrow->setVisible(false);
+    }else{
+        bool vis = false;
+        if (NULL != grid[gridX][gridY])
+            vis = grid[gridX][gridY]->canProgress();
+        if (gridX > 0) {
+            if (grid[gridX - 1][gridY] != NULL) {
+                if (grid[gridX - 1][gridY]->enabled) {
+                    navLeftArrow->setVisible(vis);
+                }
+            }
+        }
+        if (gridX < grid.size() - 1) {
+            if (grid[gridX + 1][gridY] != NULL) {
+                if (grid[gridX + 1][gridY]->enabled) {
+                    navRightArrow->setVisible(vis);
+                }
+            }
+        }
+        if (gridY > 0) {
+            if (grid[gridX][gridY - 1] != NULL) {
+                if (grid[gridX][gridY - 1]->enabled) {
+                    navUpArrow->setVisible(vis);
+                }
+            }
+        }
+        if (gridY < grid[gridX].size() - 1) {
+            if (grid[gridX][gridY + 1] != NULL) {
+                if (grid[gridX][gridY + 1]->enabled) {
+                    navDownArrow->setVisible(vis);
+                }
             }
         }
     }
-    if (gridX < grid.size() - 1) {
-        if (grid[gridX + 1][gridY] != NULL) {
-            if (grid[gridX + 1][gridY]->enabled) {
-                navRightArrow->setVisible(vis);
-            }
-        }
-    }
-    if (gridY > 0) {
-        if (grid[gridX][gridY - 1] != NULL) {
-            if (grid[gridX][gridY - 1]->enabled) {
-                navUpArrow->setVisible(vis);
-            }
-        }
-    }
-    if (gridY < grid[gridX].size() - 1) {
-        if (grid[gridX][gridY + 1] != NULL) {
-            if (grid[gridX][gridY + 1]->enabled) {
-                navDownArrow->setVisible(vis);
-            }
-        }
-    }
-    
 }
 
 void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
@@ -569,6 +577,23 @@ void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interf
                     svMenu.setVisible(false);
                     break;
                 default: ;
+            }
+            break;
+        case supervisorMenu::LOCKCB:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    lockNavigation = !static_cast<EAVIGUI::CheckBox*>(object)->isChecked();
+                    setNavVisibility();
+                    break;
+            }
+            break;
+        case supervisorMenu::MAPCONTROL:
+            switch(eventTypeId) {
+                case EAVIGUI::MapControl::MAPCHANGESCENE:
+                    int gx, gy;
+                    svMenu.getLocation(gx, gy);
+                    updateScene(gx, gy);
+                    break;
             }
             break;
     }
