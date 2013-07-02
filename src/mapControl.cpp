@@ -30,19 +30,22 @@ namespace EAVIGUI {
     
     void MapControl::drawToBuffer() {
         ofFill();
-        ofSetColor(ofColor::gray, 100);
-        roundedRect(1,1,w,h, 10);
+        ofSetColor(50,50,50, 100);
+        roundedRect(1,1,w,h, 30);
         for(int i=0; i < grid->size(); i++) {
             for(int j=0; j < grid->at(0).size(); j++) {
-                ofSetColor(grid->at(i).at(j) == NULL ? ofColor::gray : i == locx && j == locy ? ofColor::yellow : ofColor::magenta, 230);
+                bool isCurrPos = i == locx && j == locy;
+                ofSetLineWidth(isCurrPos ? 4 : 1);
+                ofSetColor(grid->at(i).at(j) == NULL ? ofColor::gray : isCurrPos ? ofColor(200,200,200,255) : ofColor::white, 230);
                 ofNoFill();
                 float left = border + (i*xsize);
                 float top = border + (j*ysize);
                 roundedRect(left + 3, top + 3, xsize - 6, ysize - 6, 10);
-                ofSetColor(ofColor::white);
+                ofSetColor(255,255,255,255);
                 if (grid->at(i).at(j) != NULL) {
                     float stringW = font->stringWidth(grid->at(i).at(j)->getTitle());
-                    font->drawString(grid->at(i).at(j)->getTitle(), left + 3 + ((xsize - stringW) / 2.0), top + (ysize / 2.0));
+//                    font->drawString(grid->at(i).at(j)->getTitle(), left + 3 + ((xsize - stringW) / 2.0), top + (ysize / 2.0));
+                    ofDrawBitmapString(grid->at(i).at(j)->getTitle(), left + 5, top + (ysize / 2.0));
                 }
                 
             }

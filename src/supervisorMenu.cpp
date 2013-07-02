@@ -10,14 +10,14 @@
 
 
 void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<baseScene*> > *grid) {
-    menuPanel = new EAVIGUI::Panel(callback, MENUPANEL, 0, 0, 700, 700, ofColor(0,100,0,230), ofColor::black);
+    menuPanel = new EAVIGUI::Panel(callback, MENUPANEL, 0, 0, 700, 700, ofColor(0,0,0,230), ofColor::black);
     menuPanel->setRelativePositioning(0.5, -menuPanel->getScaledWidth() / 2.0, 0.5 , -menuPanel->getScaledHeight() / 2.0);
     menuGroup.push_back(menuPanel);
 
-    lockcb = new EAVIGUI::CheckBox(callback, LOCKCB, 0, 0, 300, 40, &EAVIGUI::InterfaceManager::fontList["subtitles"], "Lock Navigation", ofColor::white);
-    lockcb->setRelativePositioning(0.5, -230, 0.5 , 300);
-    lockcb->setBackgroundColour(ofColor(0, 0, 255, 245));
-    lockcb->setTouchDownColour(ofColor::red);
+    lockcb = new EAVIGUI::CheckBox(callback, LOCKCB, 0, 0, 300, 40, &EAVIGUI::InterfaceManager::fontList["subtitles"], "Lock Navigation", ofColor::black);
+    lockcb->setRelativePositioning(0.5, -270, 0.5 , 300);
+    lockcb->setBackgroundColour(ofColor(255,255,255, 245));
+    lockcb->setTouchDownColour(ofColor::gray);
     menuGroup.push_back(lockcb);
 
     doneButton = new EAVIGUI::Label(callback, DONEBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "OK", ofColor::black);

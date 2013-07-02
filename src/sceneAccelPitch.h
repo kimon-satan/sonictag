@@ -15,7 +15,7 @@ class sceneAccelPitch : public sceneAccelStretch {
 public:
     float getNextSample();
 //    string getTitle() {return "Motion Pitch Modulation";}            
-    string getTitle() {return string("Motion Pitch Stretch").append(motionTriggering ? "\n(trig)" : "");}        
+    string getTitle() {return string("Motion Pitch \nStretch").append(motionTriggering ? "\n(trig)" : "");}        
 };
 
 #endif

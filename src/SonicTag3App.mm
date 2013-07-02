@@ -48,6 +48,8 @@ void SonicTag3App::setup(){
      CFNotificationSuspensionBehaviorDeliverImmediately
     );
 
+    //preallocate some silence
+    sharedData.buffer.setLength(maxiSettings::sampleRate * 2);
 
     sceneIsUpdating = false;
 	
@@ -75,7 +77,7 @@ void SonicTag3App::setup(){
     
     EAVIGUI::InterfaceManager::addFont("titles", "mono.ttf", 30);
     EAVIGUI::InterfaceManager::addFont("subtitles", "mono.ttf", 12);
-    EAVIGUI::InterfaceManager::addFont("small", "Futura Medium Condensed BT.ttf", 14);
+    EAVIGUI::InterfaceManager::addFont("small", "mono.ttf", 14);
     EAVIGUI::InterfaceManager::addFont("big", "ka1.ttf", 50);
     EAVIGUI::InterfaceManager::addFont("bigger", "ka1.ttf", 60);
     EAVIGUI::InterfaceManager::addFont("c64Rounded", "Commodore Rounded v1.2.ttf", 20);
@@ -427,7 +429,7 @@ void SonicTag3App::updateScene(int sceneX, int sceneY) {
 }
 
 void SonicTag3App::setNavVisibility() {
-    if (lockNavigation) {
+    if (lockNavigation || tempLockNavigation) {
         navLeftArrow->setVisible(false);
         navRightArrow->setVisible(false);
         navUpArrow->setVisible(false);
@@ -675,5 +677,15 @@ void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interf
 }
 
 void SonicTag3App::gotMessage(ofMessage& msg) {
+    if (msg.message == "temphidenav") {
+        cout << msg.message << endl;
+        tempLockNavigation = true;
+        setNavVisibility();
+    }
+    if (msg.message == "tempshownav") {
+        cout << msg.message << endl;
+        tempLockNavigation = false;
+        setNavVisibility();
+    }
 }
 

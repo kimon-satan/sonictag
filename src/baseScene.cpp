@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "baseScene.h"
+#include <algorithm>
 
 EAIT::Counter<int> baseScene::objectIDCounter(700000);
 EAIT::Counter<int> baseScene::sceneIDCounter(1000);
@@ -17,10 +18,12 @@ EAIT::Counter<int> baseScene::sceneIDCounter(1000);
 void baseScene::setup(sharedDataContainer *data) {
     sharedData = data;
     enabled = false;
-    nbConnected = false;  
+    nbConnected = false;
+    string temptitle = getTitle();
+    std::replace(temptitle.begin(), temptitle.end(), '\n', ' ');
     title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
                                                &EAVIGUI::InterfaceManager::fontList["titles"],
-                                               getTitle(),
+                                               temptitle,
                                                ofColor(0,255,0));
     title->setRelativePositioning(0.01, 0.01);
     title->setAnchorPoint(0, 0);
@@ -92,7 +95,14 @@ string baseScene::getSubTitle() {
 }
 
 void baseScene::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
-    
+    switch(eventTypeId) {
+        case EAVIGUI::InterfaceObject::TOUCHDOWN:
+            ofSendMessage("temphidenav");
+            break;
+        case EAVIGUI::InterfaceObject::TOUCHUP:
+            ofSendMessage("tempshownav");
+            break;
+    }
 }
 
 audioProcessor* baseScene::getAudioProcessor() {
