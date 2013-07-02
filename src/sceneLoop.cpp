@@ -10,7 +10,7 @@
 
 
 void sceneLoop::setup(sharedDataContainer *data) {
-    looper = new EAVIGUI::LoopControl(this, 0, 0, 0, 500, 500, data);
+    looper = new EAVIGUI::LoopControl(this, 0, 0, 0, 1024, 1024, data);
     looper->setRelativePositioning(0.5, -looper->getScaledWidth() / 2.0, 0.5, -looper->getScaledHeight() / 2.0);
     interface.push_back(looper);
 
@@ -35,4 +35,13 @@ void sceneLoop::audioIn( float * input, int bufferSize, int nChannels ) {
     
 }
 
+void sceneLoop::beginScene() {
+    baseScene::beginScene();
+    looper->updateWaveform(&sharedData->buffer);
+}
 
+void sceneLoop::endScene() {
+    sharedData->loopStart = looper->start;
+    sharedData->loopEnd = looper->end;
+    baseScene::endScene();
+}

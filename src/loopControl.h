@@ -25,11 +25,17 @@ namespace EAVIGUI {
         void touchMoved(ofTouchEventArgs &touch);
         void touchUp(ofTouchEventArgs &touch);
         float start, end;
+        void updateWaveform(maxiSample *sample);
+        void beginScene();
     protected:
         void drawToBuffer();
         sharedDataContainer *data;
-        ofPoint caretPos;
+        ofVec2f caretPos;
         void moveCaret(ofTouchEventArgs &touch);
+        ofFbo waveFBO;
+        int fboWidth, fboHeight;
+        float minCaretDist, maxCaretDist, caretDistRange;
+        
     };
     
 };

@@ -34,7 +34,7 @@ void sceneFXPlay1::update() {
 void sceneFXPlay1::audioRequested( float * output, int bufferSize, int nChannels ) {
     memset(output, 0, sizeof(float) * bufferSize * nChannels);
     for(int i=0; i<bufferSize; i++) {
-        output[i] = sharedData->buffer.play() * 0.9;
+        output[i] = sharedData->buffer.playLoop(sharedData->loopStart, sharedData->loopEnd) * 0.9;
         output[i] = output[i] * osc.sinebuf(ringMod);
         output[i] = filt.lores(output[i], freq, res);
     }

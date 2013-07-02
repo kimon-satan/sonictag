@@ -258,6 +258,7 @@ public:
         loopEnd = val * sample->length;
         loopLength = loopEnd - loopStart;
     }
+    
 	
     void loopWholeSample() {
         loopStart = 0.0;

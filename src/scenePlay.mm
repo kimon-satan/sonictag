@@ -78,9 +78,9 @@ void scenePlay::audioRequested( float * output, int bufferSize, int nChannels ) 
     if (playing) {
         for(int i=0; i<bufferSize; i++) {
             if (loop) {
-                output[i] = sharedData->buffer.play();
+                output[i] = sharedData->buffer.playLoop(sharedData->loopStart, sharedData->loopEnd);
             }else{
-                output[i] = sharedData->buffer.playOnce();
+                output[i] = sharedData->buffer.playUntil(sharedData->loopEnd);
             }
 //            output[i] = compressor.compressor(output[i], 2, 0.7, 0.01, 0.99);
 
@@ -158,7 +158,8 @@ void scenePlay::play() {
         pos = 0;
         playing = true;
         cout << "Playing\n";
-        sharedData->buffer.trigger();
+//        sharedData->buffer.trigger();
+        sharedData->buffer.setPosition(sharedData->loopStart);
         if (loop)
             cout << "Loop\n";
     }

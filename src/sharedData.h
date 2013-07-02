@@ -18,6 +18,8 @@ public:
     sharedDataContainer() {
         colours.resize(4);
         randomiseColours();
+        loopStart = 0;
+        loopEnd = 1;
     }
 
     vector<short> recordBuffer;
@@ -28,7 +30,7 @@ public:
             colours[i].set(floor(ofRandom(255)),floor(ofRandom(255)),floor(ofRandom(255)));
         }
     }
-    
+    float loopStart, loopEnd;
     MIRListener mir;
     
     ~sharedDataContainer() {

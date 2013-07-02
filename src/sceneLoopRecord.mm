@@ -32,7 +32,7 @@ void sceneLoopRecord::draw() {
 }
 
 float sceneLoopRecord::getNextSample() {
-    return sharedData->buffer.play(1);;
+    return sharedData->buffer.playLoop(sharedData->loopStart, sharedData->loopEnd);
 }
 
 
@@ -57,7 +57,7 @@ void sceneLoopRecord::audioIn( float * input, int bufferSize, int nChannels ) {
     float clearMult = clearCount > 0 ? 0 : 1;
     for (int i=0; i < bufferSize; i++) {
         float newSample = input[i] * clearMult;
-        sharedData->buffer.loopRecord(fabs(newSample) < 0.001 ? 0 : newSample, isRecording, 0.5);
+        sharedData->buffer.loopRecord(fabs(newSample) < 0.001 ? 0 : newSample, isRecording, 0.5, sharedData->loopStart, sharedData->loopEnd);
     }
     if (clearCount > 0) clearCount--;
 }

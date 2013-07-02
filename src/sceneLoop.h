@@ -23,6 +23,8 @@ public:
     string getTitle() {return string("Loop Points");}
     void audioRequested( float * output, int bufferSize, int nChannels );
     void audioIn( float * input, int bufferSize, int nChannels );
+    void beginScene();
+    void endScene();
 protected:
     EAVIGUI::LoopControl *looper;
     grainPlayerType *grainPlayer;

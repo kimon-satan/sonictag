@@ -22,6 +22,9 @@ float sceneFingerStretch::getNextSample() {
 void sceneFingerStretch::beginScene() {
     sceneFingerPlay::beginScene();
     pitchStretch->loopWholeSample();
+    pitchStretch->setLoopStart(sharedData->loopStart);
+    pitchStretch->setLoopEnd(sharedData->loopEnd);
+
     isPlaying = true;
 }
 
