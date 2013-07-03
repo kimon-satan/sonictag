@@ -48,6 +48,7 @@
 		839B03B0177DD21200D5FA4D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839B03AF177DD21200D5FA4D /* Default-Portrait@2x~ipad.png */; };
 		839B03B3177DE2EC00D5FA4D /* sceneLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B1177DE2EB00D5FA4D /* sceneLoop.cpp */; };
 		839B03B6177DEA7500D5FA4D /* loopControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B4177DEA7500D5FA4D /* loopControl.cpp */; };
+		83C93794178458D80020691F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 83C93793178458D80020691F /* Settings.bundle */; };
 		83E473481761E0CA0008C273 /* audioCatalogue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733D1761E0CA0008C273 /* audioCatalogue.mm */; };
 		83E473491761E0CA0008C273 /* audioFiles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733F1761E0CA0008C273 /* audioFiles.mm */; };
 		83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473411761E0CA0008C273 /* baseScene.cpp */; };
@@ -184,6 +185,7 @@
 		839B03B2177DE2EC00D5FA4D /* sceneLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneLoop.h; sourceTree = "<group>"; };
 		839B03B4177DEA7500D5FA4D /* loopControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = loopControl.cpp; sourceTree = "<group>"; };
 		839B03B5177DEA7500D5FA4D /* loopControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loopControl.h; sourceTree = "<group>"; };
+		83C93793178458D80020691F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		83E4733C1761E0CA0008C273 /* audioCatalogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioCatalogue.h; sourceTree = "<group>"; };
 		83E4733D1761E0CA0008C273 /* audioCatalogue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = audioCatalogue.mm; sourceTree = "<group>"; };
 		83E4733E1761E0CA0008C273 /* audioFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioFiles.h; sourceTree = "<group>"; };
@@ -489,6 +491,14 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		83C93792178458C80020691F /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				83C93793178458D80020691F /* Settings.bundle */,
+			);
+			name = settings;
+			sourceTree = "<group>";
+		};
 		83E473531761E2860008C273 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +587,7 @@
 		E4D8936A11527B74007E1F53 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				83C93792178458C80020691F /* settings */,
 				8342DC0E1614A05800BD17A1 /* app */,
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				8378A51115E27EA300A92A95 /* SonicTag3.h */,
@@ -665,6 +676,7 @@
 				8345A3A61771F80C00A9D309 /* icon144.png in Resources */,
 				839B03AE177DD20B00D5FA4D /* Default-Portrait~ipad.png in Resources */,
 				839B03B0177DD21200D5FA4D /* Default-Portrait@2x~ipad.png in Resources */,
+				83C93794178458D80020691F /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

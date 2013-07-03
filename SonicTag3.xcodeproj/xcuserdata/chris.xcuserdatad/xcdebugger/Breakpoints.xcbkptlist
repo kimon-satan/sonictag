@@ -19,11 +19,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394549973.71044"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
+         startingLineNumber = "239"
+         endingLineNumber = "239"
          landmarkName = "SonicTag3App::onValueUpdate()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -32,11 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394126785.170804"
+         timestampString = "394549973.71044"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
          landmarkName = "notificationHandler(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)"
          landmarkType = "7">
       </FileBreakpoint>
@@ -188,11 +188,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394552730.006029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "473"
-         endingLineNumber = "473"
+         startingLineNumber = "458"
+         endingLineNumber = "458"
          landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -201,11 +201,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394552730.006029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "485"
-         endingLineNumber = "485"
+         startingLineNumber = "470"
+         endingLineNumber = "470"
          landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -214,11 +214,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394552730.006029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "582"
-         endingLineNumber = "582"
+         startingLineNumber = "567"
+         endingLineNumber = "567"
          landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -227,11 +227,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394552730.006029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "598"
-         endingLineNumber = "598"
+         startingLineNumber = "583"
+         endingLineNumber = "583"
          landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -240,11 +240,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "src/SonicTag3App.mm"
-         timestampString = "394476742.394644"
+         timestampString = "394552730.006029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "599"
-         endingLineNumber = "599"
+         startingLineNumber = "584"
+         endingLineNumber = "584"
          landmarkName = "SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object)"
          landmarkType = "5">
       </FileBreakpoint>

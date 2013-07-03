@@ -15,16 +15,19 @@ void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<b
     menuGroup.push_back(menuPanel);
 
     lockcb = new EAVIGUI::CheckBox(callback, LOCKCB, 0, 0, 300, 40, &EAVIGUI::InterfaceManager::fontList["subtitles"], "Lock Navigation", ofColor::black);
-    lockcb->setRelativePositioning(0.5, -270, 0.5 , 300);
+    lockcb->setRelativePositioning(0.5, -325, 0.5 , 300);
     lockcb->setBackgroundColour(ofColor(255,255,255, 245));
     lockcb->setTouchDownColour(ofColor::gray);
+    lockcb->setRoundedCorners(true);
+    lockcb->setVerticalTextJustification(EAVIGUI::Label::JUSTIFYCENTERV);
     menuGroup.push_back(lockcb);
 
     doneButton = new EAVIGUI::Label(callback, DONEBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "OK", ofColor::black);
-    doneButton->setRelativePositioning(0.5, 130, 0.5 , 280);
+    doneButton->setRelativePositioning(0.5, 210, 0.5 , 280);
     doneButton->setBackgroundColour(ofColor(255, 255, 255, 245));
     doneButton->setIsInteractive(true);
-    doneButton->setTextJustification(EAVIGUI::Label::JUSTIFYCENTER);
+    doneButton->setHorizontalTextJustification(EAVIGUI::Label::JUSTIFYCENTER);
+    doneButton->setRoundedCorners(true);
     menuGroup.push_back(doneButton);
     
     map = new EAVIGUI::MapControl(callback, MAPCONTROL, 0, 0, 650, 600, grid, &EAVIGUI::InterfaceManager::fontList["small"]);

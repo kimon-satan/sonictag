@@ -21,14 +21,15 @@ void baseScene::setup(sharedDataContainer *data) {
     nbConnected = false;
     string temptitle = getTitle();
     std::replace(temptitle.begin(), temptitle.end(), '\n', ' ');
-    title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
+    title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 150,
                                                &EAVIGUI::InterfaceManager::fontList["titles"],
                                                temptitle,
                                                ofColor(0,255,0));
     title->setRelativePositioning(0.01, 0.01);
     title->setAnchorPoint(0, 0);
     interface.push_back(title);
-//    EAVIGUI::Label *subtitle = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100, 
+
+//    EAVIGUI::Label *subtitle = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 100,
 //                                               &EAVIGUI::InterfaceManager::fontList["subtitles"],
 //                                               getSubTitle(),
 //                                               ofColor(0,100,255));

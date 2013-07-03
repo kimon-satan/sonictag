@@ -1,19 +1,4 @@
-/*
- feature requests:
- 
- combo button in four corners to
-  - reset
-  - hide nav arrows
- 
- jump to location with a map, from four finger button
- looper with beat detection
- lock to screen orientation after rec screen
- app setting for noisebear connection
- 
- */
 #pragma once
-
-#define SQUEEZABLES  //use noisecow etc
 
 #include "ofMain.h"
 #ifdef TARGET_OF_IPHONE
@@ -123,6 +108,8 @@ public:
     maxiDCBlocker dcblock[NUMNBSTREAMS];
     maxiDCBlocker dcMasterBlocker;
     float dcBlockTotal;
+    
+    bool useNoiseBear;
 
     
 };

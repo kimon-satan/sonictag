@@ -5,7 +5,6 @@
 #include "scenePlay.h"
 #include "sceneLoopRecord.h"
 #include "sceneFingerPlay.h"
-//#include "sceneFingerPlayPitch.h"
 #include "sceneFingerStretch.h"
 #include "sceneFingerPitch.h"
 #include "sceneFingerPitchStretch.h"
@@ -30,6 +29,8 @@ static void notificationHandler(CFNotificationCenterRef center, void *observer, 
     (static_cast<SonicTag3App *>(observer))->onValueUpdate();
 }
 
+NSString *USENOISEBEARKEY = @"noisebear_enabled";
+
 //--------------------------------------------------------------
 void SonicTag3App::setup(){	
     
@@ -37,6 +38,15 @@ void SonicTag3App::setup(){
     appPhase = REMIX;
     sampleCounter=0;
     ofSetLogLevel(OF_LOG_WARNING);
+    
+    //user details for noisebear
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
+    useNoiseBear = false;
+    if ([defaults boolForKey:USENOISEBEARKEY] == YES) {
+        useNoiseBear = true;
+        cout << "Noisebear enabled\n";
+    }
+    
     
     CFNotificationCenterAddObserver
     (
@@ -53,9 +63,6 @@ void SonicTag3App::setup(){
 
     sceneIsUpdating = false;
 	
-	//If you want a landscape oreintation 
-	//iPhoneSetOrientation(OFXIPHONE_ORIENTATION_LANDSCAPE_RIGHT);
-    
     log::init(ofxiPhoneGetDocumentsDirectory());
     
 
@@ -191,13 +198,6 @@ void SonicTag3App::setup(){
     cornerButton4->setCanTouchTranparency(true);
     EAVIGUI::InterfaceManager::addObject(cornerButton4);
 
-    //TODO: fix this hack!
-//    ((scenePlay*)grid[1][1])setLooped(true);
-//    ((sceneAccelStretch*) grid[2][2])->motionTriggering = true;
-//    ((sceneAccelStretch*) grid[3][2])->motionTriggering = true;
-//    ((sceneAccelStretch*) grid[4][2])->motionTriggering = true;
-
-    
     EAVIGUI::InterfaceManager::setup();
     svMenu.setup(this, &grid);
     updateScene(gridX, gridY);
@@ -228,11 +228,10 @@ void SonicTag3App::setup(){
     for(int i=0; i < NUMNBSTREAMS; i++) {
         bleMA[i].resize(3);
     }
-#ifdef SQUEEZABLES
-    scanner = [[BLEScanner alloc] init];
-    [scanner startScanning];
-#endif
-
+    if (useNoiseBear) {
+        scanner = [[BLEScanner alloc] init];
+        [scanner startScanning];
+    }
 
 }
 
@@ -258,8 +257,6 @@ void SonicTag3App::onValueUpdate() {
                 nbStreams[idx].newVal(bleMA[idx].value());
                 bleVals[i] = nbStreams[i].getValue();
                 dcBlockTotal += dcblock[idx].play(powf(nbStreams[idx].getValue(), 0.5f), 0.88);
-                //                cout << streams[idx].getValue() << ",";
-                //cout << (int)data[idx] << ",";
             }
         }
         if (batch == 1) {
@@ -270,25 +267,6 @@ void SonicTag3App::onValueUpdate() {
             dcBlockTotal = 0;
         }
     }
-
-//    NSData *val = [scanner value];
-//    unsigned char *data = (unsigned char*) [val bytes];
-//    cout << "value: ";
-//    for(int i=0; i < [val length]; i++) {
-//        int val;
-//        if (data[i] != 255) {
-//            val = data[i];
-//        }else{
-//            //out of range - contact has dropped off
-//            val = 0;
-//        }
-//        bleMA[i].addSample(val);
-//        nbStreams[i].newVal(bleMA[i].value());
-//        cout << nbStreams[i].getValue() << ",";
-//        bleVals[i] = nbStreams[i].getValue();
-//        cout << (int) data[i] << ",";
-//    }
-//    cout << endl;
     
 }
 
@@ -327,9 +305,15 @@ void SonicTag3App::draw(){
 }
 
 void SonicTag3App::audioRequested( float * output, int bufferSize, int nChannels ) {
-    grid[gridX][gridY]->audioRequested(output, bufferSize, nChannels);
-    for(int i=0; i < bufferSize; i++) {
-        sharedData.mir.play(output[i]);
+    if (sceneIsUpdating) {
+        for(int i=0; i < bufferSize; i++) {
+            output[i] *= 0.2;
+        }
+    }else{
+        grid[gridX][gridY]->audioRequested(output, bufferSize, nChannels);
+        for(int i=0; i < bufferSize; i++) {
+            sharedData.mir.play(output[i]);
+        }
     }
 }
 
@@ -417,6 +401,7 @@ void SonicTag3App::updateScene(int sceneX, int sceneY) {
         navUpArrow->setVisible(false);
         navDownArrow->setVisible(false);
         
+        tempLockNavigation = false; //make sure nav will be visible if not permenantly locked
         setNavVisibility();
         
         grid[gridX][gridY]->beginScene();

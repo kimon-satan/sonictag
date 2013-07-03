@@ -35,17 +35,21 @@ namespace EAVIGUI {
         for(int i=0; i < grid->size(); i++) {
             for(int j=0; j < grid->at(0).size(); j++) {
                 bool isCurrPos = i == locx && j == locy;
-                ofSetLineWidth(isCurrPos ? 4 : 1);
-                ofSetColor(grid->at(i).at(j) == NULL ? ofColor::gray : isCurrPos ? ofColor(200,200,200,255) : ofColor::white, 230);
-                ofNoFill();
                 float left = border + (i*xsize);
                 float top = border + (j*ysize);
-                roundedRect(left + 3, top + 3, xsize - 6, ysize - 6, 10);
-                ofSetColor(255,255,255,255);
+                if (isCurrPos) {
+                    ofFill();
+                    ofSetColor(255,255,255,200);
+                    roundedRect(left + 3, top + 3, xsize - 6, ysize - 6, 20);
+                }
+                ofNoFill();
+                ofSetColor(grid->at(i).at(j) == NULL ? ofColor::gray : isCurrPos ? ofColor(200,200,200,255) : ofColor::white, 230);
+                roundedRect(left + 3, top + 3, xsize - 6, ysize - 6, 20);
+                ofSetColor(isCurrPos ? ofColor::black : ofColor::white);
                 if (grid->at(i).at(j) != NULL) {
-                    float stringW = font->stringWidth(grid->at(i).at(j)->getTitle());
+//                    float stringW = font->stringWidth(grid->at(i).at(j)->getTitle());
 //                    font->drawString(grid->at(i).at(j)->getTitle(), left + 3 + ((xsize - stringW) / 2.0), top + (ysize / 2.0));
-                    ofDrawBitmapString(grid->at(i).at(j)->getTitle(), left + 5, top + (ysize / 2.0));
+                    ofDrawBitmapString(grid->at(i).at(j)->getTitle(), left + 10, top + (ysize / 2.0));
                 }
                 
             }
