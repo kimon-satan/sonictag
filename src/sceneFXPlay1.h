@@ -17,11 +17,10 @@ using namespace std;
 class sceneFXPlay1 : public sceneFilterPlay {
 public:
     void audioRequested( float * output, int bufferSize, int nChannels );
-    string getTitle() {return string("FX Play 1");}
+    string getTitle() {return string("Ring \nModulator");}
 //    void updateBLEVals(vector<float> newVals);
     void update();
 protected:
-    maxiFilter filt;
     maxiOsc osc;
     float ringMod;
     float sigAvg1, sigAvg2;

@@ -27,6 +27,7 @@ namespace EAVIGUI {
         float start, end;
         void updateWaveform(maxiSample *sample);
         void beginScene();
+        void setPos(float newPos);
     protected:
         void drawToBuffer();
         sharedDataContainer *data;
@@ -35,6 +36,7 @@ namespace EAVIGUI {
         ofFbo waveFBO;
         int fboWidth, fboHeight;
         float minCaretDist, maxCaretDist, caretDistRange;
+        float playHeadPos;
         
     };
     

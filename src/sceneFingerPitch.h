@@ -15,10 +15,10 @@
 class sceneFingerPitch : public sceneFingerStretch {
 public:
     string getTitle() {return "Pitch Stretch";}    
-    audioProcessor* getAudioProcessor() {return new passThroughAudioProcessor();};    
     void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
     string getSubTitle() {return "Drag your finger in a circle to change the pitch.";};
     void doBarChangeEvent();
+    float getNextSample();
 };
 
 #endif

@@ -30,15 +30,18 @@
 
 void sceneFXPlay2::update(){
     sigAvg1 = surface->getAngle() / (2.0 * PI);
-    sigAvg2 = surface->getDistToCenter() / 400.0;
-    sigAvg3 = surface->getDistToCenter() / 400.0;
+    sigAvg2 = surface->getDistToCenter() / (float)ofGetWidth();
+    sigAvg3 = surface->getDistToCenter() / (float)ofGetWidth();
     sigAvg3 = (sigAvg2 + sigAvg3) / 2.0;
+    cout << sigAvg1 << ", " << sigAvg2 << ", " << sigAvg3 << endl;
 }
 
 void sceneFXPlay2::audioRequested( float * output, int bufferSize, int nChannels ) {
     memset(output, 0, sizeof(float) * bufferSize * nChannels);
     for(int i=0; i<bufferSize; i++) {
         output[i] = sharedData->buffer.play();
-        output[i] = flange.flange(output[i], 800, sigAvg1, sigAvg2 * 30, min(1.0f, sigAvg3 * 2)) * 0.9;
+        output[i] = flange.flange(output[i], 800, 0.6 + (sigAvg1 * 0.4), sigAvg2 * 90.0, min(1.0f, sigAvg3 * 10.0f)) * 0.9;
+        if (output[i] > 0.99) output[i] = 0.99;
+        else if (output[i] <-0.99) output[i] = -0.99;
     }
 }

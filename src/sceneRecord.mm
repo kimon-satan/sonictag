@@ -162,6 +162,8 @@ void sceneRecord::finaliseRecording() {
         sharedData->buffer.load(filename.str());
         sharedData->buffer.autoTrim(0.3, 6000, true, false);
         sharedData->buffer.normalise();
+        sharedData->loopStart = 0;
+        sharedData->loopEnd = 1;
         
         cout << "Audio loaded to buffer\n";
         
@@ -177,6 +179,7 @@ void sceneRecord::touchUp(ofTouchEventArgs &touch){
 }
 
 void sceneRecord::beginScene() {
+    EAVIGUI::InterfaceManager::setRotationLock(EAVIGUI::InterfaceManager::NOROTATIONLOCK);
     baseScene::beginScene();
     initRecording();
 }
@@ -189,6 +192,7 @@ void sceneRecord::initRecording() {
 void sceneRecord::endScene() {
     baseScene::endScene();
     recording = false;
+    EAVIGUI::InterfaceManager::setRotationLock(EAVIGUI::InterfaceManager::ALLROTATIONLOCK);
     
 }
 

@@ -26,7 +26,6 @@ void sceneFXPlay1::update() {
     sceneFilterPlay::update();
 //    cout << surface->getVelocity() << endl;
     ringMod = maxiMap::linexp(surface->getAngle(), 0.01, PI * 2.0, 40, 10000);
-    cout << ringMod << endl;
 //    res = maxiMap::linexp(surface->getVelocity(), 0.01, 0.2, 0.1, 1.0);
 }
 
@@ -36,7 +35,9 @@ void sceneFXPlay1::audioRequested( float * output, int bufferSize, int nChannels
     for(int i=0; i<bufferSize; i++) {
         output[i] = sharedData->buffer.playLoop(sharedData->loopStart, sharedData->loopEnd) * 0.9;
         output[i] = output[i] * osc.sinebuf(ringMod);
-        output[i] = filt.lores(output[i], freq, res);
+        output[i] = filt.play(output[i], 1.0, 0, 0, 0);
+        if (output[i] > 0.99) output[i] = 0.99;
+        else if (output[i] <-0.99) output[i] = -0.99;
     }
 }
 

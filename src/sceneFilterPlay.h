@@ -30,8 +30,9 @@ public:
     void endScene();
     string getTitle() {return string("Filter Play");}
 //    void updateBLEVals(vector<float> newVals);
+    void handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object);
 protected:
-    maxiFilter filt;
+    maxiSVF filt;
     float sigAvg;
     EAVIGUI::RadialScratchSurface *surface;
     float freq,res;

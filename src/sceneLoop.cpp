@@ -16,7 +16,12 @@ void sceneLoop::setup(sharedDataContainer *data) {
 
     baseScene::setup(data);
     grainPlayer = new grainPlayerType(&sharedData->buffer);
+    position = 0;
     
+}
+
+void sceneLoop::update() {
+    looper->setPos(position);
 }
 
 void sceneLoop::draw() {
@@ -29,6 +34,7 @@ void sceneLoop::audioRequested( float * output, int bufferSize, int nChannels ) 
     for(int i =0; i < bufferSize; i++) {
         output[i] = grainPlayer->play(1, 1, 0.05, 2, 0.0);
     }
+    position = grainPlayer->getNormalisedPosition();
 }
 
 void sceneLoop::audioIn( float * input, int bufferSize, int nChannels ) {

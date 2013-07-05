@@ -27,7 +27,7 @@ void sceneFingerPlay::update() {
     sceneLoopRecord::update();
     if (opx != px && opy != py) {
         velocity = ofDist(opx,opy,px,py);
-        velX = fabs(px - opx);
+        velX = fabs(px - opx) * (4.0 / 3.0);
         velY = fabs(py - opy);
         opx = px;
         opy = py;

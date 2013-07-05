@@ -32,8 +32,8 @@ namespace EAVIGUI {
         fbo1.allocate(settings);
         fbo2.allocate(settings);
         velocity=0;
-        distToCenter = 0;
-        angle = 0;
+        distToCenter = 100;
+        angle = PI;
         
     }
         
@@ -77,14 +77,17 @@ namespace EAVIGUI {
 
     
     void RadialScratchSurface::touchDown(ofTouchEventArgs &touch) {
+        InterfaceObject::touchDown(touch);
         processTouch(touch);
     }
     
     void RadialScratchSurface::touchMoved(ofTouchEventArgs &touch) {
+        InterfaceObject::touchMoved(touch);
         processTouch(touch);
     }
     
     void RadialScratchSurface::touchUp(ofTouchEventArgs &touch) {
+        InterfaceObject::touchUp(touch);
         showAngle = false;
         invalidate();
         sendCallback(InterfaceObject::TOUCHUP);

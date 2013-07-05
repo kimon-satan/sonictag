@@ -17,7 +17,7 @@ using namespace std;
 class sceneFXPlay2 : public sceneFilterPlay {
 public:
     void audioRequested( float * output, int bufferSize, int nChannels );
-    string getTitle() {return string("FX Play 2");}
+    string getTitle() {return string("Flanger");}
     void update();
 //    void updateBLEVals(vector<float> newVals);
 protected:

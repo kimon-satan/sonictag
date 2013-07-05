@@ -25,9 +25,11 @@ public:
     void audioIn( float * input, int bufferSize, int nChannels );
     void beginScene();
     void endScene();
+    void update();
 protected:
     EAVIGUI::LoopControl *looper;
     grainPlayerType *grainPlayer;
+    float position;
     
 };
 

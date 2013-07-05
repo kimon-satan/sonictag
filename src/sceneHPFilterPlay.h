@@ -17,7 +17,7 @@ using namespace std;
 class sceneHPFilterPlay : public sceneFilterPlay {
 public:
     void audioRequested( float * output, int bufferSize, int nChannels );
-    string getTitle() {return string("HP Filter Play");}
+    string getTitle() {return string("Bandpass \nFilter");}
     
 };
 

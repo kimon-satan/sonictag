@@ -17,16 +17,18 @@ void scenePlay::setup(sharedDataContainer *data) {
     mfccVis->setRelativePositioning(0.5, -mfccVis->getScaledWidth() / 2.0, 0.5, -mfccVis->getScaledHeight() / 2.0);
     interface.push_back(mfccVis);
 
-    histBackBtn = (new EAVIGUI::ImageButton(this, HISTBACK, 0, 0, "undo.png", "undo.png"));
+    histBackBtn = (new EAVIGUI::ImageButton(this, HISTBACK, 0, 0, "undo.png", "undoTD.png"));
     histBackBtn->setRelativePositioning(0.25, 0, 0.1, 0);
     histBackBtn->setAnchorPoint(0, 0);
     histBackBtn->fadeTime = 100;
+    histBackBtn->setCanTouchTranparency(true);
     interface.push_back(histBackBtn);
 
-    histForwardBtn = (new EAVIGUI::ImageButton(this, HISTFORWARD, 0, 0, "redo.png", "redo.png"));
+    histForwardBtn = (new EAVIGUI::ImageButton(this, HISTFORWARD, 0, 0, "redo.png", "redoTD.png"));
     histForwardBtn->setRelativePositioning(0.75, -histForwardBtn->getScaledWidth(), 0.1, 0);
     histForwardBtn->setAnchorPoint(0, 0);
     histForwardBtn->fadeTime = 100;
+    histForwardBtn->setCanTouchTranparency(true);
     interface.push_back(histForwardBtn);
 
     baseScene::setup(data);
@@ -123,11 +125,15 @@ void scenePlay::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interface
                     playing = false;
                     sharedData->buffer.load(audioCatalogue::prevRecording());
                     sharedData->randomiseColours();
+                    sharedData->loopStart = 0.0;
+                    sharedData->loopEnd = 1.0;
                     break;
                 case HISTFORWARD:
                     playing = false;
                     sharedData->buffer.load(audioCatalogue::nextRecording());
                     sharedData->randomiseColours();
+                    sharedData->loopStart = 0.0;
+                    sharedData->loopEnd = 1.0;
                     break;
             };
             break;

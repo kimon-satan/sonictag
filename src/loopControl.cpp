@@ -32,7 +32,7 @@ namespace EAVIGUI {
         settings.useDepth		= false;
         settings.useStencil		= false;
         waveFBO.allocate(settings);
-        
+        playHeadPos = 0;
     }
     
     void LoopControl::drawToBuffer() {
@@ -65,6 +65,13 @@ namespace EAVIGUI {
             ofVertex(poly.getVertices().at(i).x, poly.getVertices().at(i).y);
         }
         ofEndShape();
+        ofSetColor(100,100,100,200);
+        ofLine(cx+minCaretDist,cy,cx+maxCaretDist, cy);
+        ofSetColor(255,255,255,255);
+        ofVec2f playHeadEndPt(maxCaretDist, 0);
+        playHeadEndPt = playHeadEndPt.rotateRad(playHeadPos * TWO_PI);
+        ofLine(cx,cy,cx+playHeadEndPt.x, cy+playHeadEndPt.y);
+        invalidate();
     }
 
     void LoopControl::touchDown(ofTouchEventArgs &touch) {
@@ -138,5 +145,8 @@ namespace EAVIGUI {
         }
     }
 
+    void LoopControl::setPos(float newPos) {
+        playHeadPos = newPos;
+    }
 
 };
