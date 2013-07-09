@@ -19,9 +19,7 @@ namespace EAVIGUI {
     }
     
     void MfccVisualiser::init() {
-        radius = w/3.0;
-        cx = w/2.0;
-        cy = h/2.0;
+        radius = w/5.0;
         unit = radius / data->mir.mfccCoeffs.size();
         setIsInteractive(true);
         ofRegisterGetMessages(this);
@@ -33,6 +31,7 @@ namespace EAVIGUI {
     
     void MfccVisualiser::drawToBuffer() {
         ofSetCircleResolution(200);
+        ofEnableAlphaBlending();
         for(int i=0; i < 4; i++) {
             ofSetColor(data->colours[i].r, data->colours[i].g, data->colours[i].b, val[i] * 255.0 * 2.0);
             ofCircle(cx, cy, (unit * (i*4)) + (val[i]*cx * 0.5));
@@ -43,7 +42,7 @@ namespace EAVIGUI {
         if (isVisible()) {
             if (msg.message == "fftcomplete") {
                 for (int i=0; i < 4; i++) {
-                    val[i]=interp[i].lopass(fabs(data->mir.mfccCoeffs[i+1]), 0.1*fabs(data->mir.mfccCoeffs[i+1]));
+                    val[i]=interp[i].lopass(fabs(data->mir.mfccCoeffs[i+1]), 0.05 * fabs(data->mir.mfccCoeffs[i+1]));
                 }
             }
         }

@@ -181,6 +181,7 @@ void sceneRecord::touchUp(ofTouchEventArgs &touch){
 void sceneRecord::beginScene() {
     EAVIGUI::InterfaceManager::setRotationLock(EAVIGUI::InterfaceManager::NOROTATIONLOCK);
     baseScene::beginScene();
+    playing = false;
     initRecording();
 }
 

@@ -20,6 +20,7 @@ void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<b
     lockcb->setTouchDownColour(ofColor::gray);
     lockcb->setRoundedCorners(true);
     lockcb->setVerticalTextJustification(EAVIGUI::Label::JUSTIFYCENTERV);
+    lockcb->setLeftMargin(10);
     menuGroup.push_back(lockcb);
 
     doneButton = new EAVIGUI::Label(callback, DONEBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "OK", ofColor::black);

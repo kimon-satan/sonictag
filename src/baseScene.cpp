@@ -101,7 +101,9 @@ void baseScene::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interface
             ofSendMessage("temphidenav");
             break;
         case EAVIGUI::InterfaceObject::TOUCHUP:
-            ofSendMessage("tempshownav");
+            if (EAVIGUI::InterfaceManager::touchedObjectCount() == 0) {
+                ofSendMessage("tempshownav");
+            }
             break;
     }
 }

@@ -19,8 +19,8 @@ namespace EAVIGUI {
         maxCaretDist = w  * 0.3;
         minCaretDist = w * 0.05;
         caretDistRange = maxCaretDist - minCaretDist;
-        caretPos.x = cx + ((maxCaretDist + minCaretDist) / 2);
-        caretPos.y =  0; //cy + ((maxCaretDist + minCaretDist) / 2);
+        caretPos.x = cx + maxCaretDist;
+        caretPos.y =  cy; //cy + ((maxCaretDist + minCaretDist) / 2);
         setIsInteractive(true);
         start = 0;
         end = 1;

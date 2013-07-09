@@ -39,6 +39,7 @@ void SonicTag3App::setup(){
     sampleCounter=0;
     ofSetLogLevel(OF_LOG_WARNING);
     
+    ofSetFrameRate(60);
     //user details for noisebear
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
     useNoiseBear = false;

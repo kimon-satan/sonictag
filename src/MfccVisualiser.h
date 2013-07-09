@@ -27,7 +27,7 @@ namespace EAVIGUI {
         void init();
         void update();
         virtual void drawToBuffer();
-        float radius, cx, cy, val[4], unit;
+        float radius, val[4], unit;
         ofxMaxiFilter interp[4];
         sharedDataContainer *data;
     };

@@ -251,12 +251,25 @@ public:
     
     void setLoopStart(T val) {
         loopStart = val * sample->length;
-        loopLength = loopEnd - loopStart;
+        calcLoop();
     }
     
     void setLoopEnd(T val) {
         loopEnd = val * sample->length;
+        calcLoop();
+    }
+    
+    void calcLoop() {
         loopLength = loopEnd - loopStart;
+        if (loopLength == 0) {
+            if (loopEnd < sample->length-2) {
+                loopEnd++;
+            }
+            else {
+                loopStart--;
+            }
+            loopLength = 1;
+        }
     }
     
 	
