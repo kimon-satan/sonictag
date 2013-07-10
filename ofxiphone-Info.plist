@@ -18,13 +18,13 @@
 			<array>
 				<string></string>
 				<string>Icon.png</string>
-				<string>icon72.png</string>
-				<string>icon144.png</string>
+				<string>icon2_72.png</string>
+				<string>icon2_144.png</string>
 			</array>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.strangeloop.sonicTag3</string>
+	<string>com.strangeloop.sonictag</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

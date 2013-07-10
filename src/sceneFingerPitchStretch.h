@@ -14,7 +14,7 @@
 class sceneFingerPitchStretch : public sceneFingerPitch {
 public:
     float getNextSample();
-    string getTitle() {return "Pitch & Time \nStretch";}    
+    string getTitle() {return "Pitch & Time\nStretch";}    
     
 protected:
 };

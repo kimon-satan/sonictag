@@ -15,7 +15,7 @@ void sceneAccelStretch::setup(sharedDataContainer *data) {
     accelTotalMA = EAIT::MovingAverageF(20);
     ampMA = EAIT::MovingAverageF(20);
     pitchMA = EAIT::MovingAverageF(50);
-    motionThresh = 0.04;
+    setThreshold(THRESHLOW);
     motionTrig = EAIT::BasicTriggerF(motionThresh, 0.005, 30);
     motionTriggering = false;
     
@@ -36,11 +36,27 @@ void sceneAccelStretch::draw() {
     
 }
 
-void sceneAccelStretch::setThreshold(float thresh) {
-    motionThresh = thresh;
+//void sceneAccelStretch::setThreshold(float thresh) {
+//    motionThresh = thresh;
+//    motionTrig.onThreshold = motionThresh;
+//    motionTrig.offThreshold = motionThresh * 0.9;
+//    motionTrig.reset();
+//}
+
+void sceneAccelStretch::setThreshold(thresholdtypes t) {
+    switch(t) {
+        case THRESHLOW:
+            motionThresh = 0.08;;
+            break;
+        case THRESHHIGH:
+            motionThresh = 0.3;
+            break;
+    }
     motionTrig.onThreshold = motionThresh;
     motionTrig.offThreshold = motionThresh * 0.9;
     motionTrig.reset();
+    threshType = t;
+    updateTitle();
 }
 
 

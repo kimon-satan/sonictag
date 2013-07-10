@@ -15,7 +15,12 @@ class sceneAccelPitch : public sceneAccelStretch {
 public:
     float getNextSample();
 //    string getTitle() {return "Motion Pitch Modulation";}            
-    string getTitle() {return string("Motion Pitch \nStretch").append(motionTriggering ? "\n(trig)" : "");}        
+    string getTitle() {return string("Motion Pitch\nStretch")
+        .append(motionTriggering ?
+                string("\n(").append((threshType == THRESHLOW ? "low" : "high")).append(" trig)")
+                :
+                "");
+    }
 };
 
 #endif

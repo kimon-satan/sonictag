@@ -164,6 +164,7 @@ void sceneRecord::finaliseRecording() {
         sharedData->buffer.normalise();
         sharedData->loopStart = 0;
         sharedData->loopEnd = 1;
+        sharedData->soundRecorded = true;
         
         cout << "Audio loaded to buffer\n";
         

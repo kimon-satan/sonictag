@@ -19,11 +19,7 @@ namespace EAVIGUI {
         maxCaretDist = w  * 0.3;
         minCaretDist = w * 0.05;
         caretDistRange = maxCaretDist - minCaretDist;
-        caretPos.x = cx + maxCaretDist;
-        caretPos.y =  cy; //cy + ((maxCaretDist + minCaretDist) / 2);
         setIsInteractive(true);
-        start = 0;
-        end = 1;
         ofFbo::Settings settings;
         settings.width			= ofNextPow2(w);
         settings.height			= ofNextPow2(h);
@@ -32,9 +28,17 @@ namespace EAVIGUI {
         settings.useDepth		= false;
         settings.useStencil		= false;
         waveFBO.allocate(settings);
+        reset();
+    }
+
+    void LoopControl::reset() {
+        caretPos.x = cx + maxCaretDist;
+        caretPos.y =  cy; //cy + ((maxCaretDist + minCaretDist) / 2);
+        start = 0;
+        end = 1;
         playHeadPos = 0;
     }
-    
+
     void LoopControl::drawToBuffer() {
         ofSetColor(0,255,0);
         ofNoFill();
@@ -143,6 +147,7 @@ namespace EAVIGUI {
             }
             waveFBO.end();
         }
+        reset();
     }
 
     void LoopControl::setPos(float newPos) {

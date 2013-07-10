@@ -48,6 +48,10 @@
 		839B03B0177DD21200D5FA4D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839B03AF177DD21200D5FA4D /* Default-Portrait@2x~ipad.png */; };
 		839B03B3177DE2EC00D5FA4D /* sceneLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B1177DE2EB00D5FA4D /* sceneLoop.cpp */; };
 		839B03B6177DEA7500D5FA4D /* loopControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839B03B4177DEA7500D5FA4D /* loopControl.cpp */; };
+		839D8363178C74560015DE78 /* icon2_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 839D8362178C74530015DE78 /* icon2_72.png */; };
+		839D8365178C74860015DE78 /* icon2_144.png in Resources */ = {isa = PBXBuildFile; fileRef = 839D8364178C74840015DE78 /* icon2_144.png */; };
+		839D8367178C753D0015DE78 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839D8366178C753B0015DE78 /* Default-Landscape~ipad.png */; };
+		839D8369178C757A0015DE78 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839D8368178C75780015DE78 /* Default-Landscape@2x~ipad.png */; };
 		83C93794178458D80020691F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 83C93793178458D80020691F /* Settings.bundle */; };
 		83E473481761E0CA0008C273 /* audioCatalogue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733D1761E0CA0008C273 /* audioCatalogue.mm */; };
 		83E473491761E0CA0008C273 /* audioFiles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733F1761E0CA0008C273 /* audioFiles.mm */; };
@@ -60,14 +64,11 @@
 		83E473921761E2CC0008C273 /* sceneAccelPitch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4736F1761E2CC0008C273 /* sceneAccelPitch.mm */; };
 		83E473931761E2CC0008C273 /* sceneAccelPitchStretch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473711761E2CC0008C273 /* sceneAccelPitchStretch.mm */; };
 		83E473941761E2CC0008C273 /* sceneAccelStretch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473731761E2CC0008C273 /* sceneAccelStretch.mm */; };
-		83E473951761E2CC0008C273 /* sceneDistort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473741761E2CC0008C273 /* sceneDistort.cpp */; };
-		83E473961761E2CC0008C273 /* sceneFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473761761E2CC0008C273 /* sceneFilter.cpp */; };
 		83E473971761E2CC0008C273 /* sceneFingerPitch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473791761E2CC0008C273 /* sceneFingerPitch.mm */; };
 		83E473981761E2CC0008C273 /* sceneFingerPitchStretch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4737B1761E2CC0008C273 /* sceneFingerPitchStretch.mm */; };
 		83E473991761E2CC0008C273 /* sceneFingerPlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4737D1761E2CC0008C273 /* sceneFingerPlay.mm */; };
 		83E4739A1761E2CC0008C273 /* sceneFingerPlayPitch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4737F1761E2CC0008C273 /* sceneFingerPlayPitch.mm */; };
 		83E4739B1761E2CC0008C273 /* sceneFingerStretch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473811761E2CC0008C273 /* sceneFingerStretch.mm */; };
-		83E4739C1761E2CC0008C273 /* sceneGain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473831761E2CC0008C273 /* sceneGain.mm */; };
 		83E4739D1761E2CC0008C273 /* sceneLoopRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473851761E2CC0008C273 /* sceneLoopRecord.mm */; };
 		83E4739E1761E2CC0008C273 /* scenePlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473871761E2CC0008C273 /* scenePlay.mm */; };
 		83E4739F1761E2CC0008C273 /* sceneRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473891761E2CC0008C273 /* sceneRecord.mm */; };
@@ -185,6 +186,10 @@
 		839B03B2177DE2EC00D5FA4D /* sceneLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneLoop.h; sourceTree = "<group>"; };
 		839B03B4177DEA7500D5FA4D /* loopControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = loopControl.cpp; sourceTree = "<group>"; };
 		839B03B5177DEA7500D5FA4D /* loopControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loopControl.h; sourceTree = "<group>"; };
+		839D8362178C74530015DE78 /* icon2_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2_72.png; sourceTree = "<group>"; };
+		839D8364178C74840015DE78 /* icon2_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2_144.png; sourceTree = "<group>"; };
+		839D8366178C753B0015DE78 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		839D8368178C75780015DE78 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		83C93793178458D80020691F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		83E4733C1761E0CA0008C273 /* audioCatalogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioCatalogue.h; sourceTree = "<group>"; };
 		83E4733D1761E0CA0008C273 /* audioCatalogue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = audioCatalogue.mm; sourceTree = "<group>"; };
@@ -210,10 +215,6 @@
 		83E473711761E2CC0008C273 /* sceneAccelPitchStretch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneAccelPitchStretch.mm; sourceTree = "<group>"; };
 		83E473721761E2CC0008C273 /* sceneAccelStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneAccelStretch.h; sourceTree = "<group>"; };
 		83E473731761E2CC0008C273 /* sceneAccelStretch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneAccelStretch.mm; sourceTree = "<group>"; };
-		83E473741761E2CC0008C273 /* sceneDistort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sceneDistort.cpp; sourceTree = "<group>"; };
-		83E473751761E2CC0008C273 /* sceneDistort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneDistort.h; sourceTree = "<group>"; };
-		83E473761761E2CC0008C273 /* sceneFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sceneFilter.cpp; sourceTree = "<group>"; };
-		83E473771761E2CC0008C273 /* sceneFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFilter.h; sourceTree = "<group>"; };
 		83E473781761E2CC0008C273 /* sceneFingerPitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFingerPitch.h; sourceTree = "<group>"; };
 		83E473791761E2CC0008C273 /* sceneFingerPitch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFingerPitch.mm; sourceTree = "<group>"; };
 		83E4737A1761E2CC0008C273 /* sceneFingerPitchStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFingerPitchStretch.h; sourceTree = "<group>"; };
@@ -224,8 +225,6 @@
 		83E4737F1761E2CC0008C273 /* sceneFingerPlayPitch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFingerPlayPitch.mm; sourceTree = "<group>"; };
 		83E473801761E2CC0008C273 /* sceneFingerStretch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneFingerStretch.h; sourceTree = "<group>"; };
 		83E473811761E2CC0008C273 /* sceneFingerStretch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneFingerStretch.mm; sourceTree = "<group>"; };
-		83E473821761E2CC0008C273 /* sceneGain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneGain.h; sourceTree = "<group>"; };
-		83E473831761E2CC0008C273 /* sceneGain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneGain.mm; sourceTree = "<group>"; };
 		83E473841761E2CC0008C273 /* sceneLoopRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sceneLoopRecord.h; sourceTree = "<group>"; };
 		83E473851761E2CC0008C273 /* sceneLoopRecord.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sceneLoopRecord.mm; sourceTree = "<group>"; };
 		83E473861761E2CC0008C273 /* scenePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scenePlay.h; sourceTree = "<group>"; };
@@ -298,6 +297,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				839D8368178C75780015DE78 /* Default-Landscape@2x~ipad.png */,
+				839D8366178C753B0015DE78 /* Default-Landscape~ipad.png */,
+				839D8364178C74840015DE78 /* icon2_144.png */,
+				839D8362178C74530015DE78 /* icon2_72.png */,
 				839B03AF177DD21200D5FA4D /* Default-Portrait@2x~ipad.png */,
 				839B03AD177DD20B00D5FA4D /* Default-Portrait~ipad.png */,
 				8345A3A51771F80C00A9D309 /* icon144.png */,
@@ -383,10 +386,6 @@
 				83E473711761E2CC0008C273 /* sceneAccelPitchStretch.mm */,
 				83E473721761E2CC0008C273 /* sceneAccelStretch.h */,
 				83E473731761E2CC0008C273 /* sceneAccelStretch.mm */,
-				83E473741761E2CC0008C273 /* sceneDistort.cpp */,
-				83E473751761E2CC0008C273 /* sceneDistort.h */,
-				83E473761761E2CC0008C273 /* sceneFilter.cpp */,
-				83E473771761E2CC0008C273 /* sceneFilter.h */,
 				83E473781761E2CC0008C273 /* sceneFingerPitch.h */,
 				83E473791761E2CC0008C273 /* sceneFingerPitch.mm */,
 				83E4737A1761E2CC0008C273 /* sceneFingerPitchStretch.h */,
@@ -405,8 +404,6 @@
 				833600091768E99100FFD068 /* sceneFXPlay1.mm */,
 				8336000A1768E99900FFD068 /* sceneFXPlay2.h */,
 				8336000B1768E99D00FFD068 /* sceneFXPlay2.mm */,
-				83E473821761E2CC0008C273 /* sceneGain.h */,
-				83E473831761E2CC0008C273 /* sceneGain.mm */,
 				83E473841761E2CC0008C273 /* sceneLoopRecord.h */,
 				83E473851761E2CC0008C273 /* sceneLoopRecord.mm */,
 				83E473861761E2CC0008C273 /* scenePlay.h */,
@@ -677,6 +674,10 @@
 				839B03AE177DD20B00D5FA4D /* Default-Portrait~ipad.png in Resources */,
 				839B03B0177DD21200D5FA4D /* Default-Portrait@2x~ipad.png in Resources */,
 				83C93794178458D80020691F /* Settings.bundle in Resources */,
+				839D8363178C74560015DE78 /* icon2_72.png in Resources */,
+				839D8365178C74860015DE78 /* icon2_144.png in Resources */,
+				839D8367178C753D0015DE78 /* Default-Landscape~ipad.png in Resources */,
+				839D8369178C757A0015DE78 /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,14 +726,11 @@
 				83E473921761E2CC0008C273 /* sceneAccelPitch.mm in Sources */,
 				83E473931761E2CC0008C273 /* sceneAccelPitchStretch.mm in Sources */,
 				83E473941761E2CC0008C273 /* sceneAccelStretch.mm in Sources */,
-				83E473951761E2CC0008C273 /* sceneDistort.cpp in Sources */,
-				83E473961761E2CC0008C273 /* sceneFilter.cpp in Sources */,
 				83E473971761E2CC0008C273 /* sceneFingerPitch.mm in Sources */,
 				83E473981761E2CC0008C273 /* sceneFingerPitchStretch.mm in Sources */,
 				83E473991761E2CC0008C273 /* sceneFingerPlay.mm in Sources */,
 				83E4739A1761E2CC0008C273 /* sceneFingerPlayPitch.mm in Sources */,
 				83E4739B1761E2CC0008C273 /* sceneFingerStretch.mm in Sources */,
-				83E4739C1761E2CC0008C273 /* sceneGain.mm in Sources */,
 				83E4739D1761E2CC0008C273 /* sceneLoopRecord.mm in Sources */,
 				83E4739E1761E2CC0008C273 /* scenePlay.mm in Sources */,
 				83E4739F1761E2CC0008C273 /* sceneRecord.mm in Sources */,
@@ -777,12 +775,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Kiefer (XCNG85T7MX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = SonicTag3;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -791,12 +793,16 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chris Kiefer (XCNG85T7MX)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iPhone_Prefix.pch;
 				INFOPLIST_FILE = "ofxiphone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = SonicTag3;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

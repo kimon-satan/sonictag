@@ -28,6 +28,7 @@ namespace EAVIGUI {
         void updateWaveform(maxiSample *sample);
         void beginScene();
         void setPos(float newPos);
+        void reset();
     protected:
         void drawToBuffer();
         sharedDataContainer *data;

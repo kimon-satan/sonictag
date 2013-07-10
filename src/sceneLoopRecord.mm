@@ -64,6 +64,7 @@ void sceneLoopRecord::audioIn( float * input, int bufferSize, int nChannels ) {
 
 void sceneLoopRecord::touchDown(ofTouchEventArgs &touch){
     isRecording = true;
+    sharedData->soundRecorded = true;    
     log::write(log::STARTRECORDING);
 }
 
@@ -90,8 +91,11 @@ void sceneLoopRecord::beginScene() {
     if (sharedData->buffer.length == 0) {
         sharedData->buffer.setLength(maxiSettings::sampleRate * 2);
     }
+    sharedData->buffer.trigger();
+    
     isRecording = false;
     clearCount = 0;
+    
 }
 
 void sceneLoopRecord::endScene() {

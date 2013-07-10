@@ -19,12 +19,13 @@ void baseScene::setup(sharedDataContainer *data) {
     sharedData = data;
     enabled = false;
     nbConnected = false;
-    string temptitle = getTitle();
-    std::replace(temptitle.begin(), temptitle.end(), '\n', ' ');
+//    string temptitle = getTitle();
+//    std::replace(temptitle.begin(), temptitle.end(), '\n', ' ');
     title = new EAVIGUI::Label(this, objectIDCounter.next(), 10, 10, 700, 150,
                                                &EAVIGUI::InterfaceManager::fontList["titles"],
-                                               temptitle,
+                                               "",
                                                ofColor(0,255,0));
+    updateTitle();
     title->setRelativePositioning(0.01, 0.01);
     title->setAnchorPoint(0, 0);
     interface.push_back(title);
@@ -94,6 +95,23 @@ string baseScene::getTitle() {
 string baseScene::getSubTitle() {
     return "<needs a subtitle>";
 }
+
+void baseScene::updateTitle() {
+    string temptitle = getTitle();
+//    string newTitle = "";
+//    size_t pos;
+//    pos = temptitle.find('\n');
+//    while(pos != string::npos) {
+//        newTitle = newTitle.append(temptitle.substr(0,pos));
+//        temptitle = temptitle.erase(0, pos+1);
+//        pos = temptitle.find('\n');
+//    }
+//    newTitle = newTitle.append(temptitle);
+//    title->setText(newTitle);
+    std::replace(temptitle.begin(), temptitle.end(), '\n', ' ');
+    title->setText(temptitle);
+}
+
 
 void baseScene::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
     switch(eventTypeId) {

@@ -11,9 +11,6 @@
 #include "sceneAccelStretch.h"
 #include "sceneAccelPitch.h"
 #include "sceneAccelPitchStretch.h"
-#include "sceneGain.h"
-#include "sceneFilter.h"
-#include "sceneDistort.h"
 #include "audioCatalogue.h"
 #include "log.h"
 #include "sceneFilterPlay.h"
@@ -66,6 +63,7 @@ void SonicTag3App::setup(){
 	
     log::init(ofxiPhoneGetDocumentsDirectory());
     
+    ofTrueTypeFont::setGlobalDpi(72);
 
     //GUI
     navFont.loadFont("LARABIEF.TTF", 80);
@@ -83,9 +81,10 @@ void SonicTag3App::setup(){
         EAVIGUI::InterfaceManager::deviceScaleMod = 0.41;
     }    
     
-    EAVIGUI::InterfaceManager::addFont("titles", "mono.ttf", 30);
-    EAVIGUI::InterfaceManager::addFont("subtitles", "mono.ttf", 12);
-    EAVIGUI::InterfaceManager::addFont("small", "mono.ttf", 14);
+    EAVIGUI::InterfaceManager::addFont("titles", "Kannada Sangam MN.ttf", 40);
+    EAVIGUI::InterfaceManager::addFont("kannada_small", "Kannada Sangam MN.ttf", 24);
+    EAVIGUI::InterfaceManager::addFont("subtitles", "mono.ttf", 20);
+    EAVIGUI::InterfaceManager::addFont("small", "mono.ttf", 25);
     EAVIGUI::InterfaceManager::addFont("big", "ka1.ttf", 50);
     EAVIGUI::InterfaceManager::addFont("bigger", "ka1.ttf", 60);
     EAVIGUI::InterfaceManager::addFont("c64Rounded", "Commodore Rounded v1.2.ttf", 20);
@@ -212,13 +211,13 @@ void SonicTag3App::setup(){
     ((sceneAccelStretch*) grid[3][3])->setMotionTriggering(true);
     ((sceneAccelStretch*) grid[4][3])->setMotionTriggering(true);
     
-    ((sceneAccelStretch*) grid[2][2])->setThreshold(0.08);
-    ((sceneAccelStretch*) grid[3][2])->setThreshold(0.08);
-    ((sceneAccelStretch*) grid[4][2])->setThreshold(0.08);
+    ((sceneAccelStretch*) grid[2][2])->setThreshold(sceneAccelStretch::THRESHLOW);
+    ((sceneAccelStretch*) grid[3][2])->setThreshold(sceneAccelStretch::THRESHLOW);
+    ((sceneAccelStretch*) grid[4][2])->setThreshold(sceneAccelStretch::THRESHLOW);
 
-    ((sceneAccelStretch*) grid[2][3])->setThreshold(0.3);
-    ((sceneAccelStretch*) grid[3][3])->setThreshold(0.3);
-    ((sceneAccelStretch*) grid[4][3])->setThreshold(0.3);
+    ((sceneAccelStretch*) grid[2][3])->setThreshold(sceneAccelStretch::THRESHHIGH);
+    ((sceneAccelStretch*) grid[3][3])->setThreshold(sceneAccelStretch::THRESHHIGH);
+    ((sceneAccelStretch*) grid[4][3])->setThreshold(sceneAccelStretch::THRESHHIGH);
     
 
     maxiSettings::setup(44100, 1, 1024);
@@ -325,7 +324,7 @@ void SonicTag3App::audioIn( float * input, int bufferSize, int nChannels ) {
 //--------------------------------------------------------------
 void SonicTag3App::exit(){
     ofSoundStreamStop();
-    if (sharedData.buffer.length > 0) {
+    if (sharedData.soundRecorded) {
         sharedData.buffer.save(autoSaveName.str());
         cout << "Autosaved\n";
         log::save();
@@ -584,6 +583,21 @@ void SonicTag3App::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::Interf
                     int gx, gy;
                     svMenu.getLocation(gx, gy);
                     updateScene(gx, gy);
+                    break;
+            }
+            break;
+        case supervisorMenu::INFOBUTTON:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    svMenu.setVisible(false);
+                    svMenu.showInfo(true);
+                    break;
+            }
+            break;
+        case supervisorMenu::INFOLABEL:
+            switch(eventTypeId) {
+                case EAVIGUI::InterfaceObject::TOUCHUP:
+                    svMenu.showInfo(false);
                     break;
             }
             break;

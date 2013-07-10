@@ -17,17 +17,18 @@
 
 class supervisorMenu {
 public:
-    enum uielements {MENUPANEL=10000, LOCKCB, DONEBUTTON, MAPCONTROL};
+    enum uielements {MENUPANEL=10000, LOCKCB, DONEBUTTON, MAPCONTROL, INFOBUTTON, INFOPANEL, INFOLABEL};
     void setup(EAVIGUI::InterfaceListener *callback, vector<vector<baseScene*> > *grid);
     void setVisible(bool vis);
     void setLocation(int nx, int ny);
     void getLocation(int &lx, int &ly);
+    void showInfo(bool vis);
     
 private:
-    EAVIGUI::Panel *menuPanel;
+    EAVIGUI::Panel *menuPanel, *infoPanel;
     EAVIGUI::CheckBox *lockcb;
-    EAVIGUI::Label *doneButton;
-    EAVIGUI::InterfaceObjectGroup menuGroup;
+    EAVIGUI::Label *doneButton, *infoButton, *infoLabel;
+    EAVIGUI::InterfaceObjectGroup menuGroup, infoGroup;
     EAVIGUI::MapControl *map;
     
 };

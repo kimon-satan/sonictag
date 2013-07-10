@@ -20,6 +20,7 @@ public:
         randomiseColours();
         loopStart = 0;
         loopEnd = 1;
+        soundRecorded = false;
     }
 
     vector<short> recordBuffer;
@@ -32,6 +33,7 @@ public:
     }
     float loopStart, loopEnd;
     MIRListener mir;
+    bool soundRecorded;
     
     ~sharedDataContainer() {
     }
