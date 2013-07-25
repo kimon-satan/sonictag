@@ -11,6 +11,7 @@ Compiling
 This app was built using OpenFrameworks 0071.  It depends on two add ons which are available from github
 
 https://github.com/micknoise/Maximilian
+
 https://github.com/chriskiefer/ofxEAVIGUI
 
 
