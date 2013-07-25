@@ -1,10 +1,43 @@
-//
-//  RadialScratchSurface.cpp
-//  DRSApp
-//
-//  Created by Chris Kiefer on 01/08/2012.
-//  Copyright (c) 2012 Goldsmiths, University of London. EAVI. All rights reserved.
-//
+/*
+ This file is part of 'Sonic Tag'.
+ This software is released under a simplified BSD license, modified for non-commercial use only.
+ 
+ Copyright (c) 2013, M.Grierson, Embodied AudioVisual Interaction Group, Goldsmiths, University of London
+ 
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ 
+ * Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above
+ copyright notice, this list of conditions and the following disclaimer
+ in the documentation and/or other materials provided with the
+ distribution.
+ * Any redistribution, use, or modification is done solely for
+ personal benefit and not for any commercial purpose or for monetary
+ gain
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ For further information:
+ http://eavi.goldsmithsdigital.com/sound-image-and-brain/
+ http://eavi.goldsmithsdigital.com/sonic-tag/
+ 
+ */
+
 
 #include <iostream>
 #include "RadialScratchSurface.h"
@@ -43,9 +76,6 @@ namespace EAVIGUI {
         float blur = sin(ofGetFrameNum() * 0.002) * 0.02 * fboD;
         float blur2 = sin(ofGetFrameNum() * 0.001) * 0.01 * fboD;
         fbo2.draw(-blur2,-blur2 + blur, fboD + blur + blur2, fboD + blur);
-//        ofFill();
-//        ofSetColor(100, 100, 100, 100);
-//        ofRect(0, 0, w, h);
         ofNoFill();
         ofSetLineWidth(2.0);
         ofSetColor(0,250,0,240);
@@ -58,11 +88,6 @@ namespace EAVIGUI {
             ofSetColor(0,230,0,140);
             ofCircle(ptx, pty, 50);
         }
-//        if (ofRandomuf() < 0.1) {
-//            ofFill();
-//            ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255),ofRandom(255));
-//            ofCircle(ofRandom(fboD), ofRandom(fboD), ofRandom(50));
-//        }
         fbo1.end();
         
         fbo2.begin();

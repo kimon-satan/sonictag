@@ -1,10 +1,43 @@
-//
-//  sceneFingerStretch.cpp
-//  sonicTag2
-//
-//  Created by Chris Kiefer on 28/06/2012.
-//  Copyright (c) 2012 Goldsmiths, University of London. EAVI. All rights reserved.
-//
+/*
+ This file is part of 'Sonic Tag'.
+ This software is released under a simplified BSD license, modified for non-commercial use only.
+ 
+ Copyright (c) 2013, M.Grierson, Embodied AudioVisual Interaction Group, Goldsmiths, University of London
+ 
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ 
+ * Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above
+ copyright notice, this list of conditions and the following disclaimer
+ in the documentation and/or other materials provided with the
+ distribution.
+ * Any redistribution, use, or modification is done solely for
+ personal benefit and not for any commercial purpose or for monetary
+ gain
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ For further information:
+ http://eavi.goldsmithsdigital.com/sound-image-and-brain/
+ http://eavi.goldsmithsdigital.com/sonic-tag/
+ 
+ */
+
 
 #include <iostream>
 #include "sceneFingerStretch.h"
@@ -24,58 +57,6 @@ void sceneFingerStretch::beginScene() {
     pitchStretch->loopWholeSample();
     pitchStretch->setLoopStart(sharedData->loopStart);
     pitchStretch->setLoopEnd(sharedData->loopEnd);
-
     isPlaying = true;
 }
-
-//void sceneFingerStretch::setup(sharedDataContainer *data) {
-//    surface = new EAVIGUI::RadialScratchSurface(this, objectIDCounter.next(), 0, 0, ofGetWidth(), ofGetWidth());
-//    surface->setRelativePositioning(0.5, -ofGetWidth()/2.0, 0.5, -ofGetWidth()/2.0);
-//    surface->setAnchorPoint(0.5, 0.5);
-//    interface.push_back(surface);
-//    velMA.resize(5);
-//    velMA.fillWith(0);
-//    scenePlay::setup(data);
-//    
-//}
-//
-//
-//void sceneFingerStretch::handleInterfaceEvent(int id, int eventTypeId, EAVIGUI::InterfaceObject *object) {
-//    scenePlay::handleInterfaceEvent(id, eventTypeId, object);
-////    cout << id << ", " << eventTypeId << endl;
-//    switch(eventTypeId) {
-//        case EAVIGUI::InterfaceObject::TOUCHMOVED:
-//            if (surface->id == id) {
-//                velMA.addSample(surface->getVelocity() * 5.0);
-//                ((audioProcessorTimeStretch*)currAudioProcessor)->stretch = velMA.value();
-//                cout << velMA.value() << endl;
-//            }
-//            break;
-//        case EAVIGUI::InterfaceObject::TOUCHUP:
-//            if (surface->id == id) {
-//                velMA.addSample(surface->getVelocity() * 5.0);
-//                float snapVal=velMA.value();
-//                if (snapVal < 1.0) {
-//                    //snap down to 1/16?
-//                    float newVal = 1.0f / 16.0f;
-//                    for(int s=8; s >= 1; s /= 2) {
-//                        if (snapVal < newVal) {
-//                            break;
-//                        }
-//                        newVal = 1.0f / (float) s;
-//                    }
-//                    snapVal = newVal;
-//                }else{
-//                    //or snap to int
-//                    snapVal = floor(snapVal + 0.5f);
-//                    snapVal = min(snapVal, 4.0f);
-//                }
-////                cout << velMA.value() << "Snap: " << snapVal << endl;
-//                respondToBarChange.set();
-//                
-//                ((audioProcessorTimeStretch*)currAudioProcessor)->stretch = snapVal;
-//            }
-//            break;
-//    }
-//}
 

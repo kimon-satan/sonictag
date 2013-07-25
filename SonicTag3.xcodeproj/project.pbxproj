@@ -54,7 +54,6 @@
 		839D8369178C757A0015DE78 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 839D8368178C75780015DE78 /* Default-Landscape@2x~ipad.png */; };
 		83C93794178458D80020691F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 83C93793178458D80020691F /* Settings.bundle */; };
 		83E473481761E0CA0008C273 /* audioCatalogue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733D1761E0CA0008C273 /* audioCatalogue.mm */; };
-		83E473491761E0CA0008C273 /* audioFiles.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E4733F1761E0CA0008C273 /* audioFiles.mm */; };
 		83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473411761E0CA0008C273 /* baseScene.cpp */; };
 		83E4734B1761E0CA0008C273 /* circularDial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E473431761E0CA0008C273 /* circularDial.cpp */; };
 		83E4734C1761E0CA0008C273 /* SonicTag3App.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E473461761E0CA0008C273 /* SonicTag3App.mm */; };
@@ -193,9 +192,6 @@
 		83C93793178458D80020691F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		83E4733C1761E0CA0008C273 /* audioCatalogue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioCatalogue.h; sourceTree = "<group>"; };
 		83E4733D1761E0CA0008C273 /* audioCatalogue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = audioCatalogue.mm; sourceTree = "<group>"; };
-		83E4733E1761E0CA0008C273 /* audioFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioFiles.h; sourceTree = "<group>"; };
-		83E4733F1761E0CA0008C273 /* audioFiles.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = audioFiles.mm; sourceTree = "<group>"; };
-		83E473401761E0CA0008C273 /* audioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioProcessor.h; sourceTree = "<group>"; };
 		83E473411761E0CA0008C273 /* baseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = baseScene.cpp; sourceTree = "<group>"; };
 		83E473421761E0CA0008C273 /* baseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseScene.h; sourceTree = "<group>"; };
 		83E473431761E0CA0008C273 /* circularDial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = circularDial.cpp; sourceTree = "<group>"; };
@@ -420,9 +416,6 @@
 				83E4738F1761E2CC0008C273 /* waveform.h */,
 				83E4733C1761E0CA0008C273 /* audioCatalogue.h */,
 				83E4733D1761E0CA0008C273 /* audioCatalogue.mm */,
-				83E4733E1761E0CA0008C273 /* audioFiles.h */,
-				83E4733F1761E0CA0008C273 /* audioFiles.mm */,
-				83E473401761E0CA0008C273 /* audioProcessor.h */,
 				83E473411761E0CA0008C273 /* baseScene.cpp */,
 				83E473421761E0CA0008C273 /* baseScene.h */,
 				83E473451761E0CA0008C273 /* SonicTag3App.h */,
@@ -716,7 +709,6 @@
 				8342DC7F1614A12B00BD17A1 /* EAIT.cpp in Sources */,
 				8342DC801614A12B00BD17A1 /* Trig.cpp in Sources */,
 				83E473481761E0CA0008C273 /* audioCatalogue.mm in Sources */,
-				83E473491761E0CA0008C273 /* audioFiles.mm in Sources */,
 				83E4734A1761E0CA0008C273 /* baseScene.cpp in Sources */,
 				83E4734B1761E0CA0008C273 /* circularDial.cpp in Sources */,
 				83E4734C1761E0CA0008C273 /* SonicTag3App.mm in Sources */,

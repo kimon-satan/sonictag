@@ -1,10 +1,43 @@
-//
-//  BLEScanner.m
-//  BLERx
-//
-//  Created by Chris Kiefer on 29/11/2012.
-//  Copyright (c) 2012 Goldsmiths, University of London. EAVI. All rights reserved.
-//
+/*
+ This file is part of 'Sonic Tag'.
+ This software is released under a simplified BSD license, modified for non-commercial use only.
+ 
+ Copyright (c) 2013, M.Grierson, Embodied AudioVisual Interaction Group, Goldsmiths, University of London
+ 
+ All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+ 
+ * Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above
+ copyright notice, this list of conditions and the following disclaimer
+ in the documentation and/or other materials provided with the
+ distribution.
+ * Any redistribution, use, or modification is done solely for
+ personal benefit and not for any commercial purpose or for monetary
+ gain
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ 
+ For further information:
+ http://eavi.goldsmithsdigital.com/sound-image-and-brain/
+ http://eavi.goldsmithsdigital.com/sonic-tag/
+ 
+ */
+
 
 #import "BLEScanner.h"
 
@@ -31,26 +64,11 @@
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    //    if (![self supportLEHardware])
-    //    {
-    //        @throw ([NSError errorWithDomain:@"Bluetooth LE not supported"
-    //                                    code:999
-    //                                userInfo:nil]);
-    //    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals {
     NSLog(@"Retrieved peripheral: %d - %@", [peripherals count], peripherals);
     [manager stopScan];
-    //    for(int i=0; i < [peripherals count]; i++) {
-    //        NSLog(@"Device: %@", [[peripherals objectAtIndex:i] UUIDString]);
-    //        if ([[[peripherals objectAtIndex:i] UUIDString] isEqualToString:@"193E4B6F-A86A-7408-7159-9F27C38C4E6B"]) {
-    //            testPeripheral = [peripherals objectAtIndex:i];
-    //            [manager connectPeripheral:testPeripheral
-    //                               options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
-    //
-    //        }
-    //    }
     /* If there are any known devices, automatically connect to it.*/
     if([peripherals count] >= 1)
     {
@@ -76,32 +94,12 @@
     [manager connectPeripheral:peripheral
                        options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:CBConnectPeripheralOptionNotifyOnDisconnectionKey]];
     
-//    CFStringRef cfuuid = CFUUIDCreateString(NULL, peripheral.UUID);
-//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("193E4B6F-A86A-7408-7159-9F27C38C4E6B"), 0);
-//    //    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("B5424021-9814-4C7B-E08B-8331383E4559"), 0);
-//    
-//    if (res == kCFCompareEqualTo) {
-//        [manager retrievePeripherals:[NSArray arrayWithObject:(id)peripheral.UUID]];
-//    }
-    
 }
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
     NSLog(@"did connect peripheral: %@ UUID: %@", peripheral, peripheral.UUID);
     CFStringRef cfuuid = CFUUIDCreateString(NULL, peripheral.UUID);
-//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("C9935269-2DBE-0628-216C-25370A83D803"), 0);
-//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("5515C72B-2F36-6C60-93DA-9656EAF21879"), 0);
-    
-//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("193E4B6F-A86A-7408-7159-9F27C38C4E6B"), 0);
-    //CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("BFBC6B57-451E-574A-3425-4337F50F5E75"), 0);
-//    CFComparisonResult res = CFStringCompare(cfuuid, CFSTR("D0EE567D-882B-BC22-5B76-9C211755F55E"), 0);
-  
-
-//    if (res == kCFCompareEqualTo) {
-        [peripheral setDelegate:self];
-        [peripheral discoverServices:nil];
-//    }else{
-//        [manager cancelPeripheralConnection:peripheral];
-//    }
+    [peripheral setDelegate:self];
+    [peripheral discoverServices:nil];
 
 }
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error {
@@ -110,7 +108,6 @@
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
     NSLog(@"did disconnect peripheral");
-    //TODO: rescan
 }
 
 
