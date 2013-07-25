@@ -15,7 +15,7 @@ void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<b
     menuGroup.push_back(menuPanel);
 
     lockcb = new EAVIGUI::CheckBox(callback, LOCKCB, 0, 0, 300, 40, &EAVIGUI::InterfaceManager::fontList["subtitles"], "Lock Navigation", ofColor::black);
-    lockcb->setRelativePositioning(0.5, -325, 0.5 , 300);
+    lockcb->setRelativePositioning(0.5, -290, 0.5 , 280);
     lockcb->setBackgroundColour(ofColor(255,255,255, 245));
     lockcb->setTouchDownColour(ofColor::gray);
     lockcb->setRoundedCorners(true);
@@ -24,7 +24,7 @@ void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<b
     menuGroup.push_back(lockcb);
 
     doneButton = new EAVIGUI::Label(callback, DONEBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "OK", ofColor::black);
-    doneButton->setRelativePositioning(0.5, 210, 0.5 , 280);
+    doneButton->setRelativePositioning(0.5, 210, 0.5 , 270);
     doneButton->setBackgroundColour(ofColor(255, 255, 255, 245));
     doneButton->setIsInteractive(true);
     doneButton->setHorizontalTextJustification(EAVIGUI::Label::JUSTIFYCENTER);
@@ -32,7 +32,7 @@ void supervisorMenu::setup(EAVIGUI::InterfaceListener *callback, vector<vector<b
     menuGroup.push_back(doneButton);
 
     infoButton = new EAVIGUI::Label(callback, INFOBUTTON, 0, 0, 100, 60, &EAVIGUI::InterfaceManager::fontList["titles"], "info", ofColor::black);
-    infoButton->setRelativePositioning(0.5, 50, 0.5 , 280);
+    infoButton->setRelativePositioning(0.5, 50, 0.5 , 270);
     infoButton->setBackgroundColour(ofColor(255, 255, 255, 245));
     infoButton->setIsInteractive(true);
     infoButton->setHorizontalTextJustification(EAVIGUI::Label::JUSTIFYCENTER);
