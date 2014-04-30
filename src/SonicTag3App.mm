@@ -191,28 +191,28 @@ void SonicTag3App::setup(){
     navLeftArrow = (new EAVIGUI::ImageButton(this, LEFTARROW, 0, 0, "arrowleftS.png", "arrowleftS.png"));
     navLeftArrow->setRelativePositioning(0, 0, 0.5, -(navLeftArrow->getScaledHeight() / 2.0));
     navLeftArrow->setAnchorPoint(0, 0);
-    navLeftArrow->pulsate = true;
+   // navLeftArrow->pulsate = true;
     navLeftArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navLeftArrow);
     
     navRightArrow = new EAVIGUI::ImageButton(this, RIGHTARROW, 0, 0, "arrowrightS.png", "arrowrightS.png");
     navRightArrow->setRelativePositioning(1.0, -navRightArrow->getScaledWidth(), 0.5, -(navRightArrow->getScaledHeight() / 2.0));
     navRightArrow->setAnchorPoint(0, 0);
-    navRightArrow->pulsate = true;
+  //  navRightArrow->pulsate = true;
     navRightArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navRightArrow);
     
     navUpArrow = new EAVIGUI::ImageButton(this, UPARROW, 0, 0, "arrowupS.png", "arrowupS.png");
     navUpArrow->setRelativePositioning(0.5, -(navUpArrow->getScaledWidth()/2.0), 0, 0);
     navUpArrow->setAnchorPoint(0, 0);
-    navUpArrow->pulsate = true;
+  //  navUpArrow->pulsate = true;
     navUpArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navUpArrow);
     
     navDownArrow = new EAVIGUI::ImageButton(this, DOWNARROW, 0, 0, "arrowdownS.png", "arrowdownS.png");
     navDownArrow->setRelativePositioning(0.5, -(navDownArrow->getScaledWidth() / 2.0), 1.0, -navDownArrow->getScaledHeight());
     navDownArrow->setAnchorPoint(0, 0);
-    navDownArrow->pulsate = true;
+  //  navDownArrow->pulsate = true;
     navDownArrow->fadeTime = 100;
     EAVIGUI::InterfaceManager::addObject(navDownArrow);
 

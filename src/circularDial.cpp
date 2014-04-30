@@ -49,9 +49,9 @@ namespace EAVIGUI {
         setWidth(_w);
         setHeight(_h);
         divisions = 120;
-        pulsate = true;
-        pulsateMin = 0.3;
-        pulsateSpeed = 0.002;
+        //pulsate = true; //not in class
+        //pulsateMin = 0.3;
+        //pulsateSpeed = 0.002;
     }
 
     void CircularDial::setValue(float newValue) {
